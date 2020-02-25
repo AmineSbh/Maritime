@@ -4,7 +4,7 @@ import Donnees_Const_Navire.Sante;
 import Donnees_Const_Navire.Capacité;
 import Donnees_Const_Navire.Consommation;
 
-public class NavireTransport {
+public class NavireTransport extends Navire{
 
 	private int attaque;
 	private int sante;
@@ -50,25 +50,29 @@ public class NavireTransport {
 			consommation= Consommation.TConsommationNiv4;
 		}
 	}
+	
+	public String toString()
+	{
+		return "Les statistiques sont :\n "+attaque+"\n"+sante+"\n"+capacité+"\n"+consommation;
+	}
 
 	public int getAttaque() {
 		return attaque;
+	}
+
+	public void setAttaque(int attaque) {
+		this.attaque = attaque;
 	}
 
 	public int getSante() {
 		return sante;
 	}
 
-	public int getCapacité() {
-		return capacité;
+	public void setSante(int sante) {
+		this.sante = sante;
 	}
 
-	public int getConsommation() {
-		return consommation;
-	}
-	
-	public String toString()
-	{
-		return "Les statistiques sont :\n "+attaque+"\n"+sante+"\n"+capacité+"\n"+consommation;
+	public int getCapacité() {
+		return capacité;
 	}
 }
