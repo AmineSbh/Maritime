@@ -50,6 +50,7 @@ public class Athenes extends JFrame {
 	 */
 	public Athenes() {
 		Ports a = new Ports("Athènes",50000,3000,5000,7000,2000,2);
+		setResizable(false);
 		setTitle(a.getName());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 400);
@@ -62,6 +63,7 @@ public class Athenes extends JFrame {
 		JButton btnNewButton = new JButton("Attaquer le port");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
 				bataille a = new bataille();
 				a.setVisible(true);
 			}
@@ -73,6 +75,7 @@ public class Athenes extends JFrame {
 		JButton btnNewButton_1 = new JButton("N\u00E9gocier l'achat");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
 				negociation b= new negociation();
 				b.setVisible(true);
 				
@@ -85,6 +88,7 @@ public class Athenes extends JFrame {
 		JButton btnNewButton_2 = new JButton("Acheter des ressources");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
 				marché c= new marché();
 				c.setVisible(true);
 			}
