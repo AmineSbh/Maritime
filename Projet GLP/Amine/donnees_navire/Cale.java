@@ -27,6 +27,8 @@ public class Cale {
 	public void setNiveauCale(int niveau)
 	{
 		this.NiveauCale=niveau;
+		this.matériel=this.matériaux[niveau-1];
+		this.capacité=new CapacitéCale(niveau);
 	}
 
 	public String getMatériel() {

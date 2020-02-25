@@ -38,7 +38,7 @@ public class Navire {
 		this.Vitesse=new Mât(NiveauMât, nbMat);
 		this.NiveauNavire=NiveauNavire;
 		this.NomNavire="nomNavire";
-		this.equipage=new Equipage();
+		this.equipage=new Equipage(NiveauNavire);
 		this.ressource=new Ressources();
 	}
 	

@@ -41,5 +41,8 @@ public class Coque {
 	public void setNiveauCoque(int niveau)
 	{
 		this.NiveauCoque=niveau;
+		this.matériel=this.matériaux[niveau-1];
+		double a=niveau*2.5;
+		this.Resistance=20.0*a;
 	}
 }

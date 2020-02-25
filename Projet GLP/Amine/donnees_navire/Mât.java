@@ -48,6 +48,8 @@ public class Mât {
 	public void setNombresMâts(int nbMâts)
 	{
 		this.NombresMâts=nbMâts;
+		double a=0.7*nbMâts;
+		this.Vitesse=8.0*a;
 	}
 }
 
