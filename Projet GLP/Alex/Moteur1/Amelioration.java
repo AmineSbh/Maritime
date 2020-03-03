@@ -1,6 +1,7 @@
 package Moteur1;
 
 import Moteur1.Navire;
+import ville.Ports;
 
 public class Amelioration {
 	

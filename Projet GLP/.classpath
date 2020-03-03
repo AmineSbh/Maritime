@@ -8,21 +8,5 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/al-ma/eclipse-workspace/JavaGUIGLP/lib/jars/lwjgl.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/al-ma/eclipse-workspace/JavaGUIGLP/lib/natives"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/al-ma/eclipse-workspace/JavaGUIGLP/lib/jars/lwjgl_util.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/al-ma/eclipse-workspace/JavaGUIGLP/lib/jars/slick-util.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
