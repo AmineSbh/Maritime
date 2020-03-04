@@ -1,10 +1,5 @@
 package Moteur1;
 
-import Donnees_Const_Navire.Attaque;
-import Donnees_Const_Navire.Sante;
-import Donnees_Const_Navire.Capacité;
-import Donnees_Const_Navire.Consommation;
-
 public class Flotte {
 
 	private int attaque;
@@ -20,12 +15,20 @@ public class Flotte {
 		this.consommation=0;
 	}
 	
-	public void AjouterNavireAttaque{
-		
+	public void AjouterNavireAttaque(){
+		NavireAttaque navire=new NavireAttaque();
+		attaque += navire.getAttaque();
+		sante +=navire.getSante();
+		capacité += navire.getCapacité();
+		consommation += navire.getConsommation();
 	}
 	
-	public void AjouterNavireTransport{
-		
+	public void AjouterNavireTransport(){
+		NavireTransport navire=new NavireTransport();
+		attaque += navire.getAttaque();
+		sante +=navire.getSante();
+		capacité += navire.getCapacité();
+		consommation += navire.getConsommation();
 	}
 	
 	public String toString()
@@ -64,14 +67,4 @@ public class Flotte {
 	public void setConsommation(int consommation) {
 		this.consommation = consommation;
 	}
-
-	public int getNiveau() {
-		return niveau;
-	}
-
-	public void setNiveau(int niveau) {
-		this.niveau = niveau;
-	}
-	
-	
 }

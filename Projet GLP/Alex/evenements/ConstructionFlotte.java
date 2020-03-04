@@ -20,7 +20,7 @@ import java.awt.SystemColor;
 
 public class ConstructionFlotte extends JFrame {
 
-	Ports a= new Ports("Perse",20000,3000,5000,7000,2000,4);
+	static Ports a= new Ports("Perse",20000,3000,5000,7000,2000,4);
 	private JPanel contentPane;
 
 	/**
@@ -30,7 +30,7 @@ public class ConstructionFlotte extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ConstructionFlotte frame = new ConstructionFlotte();
+					ConstructionFlotte frame = new ConstructionFlotte(a);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +42,7 @@ public class ConstructionFlotte extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ConstructionFlotte() {
+	public ConstructionFlotte(Ports a) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		setResizable(false);
