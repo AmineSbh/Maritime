@@ -1,5 +1,4 @@
-package Donnees_Const_Navire;
-
+package DonnéesNavire;
 public class Attaque {
 	
 	public static final int TAttaqueNiv1=20;

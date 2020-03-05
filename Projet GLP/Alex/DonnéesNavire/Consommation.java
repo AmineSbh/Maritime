@@ -1,4 +1,4 @@
-package Donnees_Const_Navire;
+package DonnéesNavire;
 
 public class Consommation {
 

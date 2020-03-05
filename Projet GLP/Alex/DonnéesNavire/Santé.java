@@ -1,6 +1,6 @@
-package Donnees_Const_Navire;
+package DonnéesNavire;
 
-public class Sante {
+public class Santé {
 	
 	public static final int TSantéNiv1=3000;
 	public static final int TSantéNiv2=3000;
