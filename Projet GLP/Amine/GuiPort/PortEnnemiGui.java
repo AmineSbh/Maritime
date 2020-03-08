@@ -6,7 +6,10 @@ package GuiPort;
 	import javax.swing.JPanel;
 	import javax.swing.border.EmptyBorder;
 
-	import Port.PortEnnemi;
+import DonnéesPort.Flotte;
+import Navire.NavireAttaque;
+import Navire.NavireTransport;
+import Port.PortEnnemi;
 
 	import java.awt.Color;
 	import javax.swing.JButton;
@@ -26,6 +29,9 @@ import javax.swing.ImageIcon;
 		 */
 		private static final long serialVersionUID = 1L;
 		private JPanel contentPane;
+		private static NavireAttaque navireATT=new NavireAttaque();
+		private static NavireTransport navireTransport =new NavireTransport();
+		private static Flotte flotte= new Flotte();
 
 		/**
 		 * Launch the application.
@@ -47,7 +53,7 @@ import javax.swing.ImageIcon;
 		 * Create the frame.
 		 */
 		public PortEnnemiGui() {
-			PortEnnemi a= new PortEnnemi("Perse",20000,3000,5000,7000,2000,4);
+			PortEnnemi a= new PortEnnemi("Perse",20000,3000,5000,7000,2000,4,flotte,navireATT, navireTransport);
 			setResizable(false);
 			setTitle(a.getDonnéesPort().getName());
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
