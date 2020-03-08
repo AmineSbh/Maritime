@@ -47,7 +47,7 @@ import javax.swing.border.BevelBorder;
  
 public class PortAllie extends JFrame {
 	
-	private Ports a;
+	private PortAllié portAllié;
 	private JPanel contentPane;
 	
 	public static final String NL= System.getProperty("line.separator");
@@ -65,7 +65,7 @@ public class PortAllie extends JFrame {
 			});
 		}
 	
-	public PortAllie(Port a) {
+	public PortAllie(PortAllié portAllié) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 683, 391);
 		contentPane = new JPanel();
@@ -74,19 +74,19 @@ public class PortAllie extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblOr = new JLabel("Or : " + a.getDonnéesPort().getGold());
+		JLabel lblOr = new JLabel("Or : " + portAllié.getDonnéesPort().getGold());
 		lblOr.setBounds(452, 47, 172, 21);
 		contentPane.add(lblOr);
 		
-		JLabel lblBois = new JLabel("Bois : " + a.getDonnéesPort().getWood());
+		JLabel lblBois = new JLabel("Bois : " + portAllié.getDonnéesPort().getWood());
 		lblBois.setBounds(452, 67, 172, 21);
 		contentPane.add(lblBois);
 		
-		JLabel lblMetaux = new JLabel("Metaux : "+ a.getDonnéesPort().getSteel());
+		JLabel lblMetaux = new JLabel("Metaux : "+ portAllié.getDonnéesPort().getSteel());
 		lblMetaux.setBounds(452, 89, 172, 21);
 		contentPane.add(lblMetaux);
 		
-		JLabel lblNourriture = new JLabel("Nourriture : "+ a.getDonnéesPort().getFood());
+		JLabel lblNourriture = new JLabel("Nourriture : "+ portAllié.getDonnéesPort().getFood());
 		lblNourriture.setBounds(452, 110, 172, 21);
 		contentPane.add(lblNourriture);
 		
@@ -96,14 +96,14 @@ public class PortAllie extends JFrame {
 		contentPane.add(panel);
 		
 		JLabel lblNewLabel_10 = new JLabel("");
-		lblNewLabel_10.setIcon(new ImageIcon(Perse.class.getResource("/images/Perse.jpg")));
+		lblNewLabel_10.setIcon(new ImageIcon(PortAllie.class.getResource("/images/Perse.jpg")));
 		panel.add(lblNewLabel_10);
 		
 		JButton btnConstruireFlotte = new JButton("Construire une flotte");
 		btnConstruireFlotte.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnConstruireFlotte.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ConstructionFlotte flotte= new ConstructionFlotte();
+				Construction flotte= new Construction(portAllié);
 				flotte.setLocationRelativeTo(null);
 				flotte.setVisible(true);
 				}
@@ -112,7 +112,7 @@ public class PortAllie extends JFrame {
 		btnConstruireFlotte.setBounds(27, 240, 146, 50);
 		contentPane.add(btnConstruireFlotte);
 		
-		JLabel lblNiveauDuPort = new JLabel("Niveau du port de la ville : "+ a.getLevel());
+		JLabel lblNiveauDuPort = new JLabel("Niveau du port de la ville : "+ portAllié.getDonnéesPort().getLevel());
 		lblNiveauDuPort.setBounds(155, 16, 195, 39);
 		contentPane.add(lblNiveauDuPort);
 		
@@ -126,7 +126,7 @@ public class PortAllie extends JFrame {
 		btnAcheterDesRessources.setBounds(183, 240, 146, 50);
 		contentPane.add(btnAcheterDesRessources);
 		
-		JLabel lblFlotte = new JLabel("Composition de la Flotte : nombreNavire/"+ a.getLevel());
+		JLabel lblFlotte = new JLabel("Composition de la Flotte : nombreNavire/"+ portAllié.getDonnéesPort().getLevel());
 		lblFlotte.setBounds(408, 190, 279, 39);
 		contentPane.add(lblFlotte);
 		

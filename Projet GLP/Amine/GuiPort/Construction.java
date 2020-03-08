@@ -31,7 +31,7 @@ public class Construction extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Construction frame = new Construction(a);
+					Construction frame = new Construction(new PortAllié(Villes.Athenes,Villes.valeurDeLaVilleAthenes,Villes.goldAthenes,Villes.woodAthenes,Villes.steelAthenes,Villes.foodAthenes,Villes.levelAthenes));
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,7 +43,8 @@ public class Construction extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ConstructionFlotte(Ports a) {
+	public Construction(PortAllié portAllié) {
+	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		setResizable(false);
@@ -58,7 +59,7 @@ public class Construction extends JFrame {
 		panel.setBounds(28, 11, 230, 140);
 		contentPane.add(panel);
 		
-		JLabel lblNewLabel = new JLabel("Navire disponible: "+ a.getLevel());
+		JLabel lblNewLabel = new JLabel("Navire disponible: "+ portAllié.getDonnéesPort().getLevel());
 		lblNewLabel.setBounds(285, 11, 117, 14);
 		contentPane.add(lblNewLabel);
 		
@@ -68,20 +69,21 @@ public class Construction extends JFrame {
 		JButton btnNewButton = new JButton("Ajouter un Navire");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(a.getLevel()>0)
-				a.setLevel(a.getLevel()-1);
-				lblNewLabel.setText("Navire disponible: "+ a.getLevel());
+				if(portAllié.getBateauxDispo()>0)
+					portAllié.setBateauxDispo(portAllié.getBateauxDispo()-1);
+				lblNewLabel.setText("Navire disponible: "+ portAllié.getBateauxDispo());
 			}
 		});
 		btnNewButton.setBounds(10, 180, 153, 40);
 		contentPane.add(btnNewButton);
 		
+		
 		JButton btnSupprimerUnNavire = new JButton("Supprimer un Navire");
 		btnSupprimerUnNavire.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(a.getLevel()<4)
-				a.setLevel(a.getLevel()+1);
-				lblNewLabel.setText("Navire disponible: "+ a.getLevel());
+				if(portAllié.getBateauxDispo()<portAllié.getDonnéesPort().getLevel())
+					portAllié.setBateauxDispo(portAllié.getBateauxDispo()+1);
+				lblNewLabel.setText("Navire disponible: "+ portAllié.getBateauxDispo());
 			}
 		});
 		btnSupprimerUnNavire.setBounds(198, 180, 164, 40);
