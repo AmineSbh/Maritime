@@ -1,4 +1,4 @@
-package Navire;
+package DonnéesPort;
 
 public class Flotte {
 
@@ -17,22 +17,6 @@ public class Flotte {
 		this.consommation=0;
 		this.NavireAttaque=0;
 		this.NavireTransport=0;
-	}
-	
-	public void AjouterNavireAttaque(){
-		NavireAttaque navire=new NavireAttaque();
-		attaque += navire.getAttaque();
-		sante +=navire.getSante();
-		capacité += navire.getCapacité();
-		consommation += navire.getConsommation();
-	}
-	
-	public void AjouterNavireTransport(){
-		NavireTransport navire=new NavireTransport();
-		attaque += navire.getAttaque();
-		sante +=navire.getSante();
-		capacité += navire.getCapacité();
-		consommation += navire.getConsommation();
 	}
 	
 	public String toString()

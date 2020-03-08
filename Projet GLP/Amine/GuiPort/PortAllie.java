@@ -39,6 +39,9 @@ import javax.swing.border.LineBorder;
 
 import javax.swing.border.SoftBevelBorder;
 
+import DonnéesPort.Flotte;
+import Navire.NavireAttaque;
+import Navire.NavireTransport;
 import Port.Port;
 import Port.PortAllié;
 
@@ -49,6 +52,9 @@ public class PortAllie extends JFrame {
 	
 	private PortAllié portAllié;
 	private JPanel contentPane;
+	private static NavireAttaque navireATT=new NavireAttaque();
+	private static NavireTransport navireTransport =new NavireTransport();
+	private static Flotte flotte= new Flotte();
 	
 	public static final String NL= System.getProperty("line.separator");
 	
@@ -56,7 +62,7 @@ public class PortAllie extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PortAllie frame = new PortAllie(new PortAllié("Perse",20000,3000,5000,7000,2000,4));
+					PortAllie frame = new PortAllie(new PortAllié("Perse",20000,3000,5000,7000,2000,3,flotte,navireATT, navireTransport));
 					frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();

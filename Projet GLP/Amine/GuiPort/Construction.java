@@ -9,6 +9,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import DonnéesPort.Flotte;
+import Navire.NavireAttaque;
+import Navire.NavireTransport;
+
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -21,7 +26,11 @@ import java.awt.SystemColor;
 
 public class Construction extends JFrame {
 
-	static PortAllié a= new PortAllié("Perse",20000,3000,5000,7000,2000,4);
+	private static NavireAttaque navireATT=new NavireAttaque();
+	private static NavireTransport navireTransport =new NavireTransport();
+	private static Flotte flotte= new Flotte();
+	
+	static PortAllié portAllié= new PortAllié("Perse",20000,3000,5000,7000,2000,4,flotte,navireATT, navireTransport);
 	private JPanel contentPane;
 
 	/**
@@ -31,7 +40,7 @@ public class Construction extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Construction frame = new Construction(new PortAllié(Villes.Athenes,Villes.valeurDeLaVilleAthenes,Villes.goldAthenes,Villes.woodAthenes,Villes.steelAthenes,Villes.foodAthenes,Villes.levelAthenes));
+					Construction frame = new Construction(new PortAllié(Villes.Athenes,Villes.valeurDeLaVilleAthenes,Villes.goldAthenes,Villes.woodAthenes,Villes.steelAthenes,Villes.foodAthenes,Villes.levelAthenes,flotte,navireATT, navireTransport));
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -66,18 +75,21 @@ public class Construction extends JFrame {
 		JLabel lblStatistiquesDeLa = new JLabel("Composition de la Flotte");
 		panel.add(lblStatistiquesDeLa);
 		
+		//Ajouter un navire
 		JButton btnNewButton = new JButton("Ajouter un Navire");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(portAllié.getBateauxDispo()>0)
 					portAllié.setBateauxDispo(portAllié.getBateauxDispo()-1);
+					portAllié.AjouterAttaquePort();
 				lblNewLabel.setText("Navire disponible: "+ portAllié.getBateauxDispo());
+				lblStatistiquesDeLa.setText("Composition de la Flotte");
 			}
 		});
 		btnNewButton.setBounds(10, 180, 153, 40);
 		contentPane.add(btnNewButton);
 		
-		
+		//Supprimer un navire
 		JButton btnSupprimerUnNavire = new JButton("Supprimer un Navire");
 		btnSupprimerUnNavire.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
