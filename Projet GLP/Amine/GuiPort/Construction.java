@@ -83,7 +83,7 @@ public class Construction extends JFrame {
 					portAllié.setBateauxDispo(portAllié.getBateauxDispo()-1);
 					portAllié.AjouterAttaquePort();
 				lblNewLabel.setText("Navire disponible: "+ portAllié.getBateauxDispo());
-				lblStatistiquesDeLa.setText("Composition de la Flotte");
+				lblStatistiquesDeLa.setText("Composition de la Flotte"+portAllié.getFlotte().getAttaque());
 			}
 		});
 		btnNewButton.setBounds(10, 180, 153, 40);
