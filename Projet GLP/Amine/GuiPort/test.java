@@ -118,7 +118,6 @@ public class test extends JFrame {
 		btnSupprimerUnNavire.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(portAllié.getBateauxDispo()<portAllié.getDonnéesPort().getLevel())
-					portAllié.setBateauxDispo(portAllié.getBateauxDispo()+1);
 					portAllié.SupprimerNavireAttaquePort();
 					lblNewLabel.setText("Navire disponible: "+ portAllié.getBateauxDispo());
 					lblNewLabel.setText("Navire disponible: "+ portAllié.getBateauxDispo());

@@ -47,25 +47,24 @@ public class PortAllié extends Port{
 	public void SupprimerNavireTransportPort()
 	{
 		int coutBateauTPORT=1000;
-
-		
 		if(getBateauxDispo()<getDonnéesPort().getLevel())
 		{
 			setFlotte(construction.SupprimerNavireTransport(getNavireTransport()));
 			getDonnéesPort().setGold(getDonnéesPort().getGold()+coutBateauTPORT);
+			setBateauxDispo(getBateauxDispo()+1);
 		}
 	}
 	
 	public void SupprimerNavireAttaquePort()
 	{
 		int coutBateauTPORT=1000;
-
-		
 		if(getBateauxDispo()<getDonnéesPort().getLevel())
 		{
-			setFlotte(construction.SupprimerNavireTransport(getNavireTransport()));
+			setFlotte(construction.SupprimerNavireAttaque(getNavireATT()));
 			getDonnéesPort().setGold(getDonnéesPort().getGold()+coutBateauTPORT);
+			setBateauxDispo(getBateauxDispo()+1);
 		}
+		
 	}
 	
 
