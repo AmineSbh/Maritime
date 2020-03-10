@@ -1,9 +1,9 @@
 package Navire;
 
-import DonnéesNavire.Attaque;
-import DonnéesNavire.Capacité;
-import DonnéesNavire.Consommation;
-import DonnéesNavire.Santé;
+import Donnees_Const_Navire.Attaque;
+import Donnees_Const_Navire.Capacité;
+import Donnees_Const_Navire.Consommation;
+import Donnees_Const_Navire.Sante;
 
 public class NavireAttaque extends Navire{
 
@@ -15,10 +15,11 @@ public class NavireAttaque extends Navire{
 	
 	public NavireAttaque()
 	{
-		attaque= Attaque.AAttaqueNiv1;
-		sante= Santé.ASantéNiv1;
-		capacité= Capacité.ATransportNiv1;
-		consommation= Consommation.AConsommationNiv1;
+		this.attaque= Attaque.AAttaqueNiv1;
+		this.sante= Sante.ASantéNiv1;
+		this.capacité= Capacité.ATransportNiv1;
+		this.consommation= Consommation.AConsommationNiv1;
+		this.niveau=1;
 	}
 	
 	public NavireAttaque(int niv)
@@ -26,28 +27,28 @@ public class NavireAttaque extends Navire{
 		if(niv==1)
 		{
 			attaque= Attaque.AAttaqueNiv1;
-			sante= Santé.ASantéNiv1;
+			sante= Sante.ASantéNiv1;
 			capacité= Capacité.ATransportNiv1;
 			consommation= Consommation.AConsommationNiv1;
 		}
 		else if(niv==2)
 		{
 			attaque= Attaque.AAttaqueNiv2;
-			sante= Santé.ASantéNiv2;
+			sante= Sante.ASantéNiv2;
 			capacité= Capacité.ATransportNiv2;
 			consommation= Consommation.AConsommationNiv2;
 		}
 		else if(niv==3)
 		{
 			attaque= Attaque.AAttaqueNiv3;
-			sante= Santé.ASantéNiv3;
+			sante= Sante.ASantéNiv3;
 			capacité= Capacité.ATransportNiv3;
 			consommation= Consommation.AConsommationNiv3;
 		}
 		else if(niv==4)
 		{
 			attaque= Attaque.AAttaqueNiv4;
-			sante= Santé.ASantéNiv4;
+			sante= Sante.ASantéNiv4;
 			capacité= Capacité.ATransportNiv4;
 			consommation= Consommation.AConsommationNiv4;
 		}
@@ -77,7 +78,19 @@ public class NavireAttaque extends Navire{
 	public int getCapacité() {
 		return capacité;
 	}
+	
+	public void setCapacité(int capacité) {
+		this.capacité=capacité;
+	}
+	
+	public int getConsommation() {
+		return consommation;
+	}
 
+	public void setConsommation(int consommation) {
+		this.consommation = consommation;
+	}
+	
 	public int getNiveau() {
 		return niveau;
 	}

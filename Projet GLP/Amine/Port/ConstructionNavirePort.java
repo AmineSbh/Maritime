@@ -34,6 +34,23 @@ public class ConstructionNavirePort {
 		
 		return flotte;
 	}
+	
+	public Flotte SupprimerNavireAttaque(NavireAttaque navireAttaque){
+		flotte.setAttaque(flotte.getAttaque()-navireAttaque.getAttaque());
+		flotte.setSante(flotte.getSante()-navireAttaque.getSante());
+		flotte.setCapacité(flotte.getCapacité()-navireAttaque.getCapacité());
+		flotte.setConsommation(flotte.getConsommation()-navireAttaque.getConsommation());
+		
+		return flotte;
+	}
+	
+	public Flotte SupprimerNavireTransport(NavireTransport navireTransport){
+		flotte.setAttaque(flotte.getAttaque()-navireTransport.getAttaque());
+		flotte.setSante(flotte.getSante()-navireTransport.getSante());
+		flotte.setCapacité(flotte.getCapacité()-navireTransport.getCapacité());
+		flotte.setConsommation(flotte.getConsommation()-navireTransport.getConsommation());
+		return flotte;
+	}
 
 	public NavireAttaque getNavireATT() {
 		return navireATT;

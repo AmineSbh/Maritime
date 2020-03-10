@@ -6,6 +6,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import DonnéesPort.Flotte;
+import Navire.NavireAttaque;
+import Navire.NavireTransport;
+import Port.PortAllié;
+
 import java.awt.Color;
 
 
@@ -18,7 +24,11 @@ public class Bataille extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-
+	private static NavireAttaque navireATT=new NavireAttaque();
+	private static NavireTransport navireTransport =new NavireTransport();
+	private static Flotte flotte= new Flotte();
+	
+	NavireAttaque IA= new NavireAttaque(2);
 	/**
 	 * Launch the application.
 	 */
@@ -57,10 +67,12 @@ public class Bataille extends JFrame {
 		btnNewButton.setBounds(201, 365, 144, 35);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Tirs de canon");
+		//attaque on baisse la santé//
+		JButton btnNewButton_1 = new JButton("Tirs de canon "+flotte.getSante());
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textField.setText("Le tir de canon à été effectué !");
+				flotte.setSante(flotte.getSante()-IA.getAttaque());
+				textField.setText("Le tir de canon à été effectué !"+flotte.getSante());
 			}
 		});
 		btnNewButton_1.setBounds(27, 365, 144, 35);
