@@ -40,6 +40,9 @@ public class Ports {
 	public void setFood(int x) {
 		this.food=x;
 	}
+	public void setLevel(int x) {
+		this.level=x;
+	}
 	
 	public String getName(){
 		return this.name;
@@ -68,19 +71,6 @@ public class Ports {
 		return this.level;
 	}
 	
-	//public Bateau constructionFlotte(Navire a, Navire b, Navire c, Navire d) {
-	//	if(this.level=1)
-	//	Bateau FlotteA= new Bateau(a);
-	//	if(this.level=2)
-	//	Bateau FlotteA= new Bateau(a,b);
-	//	if(this.level=3)
-	//	Bateau FlotteA= new Bateau(a,b,c);
-	//	if(this.level=4)
-	//	Bateau FlotteA= new Bateau(a,b,c,d);
-	
-	//public void itineraire(int x, int y) {
-	//
-	//}
 	
 	public int AchatPort(int prixProposé, int valeurDeLaVille, int pourcentNegociation) {
 		boolean accord=false;
