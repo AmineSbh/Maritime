@@ -3,6 +3,7 @@
 	<classpathentry kind="src" path="Alex"/>
 	<classpathentry kind="src" path="Guillaume"/>
 	<classpathentry kind="src" path="Amine"/>
+	<classpathentry kind="src" path="MapSwingGuillaume"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/Users/Guillaume/Documents/Projet GLP/lib/jars/lwjgl.jar">
 		<attributes>

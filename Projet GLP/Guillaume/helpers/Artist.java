@@ -33,15 +33,6 @@ public class Artist {
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	}
 	
-	public static void DrawQuad (float x, float y, float width, float height) {
-		glBegin(GL_QUADS);
-		glVertex2f(x,y);
-		glVertex2f(x + width ,y);
-		glVertex2f(x + width ,y + height);
-		glVertex2f(x,y + height);
-		glEnd();
-	}
-	
 	public static void DrawQuadTex (Texture tex,float x, float y, float width, float height) {
 		tex.bind();
 		glTranslatef (x,y,0);
