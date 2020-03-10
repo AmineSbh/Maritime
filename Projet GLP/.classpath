@@ -5,12 +5,5 @@
 	<classpathentry kind="src" path="Amine"/>
 	<classpathentry kind="src" path="MapSwingGuillaume"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Guillaume/Documents/Projet GLP/lib/jars/lwjgl.jar">
-		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/Guillaume/Documents/Projet GLP/lib/natives"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Guillaume/Documents/Projet GLP/lib/jars/lwjgl_util.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Guillaume/Documents/Projet GLP/lib/jars/slick-util.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
