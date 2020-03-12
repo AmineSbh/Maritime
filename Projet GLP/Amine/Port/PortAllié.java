@@ -35,13 +35,8 @@ public class PortAllié extends Port{
 	public void AjouterTransportPort()
 	{
 		int coutBateauTPORT=1000;
-
-		
-		if(getDonnéesPort().getGold()>coutBateauTPORT)
-		{
 			setFlotte(construction.AjouterNavireTransport(getNavireTransport()));
 			getDonnéesPort().setGold(getDonnéesPort().getGold()-coutBateauTPORT);
-		}
 	}
 	
 	public void SupprimerNavireTransportPort()

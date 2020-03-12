@@ -52,7 +52,7 @@ public class PortAllie extends JFrame {
 	
 	private PortAllié portAllié;
 	private JPanel contentPane;
-	private static NavireAttaque navireATT=new NavireAttaque();
+	private static NavireAttaque navireATT=new NavireAttaque(2);
 	private static NavireTransport navireTransport =new NavireTransport();
 	private static Flotte flotte= new Flotte();
 	
@@ -62,7 +62,7 @@ public class PortAllie extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PortAllie frame = new PortAllie(new PortAllié("Perse",20000,3000,5000,7000,2000,3,flotte,navireATT, navireTransport));
+					PortAllie frame = new PortAllie(new PortAllié("Perse",20000,30000,5000,7000,2000,3,flotte,navireATT, navireTransport));
 					frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -80,7 +80,7 @@ public class PortAllie extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblOr = new JLabel("Or : " + portAllié.getDonnéesPort().getGold());
+		JLabel lblOr = new JLabel("Or : " + portAllié.getDonnéesPort().getGold()+" stat :"+portAllié.getFlotte().getAttaque());
 		lblOr.setBounds(452, 47, 172, 21);
 		contentPane.add(lblOr);
 		
