@@ -100,8 +100,7 @@ public class Construction extends JFrame {
 		JButton btnNewButton = new JButton("Ajouter un Navire");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(portAllié.getBateauxDispo()>0 && portAllié.getDonnéesPort().getGold()>1000)
-					portAllié.setBateauxDispo(portAllié.getBateauxDispo()-1);
+				if(portAllié.getBateauxDispo()>0)
 					portAllié.AjouterAttaquePort();
 					lblNewLabel.setText("Navire disponible: "+ portAllié.getBateauxDispo());
 					lblAttaque.setText("Attaque : "+portAllié.getFlotte().getAttaque());

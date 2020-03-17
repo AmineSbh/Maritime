@@ -25,11 +25,9 @@ public class PortAllié extends Port{
 	{
 		int coutBateauATT=1000;
 		
-		if(getDonnéesPort().getGold()>coutBateauATT)
-		{
 			setFlotte(construction.AjouterNavireAttaque(getNavireATT()));
 			getDonnéesPort().setGold(getDonnéesPort().getGold()-coutBateauATT);
-		}
+			setBateauxDispo(getBateauxDispo()-1);
 	}
 	
 	public void AjouterTransportPort()
@@ -37,6 +35,7 @@ public class PortAllié extends Port{
 		int coutBateauTPORT=1000;
 			setFlotte(construction.AjouterNavireTransport(getNavireTransport()));
 			getDonnéesPort().setGold(getDonnéesPort().getGold()-coutBateauTPORT);
+			setBateauxDispo(getBateauxDispo()-1);
 	}
 	
 	public void SupprimerNavireTransportPort()
