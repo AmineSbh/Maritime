@@ -3,6 +3,7 @@ package Navire;
 import Donnees_Const_Navire.Attaque;
 import Donnees_Const_Navire.Capacité;
 import Donnees_Const_Navire.Consommation;
+import Donnees_Const_Navire.Prix;
 import Donnees_Const_Navire.Sante;
 
 public class NavireTransport extends Navire{
@@ -11,6 +12,7 @@ public class NavireTransport extends Navire{
 	private int sante;
 	private int capacité;
 	private int consommation;
+	private int prix;
 	
 	public NavireTransport()
 	{
@@ -18,6 +20,7 @@ public class NavireTransport extends Navire{
 		sante= Sante.TSantéNiv1;
 		capacité= Capacité.TTransportNiv1;
 		consommation= Consommation.TConsommationNiv1;
+		prix=Prix.TPrixNiv1;
 	}
 	
 	public NavireTransport(int niv)
@@ -28,6 +31,7 @@ public class NavireTransport extends Navire{
 			sante= Sante.TSantéNiv1;
 			capacité= Capacité.TTransportNiv1;
 			consommation= Consommation.TConsommationNiv1;
+			prix=Prix.TPrixNiv1;
 		}
 		else if(niv==2)
 		{
@@ -35,6 +39,7 @@ public class NavireTransport extends Navire{
 			sante= Sante.TSantéNiv2;
 			capacité= Capacité.TTransportNiv2;
 			consommation= Consommation.TConsommationNiv2;
+			prix=Prix.TPrixNiv2;
 		}
 		else if(niv==3)
 		{
@@ -42,6 +47,7 @@ public class NavireTransport extends Navire{
 			sante= Sante.TSantéNiv3;
 			capacité= Capacité.TTransportNiv3;
 			consommation= Consommation.TConsommationNiv3;
+			prix=Prix.TPrixNiv3;
 		}
 		else if(niv==4)
 		{
@@ -49,6 +55,7 @@ public class NavireTransport extends Navire{
 			sante= Sante.TSantéNiv4;
 			capacité= Capacité.TTransportNiv4;
 			consommation= Consommation.TConsommationNiv4;
+			prix=Prix.TPrixNiv4;
 		}
 	}
 	
@@ -75,5 +82,13 @@ public class NavireTransport extends Navire{
 
 	public int getCapacité() {
 		return capacité;
+	}
+	
+	public int getPrix() {
+		return prix;
+	}
+
+	public void setPrix(int prix) {
+		this.prix = prix;
 	}
 }

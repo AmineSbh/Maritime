@@ -23,39 +23,35 @@ public class PortAllié extends Port{
 	
 	public void AjouterAttaquePort()
 	{
-		int coutBateauATT=1000;
-		
 			setFlotte(construction.AjouterNavireAttaque(getNavireATT()));
-			getDonnéesPort().setGold(getDonnéesPort().getGold()-coutBateauATT);
+			getDonnéesPort().setGold(getDonnéesPort().getGold()-getNavireATT().getPrix());
 			setBateauxDispo(getBateauxDispo()-1);
 	}
 	
+	
 	public void AjouterTransportPort()
 	{
-		int coutBateauTPORT=1000;
 			setFlotte(construction.AjouterNavireTransport(getNavireTransport()));
-			getDonnéesPort().setGold(getDonnéesPort().getGold()-coutBateauTPORT);
+			getDonnéesPort().setGold(getDonnéesPort().getGold()-getNavireTransport().getPrix());
 			setBateauxDispo(getBateauxDispo()-1);
 	}
 	
 	public void SupprimerNavireTransportPort()
 	{
-		int coutBateauTPORT=1000;
 		if(getBateauxDispo()<getDonnéesPort().getLevel())
 		{
 			setFlotte(construction.SupprimerNavireTransport(getNavireTransport()));
-			getDonnéesPort().setGold(getDonnéesPort().getGold()+coutBateauTPORT);
+			getDonnéesPort().setGold(getDonnéesPort().getGold()+getNavireTransport().getPrix());
 			setBateauxDispo(getBateauxDispo()+1);
 		}
 	}
 	
 	public void SupprimerNavireAttaquePort()
 	{
-		int coutBateauTPORT=1000;
 		if(getBateauxDispo()<getDonnéesPort().getLevel())
 		{
 			setFlotte(construction.SupprimerNavireAttaque(getNavireATT()));
-			getDonnéesPort().setGold(getDonnéesPort().getGold()+coutBateauTPORT);
+			getDonnéesPort().setGold(getDonnéesPort().getGold()+getNavireATT().getPrix());
 			setBateauxDispo(getBateauxDispo()+1);
 		}
 		
