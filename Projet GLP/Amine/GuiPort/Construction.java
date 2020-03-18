@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import DonnéesPort.Flotte;
+import DonnéesPort.Villes;
 import Navire.NavireAttaque;
 import Navire.NavireTransport;
 
