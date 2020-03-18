@@ -1,9 +1,12 @@
+package def;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import javax.swing.JPanel;
+
+import states.GameStateManager;
 import utils.*;
 
 
@@ -17,7 +20,7 @@ public class GamePanel extends JPanel implements Runnable {
 	private Graphics2D g;
 	private Boolean running = false;
 	private MouseHandler mouse;
-	
+	private GameStateManager gsm;
 	
 	
 	
@@ -42,7 +45,9 @@ public class GamePanel extends JPanel implements Runnable {
 		running = true;
 		img = new BufferedImage(width,height,BufferedImage.TYPE_INT_ARGB);
 		g = (Graphics2D) img.getGraphics();
-		mouse = new MouseHandler();
+		mouse = new MouseHandler(this);
+		gsm = new GameStateManager();
+		
 	}
 	
 	public void run() {
@@ -110,10 +115,11 @@ public class GamePanel extends JPanel implements Runnable {
 	}
 	
 	public void update() {
+		gsm.update();
 	}
 	
 	public void input(MouseHandler mouse) {
-		
+		gsm.input(mouse);
 	}
 	
 	
@@ -122,6 +128,7 @@ public class GamePanel extends JPanel implements Runnable {
 		if (g != null) {
 			g.setColor(new Color (66,134,244));
 			g.fillRect(0, 0, width, height);
+			gsm.render(g);
 		}
 	}
 
