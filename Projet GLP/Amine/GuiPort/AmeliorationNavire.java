@@ -29,8 +29,8 @@ public class AmeliorationNavire extends JFrame {
 	private static NavireAttaque navireATT=new NavireAttaque();
 	private static NavireTransport navireTransport =new NavireTransport();
 	private static Flotte flotte= new Flotte();
-	private static int CompteurATT=0;
-	private static int CompteurTransport=0;
+	private static int CompteurATT=20;
+	private static int CompteurTransport=20;
 	private JPanel contentPane;
 
 	/**
@@ -92,6 +92,40 @@ public class AmeliorationNavire extends JFrame {
 		panel.add(label_4);
 		
 		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Navire d'Attaque", "Navire de Transport"}));
+		comboBox.setBounds(15, 16, 144, 40);
+		contentPane.add(comboBox);
+		
+		JButton btnAmeliorerLeNavire = new JButton("Ameliorer le navire");
+		btnAmeliorerLeNavire.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(comboBox.getSelectedIndex()==0) {
+						if(portAllié.getDonnéesPort().getGold()>=portAllié.getNavireTransport().getPrix()) {
+							//portAllié.AméliorerNavireAttaque();
+							CompteurATT++;
+							label_1.setText("Attaque : "+portAllié.getNavireATT().getAttaque());
+							label_2.setText("Sante : "+portAllié.getNavireATT().getSante());
+							label_3.setText("Consommation : "+portAllié.getNavireATT().getConsommation());
+							label_4.setText("Transport : "+portAllié.getNavireATT().getCapacité());
+						}
+				}
+				else {
+						if(portAllié.getDonnéesPort().getGold()>=portAllié.getNavireTransport().getPrix()) {
+							//portAllié.AjouterTransportPort();
+							CompteurTransport++;
+							label_1.setText("Attaque : "+portAllié.getNavireATT().getAttaque());
+							label_2.setText("Sante : "+portAllié.getNavireATT().getSante());
+							label_3.setText("Consommation : "+portAllié.getNavireATT().getConsommation());
+							label_4.setText("Transport : "+portAllié.getNavireATT().getCapacité());
+						}
+				}
+			}
+		});
+		btnAmeliorerLeNavire.setBounds(15, 105, 153, 40);
+		contentPane.add(btnAmeliorerLeNavire);
+		
+		
 		JButton button = new JButton("Flotte pr\u00EAte");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -102,40 +136,6 @@ public class AmeliorationNavire extends JFrame {
 		});
 		button.setBounds(296, 205, 117, 23);
 		contentPane.add(button);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Navire d'Attaque", "Navire de Transport"}));
-		comboBox.setBounds(15, 16, 144, 40);
-		contentPane.add(comboBox);
-		
-		JButton btnAmeliorerLeNavire = new JButton("Ameliorer le navire");
-		btnAmeliorerLeNavire.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(comboBox.getSelectedIndex()==0) {
-				if(portAllié.getDonnéesPort().getGold()>=portAllié.getNavireATT().getPrix()) {
-					portAllié.AméliorerNavireAttaque();
-					label_1.setText("Attaque : "+portAllié.getNavireATT().getAttaque()+" le niveau "+portAllié.getNavireATT().getNiveau());
-					label_2.setText("Sante : "+portAllié.getNavireATT().getSante());
-					label_3.setText("Consommation : "+portAllié.getNavireATT().getConsommation());
-					label_4.setText("Transport : "+portAllié.getNavireATT().getCapacité());
-					CompteurATT++;
-				}
-				}
-				else {
-					if(portAllié.getDonnéesPort().getGold()>=portAllié.getNavireTransport().getPrix()) {
-					portAllié.AméliorerNavireTransport();
-					label_1.setText("Attaque : "+portAllié.getNavireTransport().getAttaque());
-					label_2.setText("Sante : "+portAllié.getNavireTransport().getSante());
-					label_3.setText("Consommation : "+portAllié.getNavireTransport().getConsommation());
-					label_4.setText("Transport : "+portAllié.getNavireTransport().getCapacité());
-					CompteurTransport++;
-					}
-				}
-				
-			}
-		});
-		btnAmeliorerLeNavire.setBounds(15, 105, 153, 40);
-		contentPane.add(btnAmeliorerLeNavire);
 	}
 
 }

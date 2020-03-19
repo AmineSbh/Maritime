@@ -13,12 +13,14 @@ public class TestPort {
 		
 		PortAllié port= new PortAllié("Perse",20000,3000000,50000,7000,2000,4,flotte,navireA, navireB);
 		
-		System.out.println(flotte.getConsommation());
-		port.getFlotte().setConsommation(1000);
-		
-		System.out.println(navireA.getConsommation());
-		port.SupprimerNavireAttaquePort();
-		System.out.println(port.getFlotte().getConsommation());
+		System.out.println(navireA.getCapacité());
+		navireA.setNiveau(2);
+		System.out.println(navireA.getCapacité());
+		/*
+		System.out.println(port.getNavireATT().getConsommation());
+		port.AméliorerNavireAttaque();
+		System.out.println(port.getNavireATT().getConsommation());
+		*/
 	}
 
 }

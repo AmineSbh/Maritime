@@ -106,16 +106,45 @@ public class NavireTransport extends Navire{
 		return niveau;
 	}
 
-	public void setNiveau(int niveau) {
-		while(niveau<=4)
+	public void setNiveau(int niv) {
+		while(niv<=4)
 		{
-			this.niveau = niveau;
-			NavireTransport a= new NavireTransport(niveau);
-			this.attaque= a.attaque;
-			this.sante=a.sante;
-			this.capacité= a.capacité;
-			this.consommation= a.consommation;
-			this.prix=a.prix;
+			if(niv==1)
+			{
+				attaque= Attaque.TAttaqueNiv1;
+				sante= Sante.TSantéNiv1;
+				capacité= Capacité.TTransportNiv1;
+				consommation= Consommation.TConsommationNiv1;
+				this.niveau=niv;
+				prix=Prix.TPrixNiv1;
+			}
+			else if(niv==2)
+			{
+				attaque= Attaque.TAttaqueNiv2;
+				sante= Sante.TSantéNiv2;
+				capacité= Capacité.TTransportNiv2;
+				consommation= Consommation.TConsommationNiv2;
+				this.niveau=niv;
+				prix=Prix.TPrixNiv2;
+			}
+			else if(niv==3)
+			{
+				attaque= Attaque.TAttaqueNiv3;
+				sante= Sante.TSantéNiv3;
+				capacité= Capacité.TTransportNiv3;
+				consommation= Consommation.TConsommationNiv3;
+				this.niveau=niv;
+				prix=Prix.TPrixNiv3;
+			}
+			else if(niv==4)
+			{
+				attaque= Attaque.TAttaqueNiv4;
+				sante= Sante.TSantéNiv4;
+				capacité= Capacité.TTransportNiv4;
+				consommation= Consommation.TConsommationNiv4;
+				this.niveau=niv;
+				prix=Prix.TPrixNiv4;
+			}
 		}
 	}
 	
