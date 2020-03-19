@@ -33,6 +33,7 @@ public class NavireAttaque extends Navire{
 			sante= Sante.ASantéNiv1;
 			capacité= Capacité.ATransportNiv1;
 			consommation= Consommation.AConsommationNiv1;
+			this.niveau=niv;
 			prix=Prix.APrixNiv1;
 		}
 		else if(niv==2)
@@ -41,6 +42,7 @@ public class NavireAttaque extends Navire{
 			sante= Sante.ASantéNiv2;
 			capacité= Capacité.ATransportNiv2;
 			consommation= Consommation.AConsommationNiv2;
+			this.niveau=niv;
 			prix=Prix.APrixNiv2;
 		}
 		else if(niv==3)
@@ -49,6 +51,7 @@ public class NavireAttaque extends Navire{
 			sante= Sante.ASantéNiv3;
 			capacité= Capacité.ATransportNiv3;
 			consommation= Consommation.AConsommationNiv3;
+			this.niveau=niv;
 			prix=Prix.APrixNiv3;
 		}
 		else if(niv==4)
@@ -57,6 +60,7 @@ public class NavireAttaque extends Navire{
 			sante= Sante.ASantéNiv4;
 			capacité= Capacité.ATransportNiv4;
 			consommation= Consommation.AConsommationNiv4;
+			this.niveau=niv;
 			prix=Prix.APrixNiv4;
 		}
 	}
@@ -103,7 +107,15 @@ public class NavireAttaque extends Navire{
 	}
 
 	public void setNiveau(int niveau) {
-		this.niveau = niveau;
+		while(niveau<=4) {
+			this.niveau = niveau;
+			NavireAttaque a= new NavireAttaque(niveau);
+			this.attaque= a.attaque;
+			this.sante=a.sante;
+			this.capacité= a.capacité;
+			this.consommation= a.consommation;
+			this.prix=a.prix;
+		}
 	}
 	
 	public int getPrix() {

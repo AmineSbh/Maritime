@@ -40,7 +40,7 @@ public class AmeliorationNavire extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AmeliorationNavire window = new AmeliorationNavire(new PortAllié(Villes.Athenes,Villes.valeurDeLaVilleAthenes,Villes.goldAthenes,Villes.woodAthenes,Villes.steelAthenes,Villes.foodAthenes,Villes.levelAthenes,flotte,navireATT, navireTransport));
+					AmeliorationNavire window = new AmeliorationNavire(new PortAllié(Villes.Athenes,Villes.valeurDeLaVilleAthenes,10000,Villes.woodAthenes,Villes.steelAthenes,Villes.foodAthenes,Villes.levelAthenes,flotte,navireATT, navireTransport));
 					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -109,6 +109,31 @@ public class AmeliorationNavire extends JFrame {
 		contentPane.add(comboBox);
 		
 		JButton btnAmeliorerLeNavire = new JButton("Ameliorer le navire");
+		btnAmeliorerLeNavire.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(comboBox.getSelectedIndex()==0) {
+				if(portAllié.getDonnéesPort().getGold()>=portAllié.getNavireATT().getPrix()) {
+					portAllié.AméliorerNavireAttaque();
+					label_1.setText("Attaque : "+portAllié.getNavireATT().getAttaque()+" le niveau "+portAllié.getNavireATT().getNiveau());
+					label_2.setText("Sante : "+portAllié.getNavireATT().getSante());
+					label_3.setText("Consommation : "+portAllié.getNavireATT().getConsommation());
+					label_4.setText("Transport : "+portAllié.getNavireATT().getCapacité());
+					CompteurATT++;
+				}
+				}
+				else {
+					if(portAllié.getDonnéesPort().getGold()>=portAllié.getNavireTransport().getPrix()) {
+					portAllié.AméliorerNavireTransport();
+					label_1.setText("Attaque : "+portAllié.getNavireTransport().getAttaque());
+					label_2.setText("Sante : "+portAllié.getNavireTransport().getSante());
+					label_3.setText("Consommation : "+portAllié.getNavireTransport().getConsommation());
+					label_4.setText("Transport : "+portAllié.getNavireTransport().getCapacité());
+					CompteurTransport++;
+					}
+				}
+				
+			}
+		});
 		btnAmeliorerLeNavire.setBounds(15, 105, 153, 40);
 		contentPane.add(btnAmeliorerLeNavire);
 	}

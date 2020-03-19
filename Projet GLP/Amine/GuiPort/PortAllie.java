@@ -62,7 +62,7 @@ public class PortAllie extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PortAllie frame = new PortAllie(new PortAllié("Perse",20000,1500,5000,7000,2000,3,flotte,navireATT, navireTransport));
+					PortAllie frame = new PortAllie(new PortAllié("Perse",20000,15000,5000,7000,2000,3,flotte,navireATT, navireTransport));
 					frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();

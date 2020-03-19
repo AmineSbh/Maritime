@@ -12,6 +12,7 @@ public class NavireTransport extends Navire{
 	private int sante;
 	private int capacité;
 	private int consommation;
+	private int niveau;
 	private int prix;
 	
 	public NavireTransport()
@@ -20,6 +21,7 @@ public class NavireTransport extends Navire{
 		sante= Sante.TSantéNiv1;
 		capacité= Capacité.TTransportNiv1;
 		consommation= Consommation.TConsommationNiv1;
+		this.niveau=1;
 		prix=Prix.TPrixNiv1;
 	}
 	
@@ -31,6 +33,7 @@ public class NavireTransport extends Navire{
 			sante= Sante.TSantéNiv1;
 			capacité= Capacité.TTransportNiv1;
 			consommation= Consommation.TConsommationNiv1;
+			this.niveau=niv;
 			prix=Prix.TPrixNiv1;
 		}
 		else if(niv==2)
@@ -39,6 +42,7 @@ public class NavireTransport extends Navire{
 			sante= Sante.TSantéNiv2;
 			capacité= Capacité.TTransportNiv2;
 			consommation= Consommation.TConsommationNiv2;
+			this.niveau=niv;
 			prix=Prix.TPrixNiv2;
 		}
 		else if(niv==3)
@@ -47,6 +51,7 @@ public class NavireTransport extends Navire{
 			sante= Sante.TSantéNiv3;
 			capacité= Capacité.TTransportNiv3;
 			consommation= Consommation.TConsommationNiv3;
+			this.niveau=niv;
 			prix=Prix.TPrixNiv3;
 		}
 		else if(niv==4)
@@ -55,6 +60,7 @@ public class NavireTransport extends Navire{
 			sante= Sante.TSantéNiv4;
 			capacité= Capacité.TTransportNiv4;
 			consommation= Consommation.TConsommationNiv4;
+			this.niveau=niv;
 			prix=Prix.TPrixNiv4;
 		}
 	}
@@ -82,6 +88,35 @@ public class NavireTransport extends Navire{
 
 	public int getCapacité() {
 		return capacité;
+	}
+	
+	public void setCapacité(int capacité) {
+		this.capacité=capacité;
+	}
+	
+	public int getConsommation() {
+		return consommation;
+	}
+
+	public void setConsommation(int consommation) {
+		this.consommation = consommation;
+	}
+	
+	public int getNiveau() {
+		return niveau;
+	}
+
+	public void setNiveau(int niveau) {
+		while(niveau<=4)
+		{
+			this.niveau = niveau;
+			NavireTransport a= new NavireTransport(niveau);
+			this.attaque= a.attaque;
+			this.sante=a.sante;
+			this.capacité= a.capacité;
+			this.consommation= a.consommation;
+			this.prix=a.prix;
+		}
 	}
 	
 	public int getPrix() {

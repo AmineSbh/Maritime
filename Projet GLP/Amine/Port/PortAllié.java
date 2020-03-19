@@ -16,9 +16,16 @@ public class PortAllié extends Port{
 		construction= new ConstructionNavirePort(navireAttaque,navireTransport , flotte);
 	}
 	
-	public void Amélioration()
+	public void AméliorerNavireAttaque()
 	{
-		
+		getNavireATT().setNiveau(getNavireATT().getNiveau()+1);
+		getDonnéesPort().setGold(getDonnéesPort().getGold()-getNavireATT().getPrix());
+	}
+	
+	public void AméliorerNavireTransport()
+	{
+		getNavireTransport().setNiveau(getNavireTransport().getNiveau()+1);
+		getDonnéesPort().setGold(getDonnéesPort().getGold()-getNavireATT().getPrix());
 	}
 	
 	public void AjouterAttaquePort()
