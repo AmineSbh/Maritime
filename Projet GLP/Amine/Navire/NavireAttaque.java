@@ -107,43 +107,41 @@ public class NavireAttaque extends Navire{
 	}
 
 	public void setNiveau(int niv) {
-		while(niv<=4) {
-			if(niv==1)
-			{
-				attaque= Attaque.AAttaqueNiv1;
-				sante= Sante.ASantéNiv1;
-				capacité= Capacité.ATransportNiv1;
-				consommation= Consommation.AConsommationNiv1;
-				this.niveau=niv;
-				prix=Prix.APrixNiv1;
-			}
-			else if(niv==2)
-			{
-				attaque= Attaque.AAttaqueNiv2;
-				sante= Sante.ASantéNiv2;
-				capacité= Capacité.ATransportNiv2;
-				consommation= Consommation.AConsommationNiv2;
-				this.niveau=niv;
-				prix=Prix.APrixNiv2;
-			}
-			else if(niv==3)
-			{
-				attaque= Attaque.AAttaqueNiv3;
-				sante= Sante.ASantéNiv3;
-				capacité= Capacité.ATransportNiv3;
-				consommation= Consommation.AConsommationNiv3;
-				this.niveau=niv;
-				prix=Prix.APrixNiv3;
-			}
-			else if(niv==4)
-			{
-				attaque= Attaque.AAttaqueNiv4;
-				sante= Sante.ASantéNiv4;
-				capacité= Capacité.ATransportNiv4;
-				consommation= Consommation.AConsommationNiv4;
-				this.niveau=niv;
-				prix=Prix.APrixNiv4;
-			}
+		if(niv==1)
+		{
+			attaque= Attaque.AAttaqueNiv1;
+			sante= Sante.ASantéNiv1;
+			capacité= Capacité.ATransportNiv1;
+			consommation= Consommation.AConsommationNiv1;
+			this.niveau=niv;
+			prix=Prix.APrixNiv1;
+		}
+		else if(niv==2)
+		{
+			attaque= Attaque.AAttaqueNiv2;
+			sante= Sante.ASantéNiv2;
+			capacité= Capacité.ATransportNiv2;
+			consommation= Consommation.AConsommationNiv2;
+			this.niveau=niv;
+			prix=Prix.APrixNiv2;
+		}
+		else if(niv==3)
+		{
+			attaque= Attaque.AAttaqueNiv3;
+			sante= Sante.ASantéNiv3;
+			capacité= Capacité.ATransportNiv3;
+			consommation= Consommation.AConsommationNiv3;
+			this.niveau=niv;
+			prix=Prix.APrixNiv3;
+		}
+		else if(niv==4)
+		{
+			attaque= Attaque.AAttaqueNiv4;
+			sante= Sante.ASantéNiv4;
+			capacité= Capacité.ATransportNiv4;
+			consommation= Consommation.AConsommationNiv4;
+			this.niveau=niv;
+			prix=Prix.APrixNiv4;
 		}
 	}
 	

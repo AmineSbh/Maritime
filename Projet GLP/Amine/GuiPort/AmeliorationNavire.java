@@ -29,8 +29,8 @@ public class AmeliorationNavire extends JFrame {
 	private static NavireAttaque navireATT=new NavireAttaque();
 	private static NavireTransport navireTransport =new NavireTransport();
 	private static Flotte flotte= new Flotte();
-	private static int CompteurATT=20;
-	private static int CompteurTransport=20;
+	private static int CompteurATT=0;
+	private static int CompteurTransport=0;
 	private JPanel contentPane;
 
 	/**
@@ -40,7 +40,7 @@ public class AmeliorationNavire extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AmeliorationNavire window = new AmeliorationNavire(new PortAllié(Villes.Athenes,Villes.valeurDeLaVilleAthenes,10000,Villes.woodAthenes,Villes.steelAthenes,Villes.foodAthenes,Villes.levelAthenes,flotte,navireATT, navireTransport));
+					AmeliorationNavire window = new AmeliorationNavire(new PortAllié(Villes.Athenes,Villes.valeurDeLaVilleAthenes,100000,Villes.woodAthenes,Villes.steelAthenes,Villes.foodAthenes,Villes.levelAthenes,flotte,navireATT, navireTransport));
 					window.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -101,9 +101,10 @@ public class AmeliorationNavire extends JFrame {
 		btnAmeliorerLeNavire.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(comboBox.getSelectedIndex()==0) {
-						if(portAllié.getDonnéesPort().getGold()>=portAllié.getNavireTransport().getPrix()) {
-							//portAllié.AméliorerNavireAttaque();
+						if(portAllié.getNavireATT().getNiveau()<4 && portAllié.getDonnéesPort().getGold()>=portAllié.getNavireTransport().getPrix()) {
+							portAllié.AméliorerNavireAttaque();
 							CompteurATT++;
+							lblStatistiquesDuNavire.setText("Statistiques du navire : Attaque"+CompteurATT);
 							label_1.setText("Attaque : "+portAllié.getNavireATT().getAttaque());
 							label_2.setText("Sante : "+portAllié.getNavireATT().getSante());
 							label_3.setText("Consommation : "+portAllié.getNavireATT().getConsommation());
@@ -111,13 +112,14 @@ public class AmeliorationNavire extends JFrame {
 						}
 				}
 				else {
-						if(portAllié.getDonnéesPort().getGold()>=portAllié.getNavireTransport().getPrix()) {
-							//portAllié.AjouterTransportPort();
+						if(portAllié.getNavireTransport().getNiveau()<4 && portAllié.getDonnéesPort().getGold()>=portAllié.getNavireTransport().getPrix()) {
+							portAllié.AméliorerNavireTransport();
 							CompteurTransport++;
-							label_1.setText("Attaque : "+portAllié.getNavireATT().getAttaque());
-							label_2.setText("Sante : "+portAllié.getNavireATT().getSante());
-							label_3.setText("Consommation : "+portAllié.getNavireATT().getConsommation());
-							label_4.setText("Transport : "+portAllié.getNavireATT().getCapacité());
+							lblStatistiquesDuNavire.setText("Statistiques du navire : Transport");
+							label_1.setText("Attaque : "+portAllié.getNavireTransport().getAttaque());
+							label_2.setText("Sante : "+portAllié.getNavireTransport().getSante());
+							label_3.setText("Consommation : "+portAllié.getNavireTransport().getConsommation());
+							label_4.setText("Transport : "+portAllié.getNavireTransport().getCapacité());
 						}
 				}
 			}
@@ -125,6 +127,38 @@ public class AmeliorationNavire extends JFrame {
 		btnAmeliorerLeNavire.setBounds(15, 105, 153, 40);
 		contentPane.add(btnAmeliorerLeNavire);
 		
+		
+		//Supprimer l'amelioration d'un navire
+				JButton btnSupprimerUnNavire = new JButton("revenir au niveau précédent");
+				btnSupprimerUnNavire.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						if(comboBox.getSelectedIndex()==0) {
+							if(CompteurATT != 0)
+							{portAllié.SuppAméliorerNavireAttaque();
+									CompteurATT--;
+									lblStatistiquesDuNavire.setText("Statistiques du navire : Attaque"+CompteurATT);
+									label_1.setText("Attaque : "+portAllié.getNavireATT().getAttaque());
+									label_2.setText("Sante : "+portAllié.getNavireATT().getSante());
+									label_3.setText("Consommation : "+portAllié.getNavireATT().getConsommation());
+									label_4.setText("Transport : "+portAllié.getNavireATT().getCapacité());
+							}
+						}
+						else {
+							if(CompteurTransport != 0)
+							{
+									portAllié.SuppAméliorerNavireTransport();
+									CompteurTransport--;
+									lblStatistiquesDuNavire.setText("Statistiques du navire : Transport");
+									label_1.setText("Attaque : "+portAllié.getNavireTransport().getAttaque());
+									label_2.setText("Sante : "+portAllié.getNavireTransport().getSante());
+									label_3.setText("Consommation : "+portAllié.getNavireTransport().getConsommation());
+									label_4.setText("Transport : "+portAllié.getNavireTransport().getCapacité());
+							}
+						}
+					}
+				});
+				btnSupprimerUnNavire.setBounds(15, 155, 153, 40);
+				contentPane.add(btnSupprimerUnNavire);
 		
 		JButton button = new JButton("Flotte pr\u00EAte");
 		button.addActionListener(new ActionListener() {
