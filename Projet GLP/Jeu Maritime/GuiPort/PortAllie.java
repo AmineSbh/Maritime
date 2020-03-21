@@ -22,11 +22,6 @@ import javax.swing.border.Border;
 
 import javax.swing.border.EmptyBorder;
 
- 
-
-import evenements.ConstructionFlotte;
-import ville.Ports;
-
 import java.awt.SystemColor;
 
 import java.awt.event.ActionListener;
@@ -102,7 +97,7 @@ public class PortAllie extends JFrame {
 		contentPane.add(panel);
 		
 		JLabel lblNewLabel_10 = new JLabel("");
-		lblNewLabel_10.setIcon(new ImageIcon(PortAllie.class.getResource("/images/Perse.jpg")));
+		lblNewLabel_10.setIcon(new ImageIcon(PortAllie.class.getResource("/res/Perse.jpg")));
 		panel.add(lblNewLabel_10);
 		
 		JLabel lblNiveauDuPort = new JLabel("Niveau du port de la ville : "+ portAllié.getDonnéesPort().getLevel());

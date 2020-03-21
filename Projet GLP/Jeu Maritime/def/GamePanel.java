@@ -13,6 +13,7 @@ import utils.*;
 
 public class GamePanel extends JPanel implements Runnable {
 	
+
 	public int width;
 	public  int height;
 	private Thread thread;
