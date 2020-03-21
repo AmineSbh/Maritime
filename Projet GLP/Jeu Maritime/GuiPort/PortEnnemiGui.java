@@ -9,6 +9,7 @@ package GuiPort;
 import DonnéesPort.Flotte;
 import Navire.NavireAttaque;
 import Navire.NavireTransport;
+import Port.PortAllié;
 import Port.PortEnnemi;
 
 	import java.awt.Color;
@@ -32,6 +33,7 @@ import javax.swing.ImageIcon;
 		private static NavireAttaque navireATT=new NavireAttaque();
 		private static NavireTransport navireTransport =new NavireTransport();
 		private static Flotte flotte= new Flotte();
+		private PortAllié portAllié;
 
 		/**
 		 * Launch the application.
@@ -40,7 +42,7 @@ import javax.swing.ImageIcon;
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
-						PortEnnemiGui frame = new PortEnnemiGui();
+						PortEnnemiGui frame = new PortEnnemiGui(new PortAllié("Perse",20000,15000,5000,7000,2000,3,flotte,navireATT, navireTransport));
 						frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -52,7 +54,7 @@ import javax.swing.ImageIcon;
 		/**
 		 * Create the frame.
 		 */
-		public PortEnnemiGui() {
+		public PortEnnemiGui(PortAllié portAllie) {
 			PortEnnemi a= new PortEnnemi("Perse",20000,3000,5000,7000,2000,4,flotte,navireATT, navireTransport);
 			setResizable(false);
 			setTitle(a.getDonnéesPort().getName());
@@ -68,8 +70,8 @@ import javax.swing.ImageIcon;
 			btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					setVisible(false);
-					//bataille a = new bataille();
-					//a.setVisible(true);
+					Bataille a = new Bataille();
+					a.setVisible(true);
 				}
 			});
 			btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -80,7 +82,7 @@ import javax.swing.ImageIcon;
 			btnNewButton_1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					setVisible(false);
-					//negociation b= new negociation();
+					//Négociation b= new Négociation(portAllie,);
 					//b.setVisible(true);
 					
 				}
@@ -93,7 +95,7 @@ import javax.swing.ImageIcon;
 			btnNewButton_2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					setVisible(false);
-					//marché c= new marché();
+					//Marché c= new Marché();
 					//c.setVisible(true);
 				}
 			});
@@ -117,7 +119,7 @@ import javax.swing.ImageIcon;
 			contentPane.add(panel);
 			
 			JLabel lblNewLabel_1 = new JLabel("");
-			//lblNewLabel_1.setIcon(new ImageIcon(Perse.class.getResource("/images/Perse.jpg")));
+			lblNewLabel_1.setIcon(new ImageIcon(PortEnnemiGui.class.getResource("/res/Perse.jpg")));
 			panel.add(lblNewLabel_1);
 			
 			JLabel lblAthnes = new JLabel(a.getDonnéesPort().getName());
