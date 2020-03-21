@@ -52,7 +52,7 @@ public class PortAllie extends JFrame {
 	
 	private PortAllié portAllié;
 	private JPanel contentPane;
-	private static NavireAttaque navireATT=new NavireAttaque(2);
+	private static NavireAttaque navireATT=new NavireAttaque(1);
 	private static NavireTransport navireTransport =new NavireTransport();
 	private static Flotte flotte= new Flotte();
 	
@@ -62,7 +62,7 @@ public class PortAllie extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PortAllie frame = new PortAllie(new PortAllié("Perse",20000,30000,5000,7000,2000,3,flotte,navireATT, navireTransport));
+					PortAllie frame = new PortAllie(new PortAllié("Perse",20000,15000,5000,7000,2000,3,flotte,navireATT, navireTransport));
 					frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -80,7 +80,7 @@ public class PortAllie extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblOr = new JLabel("Or : " + portAllié.getDonnéesPort().getGold()+" stat :"+portAllié.getFlotte().getAttaque());
+		JLabel lblOr = new JLabel("Or : " + portAllié.getDonnéesPort().getGold());
 		lblOr.setBounds(452, 47, 172, 21);
 		contentPane.add(lblOr);
 		
@@ -105,6 +105,11 @@ public class PortAllie extends JFrame {
 		lblNewLabel_10.setIcon(new ImageIcon(PortAllie.class.getResource("/images/Perse.jpg")));
 		panel.add(lblNewLabel_10);
 		
+		JLabel lblNiveauDuPort = new JLabel("Niveau du port de la ville : "+ portAllié.getDonnéesPort().getLevel());
+		lblNiveauDuPort.setBounds(155, 16, 195, 39);
+		contentPane.add(lblNiveauDuPort);
+		
+		//Action du bouton construire une flotte
 		JButton btnConstruireFlotte = new JButton("Construire une flotte");
 		btnConstruireFlotte.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnConstruireFlotte.addActionListener(new ActionListener() {
@@ -112,27 +117,47 @@ public class PortAllie extends JFrame {
 				Construction flotte= new Construction(portAllié);
 				flotte.setLocationRelativeTo(null);
 				flotte.setVisible(true);
+				setVisible(false);
 				}
 			});
 		
 		btnConstruireFlotte.setBounds(27, 240, 146, 50);
 		contentPane.add(btnConstruireFlotte);
 		
-		JLabel lblNiveauDuPort = new JLabel("Niveau du port de la ville : "+ portAllié.getDonnéesPort().getLevel());
-		lblNiveauDuPort.setBounds(155, 16, 195, 39);
-		contentPane.add(lblNiveauDuPort);
 		
+		//Action du bouton amelioration navire
 		JButton btnMiseLa = new JButton("Am\u00E9liorations navires");
 		btnMiseLa.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnMiseLa.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AmeliorationNavire flotte= new AmeliorationNavire(portAllié);
+				flotte.setLocationRelativeTo(null);
+				flotte.setVisible(true);
+				setVisible(false);
+				}
+			});
+		
 		btnMiseLa.setBounds(339, 240, 146, 50);
 		contentPane.add(btnMiseLa);
 		
+		
+		//Action du bouton acheter des ressources
 		JButton btnAcheterDesRessources = new JButton("Acheter des ressources");
 		btnAcheterDesRessources.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnAcheterDesRessources.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Construction flotte= new Construction(portAllié);
+				flotte.setLocationRelativeTo(null);
+				flotte.setVisible(true);
+				setVisible(false);
+				}
+			});
+		
 		btnAcheterDesRessources.setBounds(183, 240, 146, 50);
 		contentPane.add(btnAcheterDesRessources);
 		
-		JLabel lblFlotte = new JLabel("Composition de la Flotte : nombreNavire/"+ portAllié.getDonnéesPort().getLevel());
+		
+		JLabel lblFlotte = new JLabel("Composition de la Flotte : "+(portAllié.getDonnéesPort().getLevel()-portAllié.getBateauxDispo())+" /"+ portAllié.getDonnéesPort().getLevel());
 		lblFlotte.setBounds(408, 190, 279, 39);
 		contentPane.add(lblFlotte);
 		

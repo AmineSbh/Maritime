@@ -7,6 +7,7 @@ public class Navire {
 	private int capacité;
 	private int consommation;
 	private int niveau;
+	private int prix;
 	
 	public Navire()
 	{
@@ -14,6 +15,7 @@ public class Navire {
 		this.sante=0;
 		this.capacité=0;
 		this.consommation=0;
+		this.prix=0;
 	}
 	
 	public String toString()
@@ -59,6 +61,14 @@ public class Navire {
 
 	public void setNiveau(int niveau) {
 		this.niveau = niveau;
+	}
+
+	public int getPrix() {
+		return prix;
+	}
+
+	public void setPrix(int prix) {
+		this.prix = prix;
 	}
 	
 	

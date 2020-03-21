@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import DonnéesPort.Flotte;
+import DonnéesPort.Villes;
 import Navire.NavireAttaque;
 import Navire.NavireTransport;
 
@@ -60,7 +61,7 @@ public class test extends JFrame {
 		setResizable(false);
 		setTitle("Construction de la flotte avant le départ");
 		contentPane = new JPanel();
-		contentPane.setBackground(SystemColor.activeCaption);
+		contentPane.setBackground(new Color(153, 180, 209));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

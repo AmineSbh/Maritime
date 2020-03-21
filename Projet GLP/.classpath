@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="Alex"/>
-	<classpathentry kind="src" path="Guillaume"/>
 	<classpathentry kind="src" path="Amine"/>
 	<classpathentry kind="src" path="MapSwingGuillaume"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>

@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import DonnéesPort.Flotte;
+import DonnéesPort.Villes;
 import Navire.NavireAttaque;
 import Navire.NavireTransport;
 
@@ -30,6 +31,8 @@ public class Construction extends JFrame {
 	private static NavireAttaque navireATT=new NavireAttaque();
 	private static NavireTransport navireTransport =new NavireTransport();
 	private static Flotte flotte= new Flotte();
+	private static int CompteurATT=0;
+	private static int CompteurTransport=0;
 	
 	//static PortAllié portAllié= new PortAllié("Perse",20000,3000000,50000,7000,2000,4,flotte,navireATT, navireTransport);
 	private JPanel contentPane;
@@ -76,6 +79,11 @@ public class Construction extends JFrame {
 		contentPane.add(lblNewLabel);
 		panel.setLayout(null);
 		
+		JLabel lbGold = new JLabel("Or disponible: "+ portAllié.getDonnéesPort().getGold());
+		lbGold.setBounds(285, 25, 117, 14);
+		contentPane.add(lbGold);
+		panel.setLayout(null);
+		
 		JLabel lblStatistiquesDeLa = new JLabel("Composition de la Flotte");
 		lblStatistiquesDeLa.setBounds(15, 16, 230, 20);
 		panel.add(lblStatistiquesDeLa);
@@ -96,17 +104,33 @@ public class Construction extends JFrame {
 		lblNewLabel_1.setBounds(15, 95, 194, 20);
 		panel.add(lblNewLabel_1);
 		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Navire d'Attaque", "Navire de Transport"}));
+		comboBox.setBounds(280, 50, 144, 40);
+		contentPane.add(comboBox);
+		
 		//Ajouter un navire
 		JButton btnNewButton = new JButton("Ajouter un Navire");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(portAllié.getBateauxDispo()>0 && portAllié.getDonnéesPort().getGold()>1000)
+				if(comboBox.getSelectedIndex()==0) {
+				if(portAllié.getBateauxDispo()>0 && portAllié.getDonnéesPort().getGold()>=portAllié.getNavireATT().getPrix()) {
 					portAllié.AjouterAttaquePort();
+					CompteurATT++;
+				}
+				}
+				else {
+					if(portAllié.getBateauxDispo()>0 && portAllié.getDonnéesPort().getGold()>=portAllié.getNavireTransport().getPrix()) {
+					portAllié.AjouterTransportPort();
+					CompteurTransport++;
+					}
+				}
 					lblNewLabel.setText("Navire disponible: "+ portAllié.getBateauxDispo());
 					lblAttaque.setText("Attaque : "+portAllié.getFlotte().getAttaque());
 					lblSante.setText("Sante : "+portAllié.getFlotte().getSante());
 					lblConsommation.setText("Consommation : "+portAllié.getFlotte().getConsommation());
 					lblNewLabel_1.setText("Transport : "+portAllié.getFlotte().getCapacité());
+					lbGold.setText("Or disponible : "+portAllié.getDonnéesPort().getGold());
 			}
 		});
 		btnNewButton.setBounds(10, 180, 153, 40);
@@ -116,23 +140,35 @@ public class Construction extends JFrame {
 		JButton btnSupprimerUnNavire = new JButton("Supprimer un Navire");
 		btnSupprimerUnNavire.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(portAllié.getBateauxDispo()<portAllié.getDonnéesPort().getLevel())
-					portAllié.SupprimerNavireAttaquePort();
+				if(comboBox.getSelectedIndex()==0) {
+					if(CompteurATT != 0)
+					{
+						if(portAllié.getBateauxDispo()<portAllié.getDonnéesPort().getLevel()) {
+							portAllié.SupprimerNavireAttaquePort();
+							CompteurATT--;
+						}
+					}
+				}
+				else {
+					if(CompteurTransport != 0)
+					{
+						if(portAllié.getBateauxDispo()<portAllié.getDonnéesPort().getLevel()) {
+							portAllié.SupprimerNavireTransportPort();
+							CompteurTransport--;
+						}
+					}
+				}
 					lblNewLabel.setText("Navire disponible: "+ portAllié.getBateauxDispo());
 					lblNewLabel.setText("Navire disponible: "+ portAllié.getBateauxDispo());
 					lblAttaque.setText("Attaque : "+portAllié.getFlotte().getAttaque());
 					lblSante.setText("Sante : "+portAllié.getFlotte().getSante());
 					lblConsommation.setText("Consommation : "+portAllié.getFlotte().getConsommation());
 					lblNewLabel_1.setText("Transport : "+portAllié.getFlotte().getCapacité());
+					lbGold.setText("Or disponible : "+portAllié.getDonnéesPort().getGold());
 			}
 		});
 		btnSupprimerUnNavire.setBounds(198, 180, 164, 40);
 		contentPane.add(btnSupprimerUnNavire);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Navire d'Attaque", "Navire de Transport"}));
-		comboBox.setBounds(280, 50, 144, 40);
-		contentPane.add(comboBox);
 		
 		JButton btnNewButton_1 = new JButton("Flotte pr\u00EAte");
 		btnNewButton_1.addActionListener(new ActionListener() {

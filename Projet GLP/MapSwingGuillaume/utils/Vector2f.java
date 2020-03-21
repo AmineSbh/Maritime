@@ -6,22 +6,49 @@ public class Vector2f {
 	public float x;
 	public float y;
 	
-	public static float worldx;
-	public static float worldy;
+	public static float worldX;
+	public static float worldY;
 	
 	public Vector2f() {
 		x = 0;
 		y = 0;
 	}
 	
-	public Vector2f(Vector2f pos) {
-		new Vector2f (pos.x,pos.y);
+	public Vector2f(Vector2f vec) {
+		new Vector2f (vec.x,vec.y);
 	}
 	
 	public Vector2f(float x, float y) {
 		this.x = x;
 		this.y = y;
 	}
+	
+	public void setVector(Vector2f vec) {
+		this.x = vec.x;
+		this.y = vec.y;
+	}
+	
+	public void setVector(float x, float y) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	public static void setWorldVar (float x, float y) {
+		worldX = x;
+		worldY = y;
+	}
+	
+	public Vector2f getworldVar() {
+		return new Vector2f(x - worldX, y - worldY);
+	}
+	
+	
+	public String ToString() {
+		return x + "," + y;
+	}
+	
+	
+	
 	
 	public void addX(float i) {x =+ i;};
 	public void addy(float i) {y =+ i;};
