@@ -22,7 +22,7 @@ import Port.PortEnnemi;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class test1 extends JFrame {
+public class Négociation extends JFrame {
 
 
 	private JPanel contentPane;
@@ -50,7 +50,7 @@ public class test1 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public test1(PortEnnemi p1, Flotte f1) {
+	public Négociation(PortEnnemi p1, Flotte f1) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		setBounds(100, 100, 661, 333);
