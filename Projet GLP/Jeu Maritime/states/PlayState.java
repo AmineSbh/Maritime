@@ -1,15 +1,16 @@
 package states;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import utils.MouseHandler;
 import tiles.TileManager;
 
 public class PlayState extends GameState {
 	
+	private TileManager tm;
+	
 	public PlayState(GameStateManager gsm) {
 		super(gsm);
-		new TileManager("carte.xml");
+		tm = new TileManager("util/carte.xml");
 		
 	}
 	
@@ -18,7 +19,6 @@ public class PlayState extends GameState {
 	public void input(MouseHandler mouse) {
 	}
 	public void render(Graphics2D g) {
-		g.setColor(Color.red);
-		g.fillRect(100, 100, 64, 64);
+		tm.render(g);
 	}
 }

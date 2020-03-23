@@ -2,6 +2,9 @@ package tiles;
 
 import graphics.Sprite;
 import utils.Vector2f;
+import blocks.NormBlock;
+import tiles.TileMapObj;
+
 
 import java.awt.Graphics2D;
 import java.util.ArrayList;
@@ -15,7 +18,7 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-public class TileManager {
+public class TileManager extends TileMap {
 	
 	public static ArrayList<TileMap> tm;
 	
@@ -72,10 +75,23 @@ public class TileManager {
                 }
 
                 data[i] = eElement.getElementsByTagName("data").item(0).getTextContent();
+                
+                if (i >= 1) {
+                	tm.add(new TileMapNorm(data[i], sprite, width, height, blockWidth, blockHeight, tileColumns));
+                } else {
+                	tm.add(new TileMapObj(data[i], sprite, width, height, blockWidth, blockHeight, tileColumns));
+                }
+                
             }
         } catch(Exception e) {
         	System.out.println("ERROR: Can not read the tilemap");
         }
+	}
+	
+	public void render(Graphics2D g) {
+		for (int i = 0; i < tm.size(); i++) {
+			tm.get(i).render(g);
+		}
 	}
 	
 	
