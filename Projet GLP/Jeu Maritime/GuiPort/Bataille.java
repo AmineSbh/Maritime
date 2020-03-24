@@ -29,8 +29,6 @@ public class Bataille extends JFrame {
 	private static NavireAttaque navireATT=new NavireAttaque(2);
 	private static NavireTransport navireTransport =new NavireTransport();
 	private static Flotte flotte= new Flotte();
-	
-	NavireAttaque IA= new NavireAttaque(2);
 	/**
 	 * Launch the application.
 	 */
@@ -141,4 +139,13 @@ public class Bataille extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 	}
+	
+	private void pause(){
+        try {
+         Thread.sleep(5000);
+         }  // attendre 5sec entre chaque tour de boucle
+        catch (InterruptedException e) {
+         e.printStackTrace();
+         }
+       }
 }
