@@ -109,6 +109,10 @@ public class Bataille extends JFrame {
 				navireATT.setSante(navireATT.getSante()-portAllie.getFlotte().getAttaque());
 				lblSantIa.setText("Sant\u00E9 IA: "+navireATT.getSante()+" /"+3000);
 				textField.setText("Le tir de canon à été effectué ! Vous avez effectué "+portAllie.getFlotte().getAttaque()+" de dégats");
+				pause();
+				portAllie.getFlotte().setSante(portAllie.getFlotte().getSante()-navireATT.getAttaque());
+				lblNewLabel.setText("Sant\u00E9: "+portAllie.getFlotte().getSante()+" /"+3000);
+				textField.setText("Vous avez été touché! Vous avez prit "+portAllie.getFlotte().getAttaque()+" dégats");
 			}
 		});
 		btnNewButton_1.setBounds(27, 365, 144, 35);
@@ -143,7 +147,7 @@ public class Bataille extends JFrame {
 	private void pause(){
         try {
          Thread.sleep(5000);
-         }  // attendre 5sec entre chaque tour de boucle
+         }  // attendre 5sec 
         catch (InterruptedException e) {
          e.printStackTrace();
          }
