@@ -16,9 +16,6 @@ public class TileMapObj extends TileMap{
 
 	public static HashMap<String, Block> tmo_blocks;
 	
-	
-	
-	
 	public TileMapObj (String data, Sprite sprite, int width, int height, int tileWidth, int tileHeight, int tileColumns) {
 		Block tempBlock;
 		
@@ -26,12 +23,12 @@ public class TileMapObj extends TileMap{
 		
 		String[] block = data.split(",");
 		for(int i=0; i < (width * height); i++) {
-			int temp = Integer.parseInt (block[i].replaceAll("\\s+", ""));
+			int temp = Integer.parseInt (block[i].replaceAll("\\s+",""));
 			if(temp != 0) {
-				if (temp == 1) {
-					tempBlock = new LandBlock(sprite.getSprite((int) ((temp-1) % tileColumns),(int) ((temp-1) / tileColumns) ),new Vector2f((int) (i%width) * tileWidth, (int) (i%height) * tileHeight) ,tileWidth,tileHeight);
+				if (temp == 17) {
+					tempBlock = new LandBlock(sprite.getSprite((int) ((temp-1) % tileColumns),(int) ((temp-1) / tileColumns) ),new Vector2f((int) (i % width) * tileWidth, (int) (i / height) * tileHeight) ,tileWidth,tileHeight);
 				} else {
-					tempBlock = new ObjBlock(sprite.getSprite((int) ((temp-1) % tileColumns),(int) ((temp-1) / tileColumns) ),new Vector2f((int) (i%width) * tileWidth, (int) (i%height) * tileHeight) ,tileWidth,tileHeight);
+					tempBlock = new ObjBlock(sprite.getSprite((int) ((temp-1) % tileColumns),(int) ((temp-1) / tileColumns) ),new Vector2f((int) (i % width) * tileWidth, (int) (i / height) * tileHeight) ,tileWidth,tileHeight);
 				}
 				tmo_blocks.put(String.valueOf((int) (i % width)) + "," + (String.valueOf((int) (i / height))), tempBlock);
 			}

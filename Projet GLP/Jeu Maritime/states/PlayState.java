@@ -10,7 +10,7 @@ public class PlayState extends GameState {
 	
 	public PlayState(GameStateManager gsm) {
 		super(gsm);
-		tm = new TileManager("util/carte.xml");
+		tm = new TileManager("tile/carte.xml");
 		
 	}
 	

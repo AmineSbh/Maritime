@@ -61,10 +61,12 @@ public class TileManager extends TileMap {
             tileHeight = Integer.parseInt(eElement.getAttribute("tileheight"));
             tileColumns =  Integer.parseInt(eElement.getAttribute("columns"));
             tileCount = Integer.parseInt(eElement.getAttribute("tilecount"));
-            sprite = new Sprite("tile/" + imagePath + ".png", tileWidth, tileHeight);
-            
             list = doc.getElementsByTagName("layer");
             layers = list.getLength();
+            System.out.println(imagePath);
+            sprite = new Sprite("tile/" + imagePath, tileWidth, tileHeight);
+            
+            
             
             for(int i = 0; i < layers; i++) {
                 node = list.item(i);
@@ -84,7 +86,7 @@ public class TileManager extends TileMap {
                 
             }
         } catch(Exception e) {
-        	System.out.println("ERROR: Can not read the tilemap");
+        	System.out.println("ERROR: Cannot read the tilemap");
         }
 	}
 	

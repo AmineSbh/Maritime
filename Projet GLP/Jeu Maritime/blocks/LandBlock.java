@@ -1,6 +1,5 @@
 package blocks;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
@@ -18,7 +17,5 @@ public class LandBlock extends Block {
 	
 	public void render (Graphics2D g) {
 		super.render(g);
-		g.setColor(Color.green);
-		g.drawRect((int) pos.getworldVar().x, (int) pos.getworldVar().y, w, h);
 	}
 }
