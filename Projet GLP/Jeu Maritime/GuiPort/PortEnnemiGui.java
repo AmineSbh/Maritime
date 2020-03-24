@@ -31,7 +31,7 @@ import javax.swing.ImageIcon;
 		 */
 		private static final long serialVersionUID = 1L;
 		private JPanel contentPane;
-		private static NavireAttaque navireATT=new NavireAttaque();
+		private static NavireAttaque navireATT=new NavireAttaque(2);
 		private static NavireTransport navireTransport =new NavireTransport();
 		private static Flotte flotte= new Flotte();
 		private PortAllié portAllié;
@@ -71,7 +71,7 @@ import javax.swing.ImageIcon;
 			btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					setVisible(false);
-					Bataille a = new Bataille(new PortAllié(Villes.Athenes,Villes.valeurDeLaVilleAthenes,Villes.goldAthenes,Villes.woodAthenes,Villes.steelAthenes,Villes.foodAthenes,Villes.levelAthenes,flotte,navireATT, navireTransport),flotte);
+					Bataille a = new Bataille(new PortAllié(Villes.Athenes,Villes.valeurDeLaVilleAthenes,Villes.goldAthenes,Villes.woodAthenes,Villes.steelAthenes,Villes.foodAthenes,Villes.levelAthenes,flotte,navireATT, navireTransport),navireATT);
 					a.setVisible(true);
 				}
 			});
