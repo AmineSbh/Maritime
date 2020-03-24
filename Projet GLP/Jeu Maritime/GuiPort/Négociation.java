@@ -1,6 +1,5 @@
 package GuiPort;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -17,16 +16,24 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import DonnéesPort.Flotte;
+import Navire.NavireAttaque;
+import Navire.NavireTransport;
 import Port.PortEnnemi;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+
 
 public class Négociation extends JFrame {
 
 
 	private JPanel contentPane;
 	public static final String NL= System.getProperty("line.separator");
+	private static Flotte flotte= new Flotte();
+	private static NavireAttaque navireATT=new NavireAttaque();
+	private static NavireTransport navireTransport =new NavireTransport();
+	private static PortEnnemi a= new PortEnnemi("Perse",20000,3000,5000,7000,2000,4,flotte,navireATT, navireTransport);
 	private JTextArea txtManoeuvreVous;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -35,10 +42,11 @@ public class Négociation extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		flotte.setCapacité(25000);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Négociation frame = new Négociation();
+					Négociation frame = new Négociation(a,flotte);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -91,6 +99,17 @@ public class Négociation extends JFrame {
 		JButton btnNewButton = new JButton("Validation");
 		btnNewButton.setBounds(298, 95, 184, 23);
 		panel.add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int i=Integer.parseInt(textField.getText());
+				if(p1.getDonnéesPort().getValeurVille()<i) {
+					textField_1.setText("Le marché est conclu.");
+					f1.setCapacité(f1.getCapacité()-p1.getDonnéesPort().getValeurVille());
+				}
+				else {
+					textField_1.setText("Il faut augmenter le prix monsieurs.");
+				}
+			}});
 		
 		textField_1 = new JTextField();
 		textField_1.setBackground(new Color(255, 255, 255));
