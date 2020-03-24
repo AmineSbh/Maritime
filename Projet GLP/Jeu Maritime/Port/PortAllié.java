@@ -20,8 +20,8 @@ public class PortAllié extends Port{
 	{
 		if(getNavireATT().getNiveau()<4)
 		{
-			getNavireATT().setNiveau(getNavireATT().getNiveau()+1);
 			getDonnéesPort().setGold(getDonnéesPort().getGold()-getNavireATT().getPrix());
+			getNavireATT().setNiveau(getNavireATT().getNiveau()+1);
 		}
 	}
 	
@@ -29,26 +29,8 @@ public class PortAllié extends Port{
 	{
 		if(getNavireTransport().getNiveau()<4)
 		{
-			getNavireTransport().setNiveau(getNavireTransport().getNiveau()+1);
 			getDonnéesPort().setGold(getDonnéesPort().getGold()-getNavireTransport().getPrix());
-		}
-	}
-	
-	public void SuppAméliorerNavireAttaque()
-	{
-		if(getNavireATT().getNiveau()>1)
-		{
-			getNavireATT().setNiveau(getNavireATT().getNiveau()-1);
-			getDonnéesPort().setGold(getDonnéesPort().getGold()+getNavireATT().getPrix());
-		}
-	}
-	
-	public void SuppAméliorerNavireTransport()
-	{
-		if(getNavireTransport().getNiveau()>1)
-		{
-			getNavireTransport().setNiveau(getNavireTransport().getNiveau()-1);
-			getDonnéesPort().setGold(getDonnéesPort().getGold()+getNavireTransport().getPrix());
+			getNavireTransport().setNiveau(getNavireTransport().getNiveau()+1);
 		}
 	}
 	

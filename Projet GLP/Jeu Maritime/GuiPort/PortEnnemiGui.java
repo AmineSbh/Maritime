@@ -7,6 +7,7 @@ package GuiPort;
 	import javax.swing.border.EmptyBorder;
 
 import DonnéesPort.Flotte;
+import DonnéesPort.Villes;
 import Navire.NavireAttaque;
 import Navire.NavireTransport;
 import Port.PortAllié;
@@ -30,7 +31,7 @@ import javax.swing.ImageIcon;
 		 */
 		private static final long serialVersionUID = 1L;
 		private JPanel contentPane;
-		private static NavireAttaque navireATT=new NavireAttaque();
+		private static NavireAttaque navireATT=new NavireAttaque(2);
 		private static NavireTransport navireTransport =new NavireTransport();
 		private static Flotte flotte= new Flotte();
 		private PortAllié portAllié;
@@ -42,7 +43,7 @@ import javax.swing.ImageIcon;
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
-						PortEnnemiGui frame = new PortEnnemiGui(new PortAllié("Perse",20000,15000,5000,7000,2000,3,flotte,navireATT, navireTransport));
+						PortEnnemiGui frame = new PortEnnemiGui(new PortEnnemi("Perse",20000,15000,5000,7000,2000,3,flotte,navireATT, navireTransport),flotte);
 						frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -54,7 +55,7 @@ import javax.swing.ImageIcon;
 		/**
 		 * Create the frame.
 		 */
-		public PortEnnemiGui(PortAllié portAllie) {
+		public PortEnnemiGui(PortEnnemi portEnnemi,Flotte flotte) {
 			PortEnnemi a= new PortEnnemi("Perse",20000,3000,5000,7000,2000,4,flotte,navireATT, navireTransport);
 			setResizable(false);
 			setTitle(a.getDonnéesPort().getName());
@@ -70,7 +71,7 @@ import javax.swing.ImageIcon;
 			btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					setVisible(false);
-					Bataille a = new Bataille();
+					Bataille a = new Bataille(new PortAllié(Villes.Athenes,Villes.valeurDeLaVilleAthenes,Villes.goldAthenes,Villes.woodAthenes,Villes.steelAthenes,Villes.foodAthenes,Villes.levelAthenes,flotte,navireATT, navireTransport),navireATT);
 					a.setVisible(true);
 				}
 			});
@@ -82,8 +83,8 @@ import javax.swing.ImageIcon;
 			btnNewButton_1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					setVisible(false);
-					//Négociation b= new Négociation(portAllie,);
-					//b.setVisible(true);
+					Négociation b= new Négociation(portEnnemi,flotte);
+					b.setVisible(true);
 					
 				}
 			});
