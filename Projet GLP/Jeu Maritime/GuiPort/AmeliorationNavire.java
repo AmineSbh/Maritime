@@ -97,12 +97,12 @@ public class AmeliorationNavire extends JFrame {
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JLabel lblAmelioTransport = new JLabel("Coût amélioration navire de transport: "+portAllié.getNavireTransport().getPrix());
-		lblAmelioTransport.setBounds(15, 5, 352, 20);
+		JLabel lblAmelioTransport = new JLabel("Coût amélioration navire de transport pour le niveau "+portAllié.getNavireTransport().getNiveau()+" est: "+portAllié.getNavireTransport().getPrix());
+		lblAmelioTransport.setBounds(15, 5, 375, 20);
 		panel_1.add(lblAmelioTransport);
 		
-		JLabel lblAmelioATT = new JLabel("Coût amélioration navire d'attaque: "+portAllié.getNavireATT().getPrix());
-		lblAmelioATT.setBounds(15, 30, 352, 20);
+		JLabel lblAmelioATT = new JLabel("Coût amélioration navire d'attaque pour le niveau "+portAllié.getNavireATT().getNiveau()+" est: "+portAllié.getNavireATT().getPrix());
+		lblAmelioATT.setBounds(15, 30, 375, 20);
 		panel_1.add(lblAmelioATT);
 		
 		JLabel lblOrDisponible = new JLabel("or disponible: "+portAllié.getDonnéesPort().getGold());
@@ -126,8 +126,8 @@ public class AmeliorationNavire extends JFrame {
 							label_2.setText("Sante : "+portAllié.getNavireATT().getSante());
 							label_3.setText("Consommation : "+portAllié.getNavireATT().getConsommation());
 							label_4.setText("Transport : "+portAllié.getNavireATT().getCapacité());
-							lblAmelioTransport.setText("Coût amélioration navire de transport: "+portAllié.getNavireTransport().getPrix());
-							lblAmelioATT.setText("Coût amélioration navire d'attaque: "+portAllié.getNavireATT().getPrix());
+							lblAmelioTransport.setText("Coût amélioration navire de transport pour le niveau "+portAllié.getNavireTransport().getNiveau()+" est: "+portAllié.getNavireTransport().getPrix());
+							lblAmelioATT.setText("Coût amélioration navire d'attaque pour le niveau "+portAllié.getNavireATT().getNiveau()+" est: "+portAllié.getNavireATT().getPrix());
 							lblOrDisponible.setText("or disponible: "+portAllié.getDonnéesPort().getGold());
 						}
 				}
@@ -139,8 +139,8 @@ public class AmeliorationNavire extends JFrame {
 							label_2.setText("Sante : "+portAllié.getNavireTransport().getSante());
 							label_3.setText("Consommation : "+portAllié.getNavireTransport().getConsommation());
 							label_4.setText("Transport : "+portAllié.getNavireTransport().getCapacité());
-							lblAmelioTransport.setText("Coût amélioration navire de transport: "+portAllié.getNavireTransport().getPrix());
-							lblAmelioATT.setText("Coût amélioration navire d'attaque: "+portAllié.getNavireATT().getPrix());
+							lblAmelioTransport.setText("Coût amélioration navire de transport pour le niveau "+portAllié.getNavireTransport().getNiveau()+" est: "+portAllié.getNavireTransport().getPrix());
+							lblAmelioATT.setText("Coût amélioration navire d'attaque pour le niveau "+portAllié.getNavireATT().getNiveau()+" est: "+portAllié.getNavireATT().getPrix());
 							lblOrDisponible.setText("or disponible: "+portAllié.getDonnéesPort().getGold());
 						}
 				}
