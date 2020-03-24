@@ -1,6 +1,5 @@
 package graphics;
 
-import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -30,12 +29,12 @@ public class Sprite {
 		hSprite = SPRITESHEET.getHeight() / h;
 		loadSpriteArray();
 	}
-	
+
 	public Sprite (String file, int w, int h) {
 		this.w = w;
 		this.h = h;
 		
-		System.out.println("Loading" + file);
+		System.out.println("Loading " + file);
 		SPRITESHEET = loadSprite(file);
 		
 		wSprite = SPRITESHEET.getWidth() / w;
@@ -75,7 +74,7 @@ public class Sprite {
 		spriteArray = new BufferedImage[wSprite][hSprite];
 		
 		for (int x = 0; x < wSprite; x++) {
-			for (int y = 0; y < wSprite; y++) {
+			for (int y = 0; y < hSprite; y++) {
 				spriteArray[x][y] = getSprite(x,y);
 			}
 		}
@@ -104,49 +103,35 @@ public class Sprite {
 			y += yOffset;
 		}
 	}
-	
-	public static void DrawArray (Graphics2D g, Font f, String word, Vector2f pos, int width, int height, int xOffset, int yOffset) {
-		float x = pos.x;
-		float y = pos.y;
-		
-		for (int i = 0; i < word.length(); i++ ) {
-			if (word.charAt(i) != 32) {
-				g.drawImage(f.getFont(word.charAt(i)), (int) x, (int) y, width, height, null);
-			}
-		}
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
