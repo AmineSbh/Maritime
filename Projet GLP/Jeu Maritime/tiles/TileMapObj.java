@@ -2,7 +2,7 @@ package tiles;
 
 import graphics.Sprite;
 import utils.Vector2f;
-
+import java.lang.Math;
 import java.awt.Graphics2D;
 import java.util.HashMap;
 
@@ -26,9 +26,9 @@ public class TileMapObj extends TileMap{
 			int temp = Integer.parseInt (block[i].replaceAll("\\s+",""));
 			if(temp != 0) {
 				if (temp == 17) {
-					tempBlock = new LandBlock(sprite.getSprite((int) ((temp-1) % tileColumns),(int) ((temp-1) / tileColumns) ),new Vector2f((int) (i % width) * tileWidth, (int) (i / height) * tileHeight) ,tileWidth,tileHeight);
+					tempBlock = new LandBlock(sprite.getSprite((int) ((temp-1) % tileColumns),(int) ((temp-1) / tileColumns) ),new Vector2f((int) (i % width) * tileWidth, (int) (i / width) * tileHeight) ,tileWidth,tileHeight);
 				} else {
-					tempBlock = new ObjBlock(sprite.getSprite((int) ((temp-1) % tileColumns),(int) ((temp-1) / tileColumns) ),new Vector2f((int) (i % width) * tileWidth, (int) (i / height) * tileHeight) ,tileWidth,tileHeight);
+					tempBlock = new ObjBlock(sprite.getSprite((int) ((temp-1) % tileColumns),(int) ((temp-1) / tileColumns) ),new Vector2f((int) (i % width) * tileWidth, (int) (i / width) * tileHeight) ,tileWidth,tileHeight);
 				}
 				tmo_blocks.put(String.valueOf((int) (i % width)) + "," + (String.valueOf((int) (i / height))), tempBlock);
 			}
