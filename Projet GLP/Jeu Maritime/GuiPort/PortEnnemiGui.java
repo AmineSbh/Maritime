@@ -7,6 +7,7 @@ package GuiPort;
 	import javax.swing.border.EmptyBorder;
 
 import DonnéesPort.Flotte;
+import DonnéesPort.Villes;
 import Navire.NavireAttaque;
 import Navire.NavireTransport;
 import Port.PortAllié;
@@ -70,7 +71,7 @@ import javax.swing.ImageIcon;
 			btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					setVisible(false);
-					Bataille a = new Bataille();
+					Bataille a = new Bataille(new PortAllié(Villes.Athenes,Villes.valeurDeLaVilleAthenes,Villes.goldAthenes,Villes.woodAthenes,Villes.steelAthenes,Villes.foodAthenes,Villes.levelAthenes,flotte,navireATT, navireTransport),flotte);
 					a.setVisible(true);
 				}
 			});
