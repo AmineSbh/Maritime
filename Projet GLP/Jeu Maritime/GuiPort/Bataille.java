@@ -66,6 +66,10 @@ public class Bataille extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
+		JLabel lbBackground = new JLabel("");
+		lbBackground.setIcon(new ImageIcon(Bataille.class.getResource("/res/backgroundBataille.jpg")));
+		panel.add(lbBackground);
+		
 		//panel insertion bateau
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(34, 181, 220, 110);
@@ -75,6 +79,7 @@ public class Bataille extends JFrame {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(360, 30, 220, 110);
 		panel.add(panel_2);
+		
 		
 		JLabel lblBateau = new JLabel("");
 		lblBateau.setIcon(new ImageIcon(Bataille.class.getResource("/res/maritimeimg.jpeg")));
@@ -146,7 +151,7 @@ public class Bataille extends JFrame {
 	
 	private void pause(){
         try {
-         Thread.sleep(5000);
+         Thread.sleep(3000);
          }  // attendre 5sec 
         catch (InterruptedException e) {
          e.printStackTrace();

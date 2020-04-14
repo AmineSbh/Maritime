@@ -1,5 +1,7 @@
 package DonnéesPort;
 
+import Donnees_Const_Navire.Calle;
+
 public class Flotte {
 
 	private int attaque;
@@ -8,6 +10,7 @@ public class Flotte {
 	private int consommation;
 	private int NavireAttaque;
 	private int NavireTransport;
+	private Calle calle;
 	
 	public Flotte()
 	{
@@ -17,6 +20,7 @@ public class Flotte {
 		this.consommation=0;
 		this.NavireAttaque=0;
 		this.NavireTransport=0;
+		this.calle=new Calle(capacité);
 	}
 	
 	public String toString()
@@ -46,6 +50,7 @@ public class Flotte {
 
 	public void setCapacité(int capacité) {
 		this.capacité = capacité;
+		calle.setCapacitéTotale(capacité);
 	}
 
 	public int getConsommation() {
@@ -70,5 +75,13 @@ public class Flotte {
 
 	public void setNavireTransport(int navireTransport) {
 		NavireTransport = navireTransport;
+	}
+
+	public Calle getCalle() {
+		return calle;
+	}
+
+	public void setCalle(Calle calle) {
+		this.calle = calle;
 	}
 }

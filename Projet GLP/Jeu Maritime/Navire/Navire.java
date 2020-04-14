@@ -1,5 +1,7 @@
 package Navire;
 
+import Donnees_Const_Navire.Calle;
+
 public class Navire {
 
 	private int attaque;
@@ -8,6 +10,7 @@ public class Navire {
 	private int consommation;
 	private int niveau;
 	private int prix;
+	private Calle calle;
 	
 	public Navire()
 	{
@@ -16,6 +19,7 @@ public class Navire {
 		this.capacité=0;
 		this.consommation=0;
 		this.prix=0;
+		this.calle=new Calle(capacité);
 	}
 	
 	public String toString()
@@ -69,6 +73,14 @@ public class Navire {
 
 	public void setPrix(int prix) {
 		this.prix = prix;
+	}
+
+	public Calle getCalle() {
+		return calle;
+	}
+
+	public void setCalle(Calle calle) {
+		this.calle = calle;
 	}
 	
 	

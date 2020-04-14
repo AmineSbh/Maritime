@@ -2,7 +2,7 @@ package Donnees_Const_Navire;
 
 public class Attaque {
 	
-	public static final int AAttaqueNiv1=70;
+	public static final int AAttaqueNiv1=20;
 	public static final int AAttaqueNiv2=40;
 	public static final int AAttaqueNiv3=80;
 	public static final int AAttaqueNiv4=160;

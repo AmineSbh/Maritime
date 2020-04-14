@@ -97,7 +97,7 @@ public class PortAllie extends JFrame {
 		contentPane.add(panel);
 		
 		JLabel lblNewLabel_10 = new JLabel("");
-		lblNewLabel_10.setIcon(new ImageIcon(PortAllie.class.getResource("/res/Perse.jpg")));
+		lblNewLabel_10.setIcon(new ImageIcon(PortAllie.class.getResource("/res/"+portAllié.getDonnéesPort().getName()+".jpg")));
 		panel.add(lblNewLabel_10);
 		
 		JLabel lblNiveauDuPort = new JLabel("Niveau du port de la ville : "+ portAllié.getDonnéesPort().getLevel());
@@ -171,13 +171,13 @@ public class PortAllie extends JFrame {
 		btnNewButton.setBounds(546, 318, 121, 23);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblPerse = new JLabel("Perse");
+		JLabel lblPerse = new JLabel(portAllié.getDonnéesPort().getName());
 		lblPerse.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 22));
 		lblPerse.setBackground(SystemColor.activeCaption);
 		lblPerse.setBounds(35, 14, 172, 33);
 		contentPane.add(lblPerse);
 		
-		JTextArea lblDescriptionDeLa = new JTextArea("Description de la ville: Bienvenue en Perse, " +NL+ "la cité experte en arme métallique");
+		JTextArea lblDescriptionDeLa = new JTextArea("Vous êtes arrivés à destination veulliez choisir une action");
 		lblDescriptionDeLa.setBounds(27, 176, 375, 44);
 		contentPane.add(lblDescriptionDeLa);
 		lblDescriptionDeLa.setFont(new Font("Monospaced", Font.ITALIC, 14));

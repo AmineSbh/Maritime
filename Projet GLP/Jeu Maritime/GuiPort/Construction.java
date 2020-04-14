@@ -80,7 +80,7 @@ public class Construction extends JFrame {
 		panel.setLayout(null);
 		
 		JLabel lbGold = new JLabel("Or disponible: "+ portAllié.getDonnéesPort().getGold());
-		lbGold.setBounds(285, 25, 117, 14);
+		lbGold.setBounds(285, 25, 150, 14);
 		contentPane.add(lbGold);
 		panel.setLayout(null);
 		
@@ -100,7 +100,7 @@ public class Construction extends JFrame {
 		lblConsommation.setBounds(15, 77, 188, 20);
 		panel.add(lblConsommation);
 		
-		JLabel lblNewLabel_1 = new JLabel("Transport :");
+		JLabel lblNewLabel_1 = new JLabel("Capacité :");
 		lblNewLabel_1.setBounds(15, 95, 194, 20);
 		panel.add(lblNewLabel_1);
 		
@@ -129,7 +129,7 @@ public class Construction extends JFrame {
 					lblAttaque.setText("Attaque : "+portAllié.getFlotte().getAttaque());
 					lblSante.setText("Sante : "+portAllié.getFlotte().getSante());
 					lblConsommation.setText("Consommation : "+portAllié.getFlotte().getConsommation());
-					lblNewLabel_1.setText("Transport : "+portAllié.getFlotte().getCapacité());
+					lblNewLabel_1.setText("Capacité : "+portAllié.getFlotte().getCapacité());
 					lbGold.setText("Or disponible : "+portAllié.getDonnéesPort().getGold());
 			}
 		});

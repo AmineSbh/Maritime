@@ -1,6 +1,7 @@
 package Navire;
 
 import Donnees_Const_Navire.Attaque;
+import Donnees_Const_Navire.Calle;
 import Donnees_Const_Navire.Capacité;
 import Donnees_Const_Navire.Consommation;
 import Donnees_Const_Navire.Prix;
@@ -23,6 +24,7 @@ public class NavireTransport extends Navire{
 		consommation= Consommation.TConsommationNiv1;
 		this.niveau=1;
 		prix=Prix.TPrixNiv1;
+		setCalle(new Calle(capacité));
 	}
 	
 	public NavireTransport(int niv)
@@ -35,6 +37,7 @@ public class NavireTransport extends Navire{
 			consommation= Consommation.TConsommationNiv1;
 			this.niveau=niv;
 			prix=Prix.TPrixNiv1;
+			setCalle(new Calle(capacité));
 		}
 		else if(niv==2)
 		{
@@ -44,6 +47,7 @@ public class NavireTransport extends Navire{
 			consommation= Consommation.TConsommationNiv2;
 			this.niveau=niv;
 			prix=Prix.TPrixNiv2;
+			setCalle(new Calle(capacité));
 		}
 		else if(niv==3)
 		{
@@ -53,6 +57,7 @@ public class NavireTransport extends Navire{
 			consommation= Consommation.TConsommationNiv3;
 			this.niveau=niv;
 			prix=Prix.TPrixNiv3;
+			setCalle(new Calle(capacité));
 		}
 		else if(niv==4)
 		{
@@ -62,6 +67,7 @@ public class NavireTransport extends Navire{
 			consommation= Consommation.TConsommationNiv4;
 			this.niveau=niv;
 			prix=Prix.TPrixNiv4;
+			setCalle(new Calle(capacité));
 		}
 	}
 	

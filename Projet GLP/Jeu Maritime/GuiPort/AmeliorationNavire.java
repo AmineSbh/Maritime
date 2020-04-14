@@ -87,7 +87,7 @@ public class AmeliorationNavire extends JFrame {
 		label_3.setBounds(15, 77, 188, 20);
 		panel.add(label_3);
 		
-		JLabel label_4 = new JLabel("Transport :");
+		JLabel label_4 = new JLabel("Capacité :");
 		label_4.setBounds(15, 95, 194, 20);
 		panel.add(label_4);
 		
@@ -125,7 +125,7 @@ public class AmeliorationNavire extends JFrame {
 							label_1.setText("Attaque : "+portAllié.getNavireATT().getAttaque());
 							label_2.setText("Sante : "+portAllié.getNavireATT().getSante());
 							label_3.setText("Consommation : "+portAllié.getNavireATT().getConsommation());
-							label_4.setText("Transport : "+portAllié.getNavireATT().getCapacité());
+							label_4.setText("Capacité : "+portAllié.getNavireATT().getCapacité());
 							lblAmelioTransport.setText("Coût amélioration navire de transport pour le niveau "+portAllié.getNavireTransport().getNiveau()+" est: "+portAllié.getNavireTransport().getPrix());
 							lblAmelioATT.setText("Coût amélioration navire d'attaque pour le niveau "+portAllié.getNavireATT().getNiveau()+" est: "+portAllié.getNavireATT().getPrix());
 							lblOrDisponible.setText("or disponible: "+portAllié.getDonnéesPort().getGold());
@@ -138,7 +138,7 @@ public class AmeliorationNavire extends JFrame {
 							label_1.setText("Attaque : "+portAllié.getNavireTransport().getAttaque());
 							label_2.setText("Sante : "+portAllié.getNavireTransport().getSante());
 							label_3.setText("Consommation : "+portAllié.getNavireTransport().getConsommation());
-							label_4.setText("Transport : "+portAllié.getNavireTransport().getCapacité());
+							label_4.setText("Capacité : "+portAllié.getNavireTransport().getCapacité());
 							lblAmelioTransport.setText("Coût amélioration navire de transport pour le niveau "+portAllié.getNavireTransport().getNiveau()+" est: "+portAllié.getNavireTransport().getPrix());
 							lblAmelioATT.setText("Coût amélioration navire d'attaque pour le niveau "+portAllié.getNavireATT().getNiveau()+" est: "+portAllié.getNavireATT().getPrix());
 							lblOrDisponible.setText("or disponible: "+portAllié.getDonnéesPort().getGold());

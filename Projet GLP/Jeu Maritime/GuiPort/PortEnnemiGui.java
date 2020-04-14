@@ -120,16 +120,16 @@ import javax.swing.ImageIcon;
 			contentPane.add(panel);
 			
 			JLabel lblNewLabel_1 = new JLabel("");
-			lblNewLabel_1.setIcon(new ImageIcon(PortEnnemiGui.class.getResource("/res/Perse.jpg")));
+			lblNewLabel_1.setIcon(new ImageIcon(PortEnnemiGui.class.getResource("/res/"+portEnnemi.getDonnéesPort().getName()+".jpg")));
 			panel.add(lblNewLabel_1);
 			
-			JLabel lblAthnes = new JLabel(a.getDonnéesPort().getName());
+			JLabel lblAthnes = new JLabel(portEnnemi.getDonnéesPort().getName());
 			lblAthnes.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 22));
 			lblAthnes.setHorizontalAlignment(SwingConstants.CENTER);
 			lblAthnes.setBounds(10, 11, 182, 30);
 			contentPane.add(lblAthnes);
 			
-			JLabel lblDescriptionDeLa = new JLabel("Description de la ville : Voici la grande cité de Perse");
+			JLabel lblDescriptionDeLa = new JLabel("Vous êtes arrivés à destination veulliez choisir une action");
 			lblDescriptionDeLa.setVerticalAlignment(SwingConstants.TOP);
 			lblDescriptionDeLa.setBounds(50, 211, 467, 43);
 			contentPane.add(lblDescriptionDeLa);
