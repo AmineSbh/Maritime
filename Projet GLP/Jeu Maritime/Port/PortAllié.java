@@ -70,6 +70,98 @@ public class PortAllié extends Port{
 		
 	}
 	
+	
+	//Ajouter/Supprimr marchandise
+	public void AjouterOr(int valeur) {
+		if(getFlotte().getCalle().getCapacité() <= getFlotte().getCalle().getCapacitéTotale()-valeur  && getDonnéesPort().getGold()>=valeur) {
+			/* On modifie l'or de la calle*/
+			getFlotte().getCalle().setOr(getFlotte().getCalle().getOr()+valeur);
+			/* On modifie la capacité restante de la calle*/
+			getFlotte().getCalle().setCapacité(getFlotte().getCalle().getCapacité()+valeur);
+			/* On modifie l'or du port*/
+			getDonnéesPort().setGold(getDonnéesPort().getGold()-valeur);
+		}
+	}
+	
+	public void AjouterFood(int Food) {
+		if(getFlotte().getCalle().getCapacité() <= getFlotte().getCalle().getCapacitéTotale()-Food  && getDonnéesPort().getFood()>=Food) {
+			/* On modifie la nourriture de la calle*/
+			getFlotte().getCalle().setFood(getFlotte().getCalle().getFood()+Food);
+			/* On modifie la capacité restante de la calle*/
+			getFlotte().getCalle().setCapacité(getFlotte().getCalle().getCapacité()+Food);
+			/* On modifie la nourriture du port*/
+			getDonnéesPort().setFood(getDonnéesPort().getFood()-Food);
+		}
+	}
+	
+	public void AjouterWood(int Wood) {
+		if(getFlotte().getCalle().getCapacité() <= getFlotte().getCalle().getCapacitéTotale()-Wood  && getDonnéesPort().getWood()>=Wood) {
+			/* On modifie l'or de la calle*/
+			getFlotte().getCalle().setWood(getFlotte().getCalle().getWood()+Wood);
+			/* On modifie la capacité restante de la calle*/
+			getFlotte().getCalle().setCapacité(getFlotte().getCalle().getCapacité()+Wood);
+			/* On modifie l'or du port*/
+			getDonnéesPort().setWood(getDonnéesPort().getWood()-Wood);
+		}
+	}
+	
+	public void AjouterSteel(int Steel) {
+		if(getFlotte().getCalle().getCapacité() <= getFlotte().getCalle().getCapacitéTotale()-Steel  && getDonnéesPort().getSteel()>=Steel) {
+			/* On modifie l'or de la calle*/
+			getFlotte().getCalle().setSteel(getFlotte().getCalle().getSteel()+Steel);
+			/* On modifie la capacité restante de la calle*/
+			getFlotte().getCalle().setCapacité(getFlotte().getCalle().getCapacité()+Steel);
+			/* On modifie l'or du port*/
+			getDonnéesPort().setSteel(getDonnéesPort().getSteel()-Steel);
+		}
+	}
+	
+	
+	
+	public void SupprimerOr(int valeur) {
+		if(0 <= getFlotte().getCalle().getCapacité()-valeur && 0<=getFlotte().getCalle().getOr()-valeur) {
+			/* On modifie l'or de la calle*/
+			getFlotte().getCalle().setOr(getFlotte().getCalle().getOr()-valeur);
+			/* On modifie la capacité restante de la calle*/
+			getFlotte().getCalle().setCapacité(getFlotte().getCalle().getCapacité()-valeur);
+			/* On modifie l'or du port*/
+			getDonnéesPort().setGold(getDonnéesPort().getGold()+valeur);
+		}
+	}
+	
+	public void SupprimerFood(int Food) {
+		if(0 <= getFlotte().getCalle().getCapacité()-Food && 0<=getFlotte().getCalle().getFood()-Food) {
+			/* On modifie l'or de la calle*/
+			getFlotte().getCalle().setFood(getFlotte().getCalle().getFood()-Food);
+			/* On modifie la capacité restante de la calle*/
+			getFlotte().getCalle().setCapacité(getFlotte().getCalle().getCapacité()-Food);
+			/* On modifie l'or du port*/
+			getDonnéesPort().setFood(getDonnéesPort().getFood()+Food);
+		}
+	}
+	
+	public void SupprimerWood(int Wood) {
+		if(0 <= getFlotte().getCalle().getCapacité()-Wood && 0<=getFlotte().getCalle().getWood()-Wood) {
+			/* On modifie l'or de la calle*/
+			getFlotte().getCalle().setWood(getFlotte().getCalle().getWood()-Wood);
+			/* On modifie la capacité restante de la calle*/
+			getFlotte().getCalle().setCapacité(getFlotte().getCalle().getCapacité()-Wood);
+			/* On modifie l'or du port*/
+			getDonnéesPort().setWood(getDonnéesPort().getWood()+Wood);
+		}
+	}
+	
+	public void SupprimerSteel(int Steel) {
+		if(0 <= getFlotte().getCalle().getCapacité()-Steel && 0<=getFlotte().getCalle().getSteel()-Steel) {
+			/* On modifie l'or de la calle*/
+			getFlotte().getCalle().setSteel(getFlotte().getCalle().getSteel()-Steel);
+			/* On modifie la capacité restante de la calle*/
+			getFlotte().getCalle().setCapacité(getFlotte().getCalle().getCapacité()-Steel);
+			/* On modifie l'or du port*/
+			getDonnéesPort().setSteel(getDonnéesPort().getSteel()+Steel);
+		}
+	}
+	
 
 	public int getBateauxDispo() {
 		return BateauxDispo;

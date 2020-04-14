@@ -35,6 +35,7 @@ import javax.swing.ImageIcon;
 		private static NavireTransport navireTransport =new NavireTransport();
 		private static Flotte flotte= new Flotte();
 		private PortAllié portAllié;
+		
 
 		/**
 		 * Launch the application.
@@ -129,7 +130,7 @@ import javax.swing.ImageIcon;
 			lblAthnes.setBounds(10, 11, 182, 30);
 			contentPane.add(lblAthnes);
 			
-			JLabel lblDescriptionDeLa = new JLabel("Vous êtes arrivés à destination veulliez choisir une action");
+			JLabel lblDescriptionDeLa = new JLabel("Vous êtes arrivés à destination veuillez choisir une action");
 			lblDescriptionDeLa.setVerticalAlignment(SwingConstants.TOP);
 			lblDescriptionDeLa.setBounds(50, 211, 467, 43);
 			contentPane.add(lblDescriptionDeLa);

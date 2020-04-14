@@ -57,7 +57,7 @@ public class PortAllie extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PortAllie frame = new PortAllie(new PortAllié("Perse",20000,15000,5000,7000,2000,3,flotte,navireATT, navireTransport));
+					PortAllie frame = new PortAllie(new PortAllié("Perse",20000,1800,5000,7000,2000,3,flotte,navireATT, navireTransport));
 					frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -137,7 +137,7 @@ public class PortAllie extends JFrame {
 		
 		
 		//Action du bouton acheter des ressources
-		JButton btnAcheterDesRessources = new JButton("Acheter des ressources");
+		JButton btnAcheterDesRessources = new JButton("Charger/Décharger");
 		btnAcheterDesRessources.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnAcheterDesRessources.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -158,6 +158,15 @@ public class PortAllie extends JFrame {
 		
 		JButton btnMiseLa_1 = new JButton("Mise \u00E0 la mer");
 		btnMiseLa_1.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnMiseLa_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Perse donnee= new Perse(portAllié);
+				//marchandise.setLocationRelativeTo(null);
+				//marchandise.setVisible(true);
+				setVisible(false);
+				}
+			});
+		
 		btnMiseLa_1.setBounds(495, 240, 146, 50);
 		contentPane.add(btnMiseLa_1);
 		
@@ -177,7 +186,7 @@ public class PortAllie extends JFrame {
 		lblPerse.setBounds(35, 14, 172, 33);
 		contentPane.add(lblPerse);
 		
-		JTextArea lblDescriptionDeLa = new JTextArea("Vous êtes arrivés à destination veulliez choisir une action");
+		JTextArea lblDescriptionDeLa = new JTextArea("Vous êtes arrivés à destination"+NL+"veuillez choisir une action");
 		lblDescriptionDeLa.setBounds(27, 176, 375, 44);
 		contentPane.add(lblDescriptionDeLa);
 		lblDescriptionDeLa.setFont(new Font("Monospaced", Font.ITALIC, 14));

@@ -18,12 +18,12 @@ public class Calle {
 		this.setCapacité(0);
 	}
 	
-	public void AjouterOr(int valeur) {
+	/*public void AjouterOr(int valeur) {
 		if(capacité <= capacitéTotale-valeur) {
 			setOr(getOr()+valeur);
 			setCapacité(getCapacité()+valeur);
 		}
-	}
+	}*/
 	
 	public void AjouterFood(int Food) {
 		if(capacité <= capacitéTotale-Food) {

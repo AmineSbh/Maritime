@@ -38,6 +38,7 @@ public class Négociation extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 
+
 	/**
 	 * Launch the application.
 	 */
@@ -97,19 +98,21 @@ public class Négociation extends JFrame {
 		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Validation");
-		btnNewButton.setBounds(298, 95, 184, 23);
-		panel.add(btnNewButton);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int i=Integer.parseInt(textField.getText());
-				if(p1.getDonnéesPort().getValeurVille()<i) {
-					textField_1.setText("Le marché est conclu.");
-					f1.setCapacité(f1.getCapacité()-p1.getDonnéesPort().getValeurVille());
-				}
-				else {
-					textField_1.setText("Il faut augmenter le prix monsieurs.");
-				}
-			}});
+        btnNewButton.setBounds(298, 95, 184, 23);
+        panel.add(btnNewButton);
+        
+        btnNewButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	int negoce=(5*p1.getDonnéesPort().getValeurVille()/100);
+                int i=Integer.parseInt(textField.getText());
+                if(p1.getDonnéesPort().getValeurVille()-negoce<i) {
+                    textField_1.setText("Le marché est conclu.");
+                    f1.setCapacité(f1.getCapacité()-p1.getDonnéesPort().getValeurVille());
+                }
+                else {
+                    textField_1.setText("Il faut augmenter le prix messieurs ! (La négociation devient plus difficile...)");
+                }
+            }});
 		
 		textField_1 = new JTextField();
 		textField_1.setBackground(new Color(255, 255, 255));

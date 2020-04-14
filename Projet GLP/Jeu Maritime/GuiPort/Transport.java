@@ -81,23 +81,23 @@ public class Transport extends JFrame {
 		lblStatistiquesDeLa.setBounds(15, 16, 230, 20);
 		panel.add(lblStatistiquesDeLa);
 		
-		JLabel lbGold = new JLabel("Or :"+portAllié.getFlotte().getCalle().getOr());
+		JLabel lbGold = new JLabel("Or: "+portAllié.getFlotte().getCalle().getOr());
 		lbGold.setBounds(15, 41, 194, 20);
 		panel.add(lbGold);
 		
-		JLabel lblBois = new JLabel("Bois :"+portAllié.getFlotte().getCalle().getWood());
+		JLabel lblBois = new JLabel("Bois: "+portAllié.getFlotte().getCalle().getWood());
 		lblBois.setBounds(15, 64, 194, 20);
 		panel.add(lblBois);
 		
-		JLabel lblNourriture = new JLabel("Nourriture :"+portAllié.getFlotte().getCalle().getFood());
+		JLabel lblNourriture = new JLabel("Nourriture: "+portAllié.getFlotte().getCalle().getFood());
 		lblNourriture.setBounds(15, 88, 188, 20);
 		panel.add(lblNourriture);
 		
-		JLabel lblMetaux = new JLabel("M\u00E9taux :"+portAllié.getFlotte().getCalle().getSteel());
+		JLabel lblMetaux = new JLabel("M\u00E9taux: "+portAllié.getFlotte().getCalle().getSteel());
 		lblMetaux.setBounds(15, 113, 194, 20);
 		panel.add(lblMetaux);
 		
-		JLabel lblNewLabel = new JLabel("Capacit\u00E9 disponible: "+(portAllié.getFlotte().getCalle().getCapacitéTotale()-portAllié.getFlotte().getCalle().getCapacité()));
+		JLabel lblNewLabel = new JLabel("Capacit\u00E9 disponible :"+(portAllié.getFlotte().getCalle().getCapacitéTotale()-portAllié.getFlotte().getCalle().getCapacité()));
 		lblNewLabel.setBounds(15, 166, 176, 28);
 		panel.add(lblNewLabel);
 		
@@ -114,19 +114,19 @@ public class Transport extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(comboBox.getSelectedIndex()==1) {
-					portAllié.getFlotte().getCalle().AjouterOr(100);
+					portAllié.AjouterOr(100);
 				}
 				
 				if(comboBox.getSelectedIndex()==2) {
-					portAllié.getFlotte().getCalle().AjouterWood(100);
+					portAllié.AjouterWood(100);
 				}
 				
 				if(comboBox.getSelectedIndex()==3) {
-					portAllié.getFlotte().getCalle().AjouterSteel(100);
+					portAllié.AjouterSteel(100);
 				}
 				
 				if(comboBox.getSelectedIndex()==4) {
-					portAllié.getFlotte().getCalle().AjouterFood(100);
+					portAllié.AjouterFood(100);
 				}
 				
 				lbGold.setText("Or: "+ portAllié.getFlotte().getCalle().getOr());
@@ -145,16 +145,16 @@ public class Transport extends JFrame {
 		btnSupprimerUnNavire.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(comboBox.getSelectedIndex()==1) {
-					portAllié.getFlotte().getCalle().SupprimerOr(100);
+					portAllié.SupprimerOr(100);
 				}
 				if(comboBox.getSelectedIndex()==2) {
-					portAllié.getFlotte().getCalle().SupprimerWood(100);
+					portAllié.SupprimerWood(100);
 				}
 				if(comboBox.getSelectedIndex()==3) {
-					portAllié.getFlotte().getCalle().SupprimerSteel(100);
+					portAllié.SupprimerSteel(100);
 				}
 				if(comboBox.getSelectedIndex()==4) {
-					portAllié.getFlotte().getCalle().SupprimerFood(100);
+					portAllié.SupprimerFood(100);
 				}
 				lbGold.setText("Or: "+ portAllié.getFlotte().getCalle().getOr());
 				lblBois.setText("Bois : "+portAllié.getFlotte().getCalle().getWood());
