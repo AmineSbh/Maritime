@@ -141,9 +141,9 @@ public class PortAllie extends JFrame {
 		btnAcheterDesRessources.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnAcheterDesRessources.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Construction flotte= new Construction(portAllié);
-				flotte.setLocationRelativeTo(null);
-				flotte.setVisible(true);
+				Transport marchandise= new Transport(portAllié);
+				marchandise.setLocationRelativeTo(null);
+				marchandise.setVisible(true);
 				setVisible(false);
 				}
 			});
