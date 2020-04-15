@@ -40,7 +40,7 @@ public class Construction extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -51,12 +51,12 @@ public class Construction extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public Construction(PortAllié portAllié) {
+	public Construction(PortAllié portAllié,Moteur moteur) {
 	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -140,6 +140,8 @@ public class Construction extends JFrame {
 		JButton btnSupprimerUnNavire = new JButton("Supprimer un Navire");
 		btnSupprimerUnNavire.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(moteur.getAthenes().getFlotte().getCalle().getOr()!=0||moteur.getAthenes().getFlotte().getCalle().getWood()!=0||moteur.getAthenes().getFlotte().getCalle().getFood()!=0||moteur.getAthenes().getFlotte().getCalle().getFood()!=0)
+				{
 				if(comboBox.getSelectedIndex()==0) {
 					if(CompteurATT != 0)
 					{
@@ -158,6 +160,7 @@ public class Construction extends JFrame {
 						}
 					}
 				}
+				}
 					lblNewLabel.setText("Navire disponible: "+ portAllié.getBateauxDispo());
 					lblNewLabel.setText("Navire disponible: "+ portAllié.getBateauxDispo());
 					lblAttaque.setText("Attaque : "+portAllié.getFlotte().getAttaque());
@@ -166,6 +169,7 @@ public class Construction extends JFrame {
 					lblNewLabel_1.setText("Transport : "+portAllié.getFlotte().getCapacité());
 					lbGold.setText("Or disponible : "+portAllié.getDonnéesPort().getGold());
 			}
+			
 		});
 		btnSupprimerUnNavire.setBounds(198, 180, 164, 40);
 		contentPane.add(btnSupprimerUnNavire);
@@ -173,7 +177,7 @@ public class Construction extends JFrame {
 		JButton btnNewButton_1 = new JButton("Flotte pr\u00EAte");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PortAllie modif= new PortAllie(portAllié);
+				PortAllie modif= new PortAllie(portAllié,moteur);
 				modif.setVisible(true);
 				setVisible(false);
 			}

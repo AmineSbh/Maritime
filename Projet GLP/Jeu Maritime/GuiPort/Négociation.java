@@ -42,7 +42,7 @@ public class Négociation extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		flotte.setCapacité(25000);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -54,12 +54,12 @@ public class Négociation extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public Négociation(PortEnnemi p1, Flotte f1) {
+	public Négociation(PortEnnemi p1, Flotte f1,Moteur moteur) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
 		setBounds(100, 100, 661, 333);
@@ -105,9 +105,17 @@ public class Négociation extends JFrame {
             public void actionPerformed(ActionEvent e) {
             	int negoce=(5*p1.getDonnéesPort().getValeurVille()/100);
                 int i=Integer.parseInt(textField.getText());
-                if(p1.getDonnéesPort().getValeurVille()-negoce<i) {
+                if(p1.getDonnéesPort().getValeurVille()-negoce<i && f1.getCalle().getOr()>=i) {
+                	f1.getCalle().setOr(f1.getCalle().getOr());
                     textField_1.setText("Le marché est conclu.");
-                    f1.setCapacité(f1.getCapacité()-p1.getDonnéesPort().getValeurVille());
+                    f1.getCalle().setOr(f1.getCalle().getOr()-i); 
+                    moteur.setAppartenanceAthenes(1);
+                    moteur.getAthenes().setFlotte(f1);
+                    moteur.Athenes();
+                    setVisible(false);
+                }
+                else if(f1.getCalle().getOr()<i) {
+                	textField_1.setText("Vous n'avez pas l'or requis pour la négociation.");
                 }
                 else {
                     textField_1.setText("Il faut augmenter le prix messieurs ! (La négociation devient plus difficile...)");
@@ -130,7 +138,7 @@ public class Négociation extends JFrame {
 				}
 			});
 		
-		JLabel lblNewLabel_1 = new JLabel("Or disponible : "+ f1.getCapacité());
+		JLabel lblNewLabel_1 = new JLabel("Or disponible : "+ f1.getCalle().getOr());
 		lblNewLabel_1.setBounds(33, 74, 140, 14);
 		panel.add(lblNewLabel_1);
 		

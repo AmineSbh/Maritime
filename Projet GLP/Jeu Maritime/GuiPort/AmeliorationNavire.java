@@ -36,7 +36,7 @@ public class AmeliorationNavire extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -47,12 +47,12 @@ public class AmeliorationNavire extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the application.
 	 */
-	public AmeliorationNavire(PortAllié portAllié) {
+	public AmeliorationNavire(PortAllié portAllié,Moteur moteur) {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 524, 371);
@@ -152,7 +152,8 @@ public class AmeliorationNavire extends JFrame {
 		JButton button = new JButton("Flotte pr\u00EAte");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PortAllie modif= new PortAllie(portAllié);
+				moteur.setAthenes(portAllié);
+				PortAllie modif= new PortAllie(portAllié,moteur);
 				modif.setVisible(true);
 				setVisible(false);
 			}

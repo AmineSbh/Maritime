@@ -40,7 +40,7 @@ import javax.swing.ImageIcon;
 		/**
 		 * Launch the application.
 		 */
-		public static void main(String[] args) {
+		/*public static void main(String[] args) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
@@ -51,12 +51,12 @@ import javax.swing.ImageIcon;
 					}
 				}
 			});
-		}
+		}*/
 
 		/**
 		 * Create the frame.
 		 */
-		public PortEnnemiGui(PortEnnemi portEnnemi,Flotte flotte) {
+		public PortEnnemiGui(PortEnnemi portEnnemi,Flotte flotte,Moteur moteur) {
 			PortEnnemi a= new PortEnnemi("Perse",20000,3000,5000,7000,2000,4,flotte,navireATT, navireTransport);
 			setResizable(false);
 			setTitle(a.getDonnéesPort().getName());
@@ -84,7 +84,7 @@ import javax.swing.ImageIcon;
 			btnNewButton_1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					setVisible(false);
-					Négociation b= new Négociation(portEnnemi,flotte);
+					Négociation b= new Négociation(portEnnemi,flotte,moteur);
 					b.setVisible(true);
 					
 				}
@@ -97,8 +97,8 @@ import javax.swing.ImageIcon;
 			btnNewButton_2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					setVisible(false);
-					//Marché c= new Marché();
-					//c.setVisible(true);
+					Marché c= new Marché(portEnnemi, flotte,moteur);
+					c.setVisible(true);
 				}
 			});
 			btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 12));

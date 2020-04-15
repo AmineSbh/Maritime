@@ -11,7 +11,7 @@ import Port.PortAllié;
 import Port.PortEnnemi;
 import DonnéesPort.Villes;
 
-public class Perse extends JFrame {
+public class Moteur extends JFrame {
 	
 	private static NavireAttaque navireATT=new NavireAttaque(1);
 	
@@ -41,23 +41,20 @@ public class Perse extends JFrame {
 	private static PortAllié Sparte =new PortAllié(Villes.Athenes,Villes.valeurDeLaVilleSparte,Villes.goldSparte,Villes.woodSparte,Villes.steelSparte,Villes.foodSparte,Villes.levelSparte,flotte,navireATT, navireTransport);
 	private static PortEnnemi Sparte4=new PortEnnemi(Villes.Athenes,Villes.valeurDeLaVilleSparte,Villes.goldSparte,Villes.woodSparte,Villes.steelSparte,Villes.foodSparte,Villes.levelSparte,flotte,navireATT, navireTransport);
 	
-	private static  Perse moteur;
+	private static  Moteur moteur;
 	
 	public static void main(String[] args) {
-		moteur= new Perse();
-		System.out.println(moteur.getAthenes().getNavireATT().getAttaque());
-		Athenes.AméliorerNavireAttaque();
-		//moteur.Athenes();
-		System.out.println(moteur.getAthenes().getNavireATT().getAttaque());
+		moteur= new Moteur();
+		moteur.Athenes();
 		//moteur.Rome();
 		//Rome();
 	}
 	
-	public Perse() {
+	public Moteur() {
 		appartenanceAthenes=1;
 	}
 	
-	public Perse(int appartenance, int enCours, PortAllié portAllié, PortEnnemi portEnnemi, int selection) {
+	public Moteur(int appartenance, int enCours, PortAllié portAllié, PortEnnemi portEnnemi, int selection) {
 		if(selection ==0) {
 			if(appartenance == 0) {
 				Athenes0=portEnnemi;
@@ -88,7 +85,7 @@ public class Perse extends JFrame {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
-						PortEnnemiGui frame = new PortEnnemiGui(Athenes0,flotte);
+						PortEnnemiGui frame = new PortEnnemiGui(Athenes0,flotte,moteur);
 						frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -118,7 +115,7 @@ public class Perse extends JFrame {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
-						PortEnnemiGui frame = new PortEnnemiGui(Rome2,flotte);
+						PortEnnemiGui frame = new PortEnnemiGui(Rome2,flotte,moteur);
 						frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -148,7 +145,7 @@ public class Perse extends JFrame {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
-						PortEnnemiGui frame = new PortEnnemiGui(LeCaire1,flotte);
+						PortEnnemiGui frame = new PortEnnemiGui(LeCaire1,flotte,moteur);
 						frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -178,7 +175,7 @@ public class Perse extends JFrame {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
-						PortEnnemiGui frame = new PortEnnemiGui(Sparte4,flotte);
+						PortEnnemiGui frame = new PortEnnemiGui(Sparte4,flotte,moteur);
 						frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -208,7 +205,7 @@ public class Perse extends JFrame {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
-						PortEnnemiGui frame = new PortEnnemiGui(Perse3,flotte);
+						PortEnnemiGui frame = new PortEnnemiGui(Perse3,flotte,moteur);
 						frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();
