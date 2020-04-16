@@ -1,6 +1,7 @@
 package GuiPort;
 
 import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 
@@ -39,6 +40,7 @@ import Navire.NavireAttaque;
 import Navire.NavireTransport;
 import Port.Port;
 import Port.PortAllié;
+import Moteur.Chronometre;
 
 import javax.swing.border.BevelBorder;
 
@@ -174,6 +176,11 @@ public class PortAllie extends JFrame {
 		JButton btnNewButton = new JButton("Quitter le port");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				moteur.setEnCours(1);
+				moteur.setChrono(portAllié);
+				TestCarte carte= new TestCarte();
+				carte.setLocationRelativeTo(null);
+				carte.setVisible(true);
 				setVisible(false);
 				}
 			});
