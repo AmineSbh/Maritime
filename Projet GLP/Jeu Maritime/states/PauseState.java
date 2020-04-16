@@ -2,6 +2,7 @@ package states;
 
 import java.awt.Graphics2D;
 
+import utils.KeyHandler;
 import utils.MouseHandler;
 
 public class PauseState extends GameState {
@@ -15,7 +16,7 @@ public class PauseState extends GameState {
 
 	}
 
-	public void input(MouseHandler mouse) {
+	public void input(MouseHandler mouse,KeyHandler key) {
 
 	}
 

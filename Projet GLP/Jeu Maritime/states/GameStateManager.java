@@ -3,6 +3,7 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 import def.GamePanel;
+import utils.KeyHandler;
 import utils.MouseHandler;
 import utils.Vector2f;
 
@@ -61,9 +62,9 @@ public class GameStateManager {
 		}
 	}
 	
-	public void input(MouseHandler mouse) {
+	public void input(MouseHandler mouse,KeyHandler key) {
 		for (int i = 0; i< states.size(); i++) {
-			states.get(i).input(mouse);
+			states.get(i).input(mouse, key);
 		}
 	}
 	
@@ -72,6 +73,7 @@ public class GameStateManager {
 			states.get(i).render(g);
 		}
 	}
+
 	
 	
 	

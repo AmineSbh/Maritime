@@ -2,6 +2,8 @@ package states;
 
 import java.awt.Graphics2D;
 
+import GuiPort.Perse;
+import utils.KeyHandler;
 import utils.MouseHandler;
 import tiles.TileManager;
 
@@ -19,10 +21,10 @@ public class PlayState extends GameState {
 	
 	public void update() {
 	}
-	public void input(MouseHandler mouse) {
+	public void input(MouseHandler mouse,KeyHandler key) {
 		if ((mouse.getButton() == 1) && (mousefirst  == 0)) {
 			mousefirst += 1;
-			System.out.println("Vous avez cliquer sur un port");
+			Perse.Athenes();
 		}
             
 	}
