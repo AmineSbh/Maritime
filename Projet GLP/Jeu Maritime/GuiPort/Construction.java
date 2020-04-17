@@ -34,28 +34,9 @@ public class Construction extends JFrame {
 	private static int CompteurATT=0;
 	private static int CompteurTransport=0;
 	
-	//static PortAllié portAllié= new PortAllié("Perse",20000,3000000,50000,7000,2000,4,flotte,navireATT, navireTransport);
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Construction frame = new Construction(new PortAllié(Villes.Athenes,Villes.valeurDeLaVilleAthenes,Villes.goldAthenes,Villes.woodAthenes,Villes.steelAthenes,Villes.foodAthenes,Villes.levelAthenes,flotte,navireATT, navireTransport));
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
-	/**
-	 * Create the frame.
-	 */
+	
+	
 	public Construction(PortAllié portAllié,Moteur moteur) {
 	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

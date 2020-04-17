@@ -22,7 +22,7 @@ public class Moteur extends JFrame {
 	
 	private static int appartenanceAthenes=0;
 	private static int appartenanceLeCaire=0;
-	private static int appartenanceRome=1;
+	private static int appartenanceRome=0;
 	private static int appartenanceSparte=0;
 	private static int appartenancePerse=0;
 	
@@ -346,6 +346,7 @@ public class Moteur extends JFrame {
 		Athenes.getDonnéesPort().setWood(chrono.getWood());
 		Athenes.getDonnéesPort().setFood(chrono.getFood());
 		Athenes.getDonnéesPort().setSteel(chrono.getSteel());
+		Athenes.setFlotte(flotte);
 	}
 	
 	public PortEnnemi getAthenesEnnemi() {
@@ -370,6 +371,7 @@ public class Moteur extends JFrame {
 		Perse.getDonnéesPort().setWood(chrono.getWood());
 		Perse.getDonnéesPort().setFood(chrono.getFood());
 		Perse.getDonnéesPort().setSteel(chrono.getSteel());
+		Perse.setFlotte(flotte);
 	}
 	
 	public PortEnnemi getPerseEnnemi() {
@@ -394,6 +396,7 @@ public class Moteur extends JFrame {
 		LeCaire.getDonnéesPort().setWood(chrono.getWood());
 		LeCaire.getDonnéesPort().setFood(chrono.getFood());
 		LeCaire.getDonnéesPort().setSteel(chrono.getSteel());
+		LeCaire.setFlotte(flotte);
 	}
 	
 	public PortEnnemi getLeCaireEnnemi() {
@@ -418,6 +421,7 @@ public class Moteur extends JFrame {
 		Rome.getDonnéesPort().setWood(chrono.getWood());
 		Rome.getDonnéesPort().setFood(chrono.getFood());
 		Rome.getDonnéesPort().setSteel(chrono.getSteel());
+		Rome.setFlotte(flotte);
 	}
 	
 	public PortEnnemi getRomeEnnemi() {
@@ -442,6 +446,7 @@ public class Moteur extends JFrame {
 		Sparte.getDonnéesPort().setWood(chrono.getWood());
 		Sparte.getDonnéesPort().setFood(chrono.getFood());
 		Sparte.getDonnéesPort().setSteel(chrono.getSteel());
+		Sparte.setFlotte(flotte);
 	}
 	
 	public PortEnnemi getSparteEnnemi() {
@@ -450,6 +455,18 @@ public class Moteur extends JFrame {
 	
 	public void setSparte(PortEnnemi Sparte) {
 		this.Sparte4=Sparte;
+	}
+	
+	public Flotte getFlotte() {
+		return flotte;
+	}
+	
+	public void setFlotteAllié(Flotte flotte) {
+		Sparte.setFlotte(flotte);
+		Rome.setFlotte(flotte);
+		Athenes.setFlotte(flotte);
+		Perse.setFlotte(flotte);
+		LeCaire.setFlotte(flotte);
 	}
 	
 }

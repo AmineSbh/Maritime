@@ -26,36 +26,13 @@ import javax.swing.ImageIcon;
 
 	public class PortEnnemiGui extends JFrame {
 
-		/**
-		 * 
-		 */
+		
 		private static final long serialVersionUID = 1L;
 		private JPanel contentPane;
 		private static NavireAttaque navireATT=new NavireAttaque(2);
 		private static NavireTransport navireTransport =new NavireTransport();
 		private static Flotte flotte= new Flotte();
-		//private PortAllié portAllié;
 		
-
-		/**
-		 * Launch the application.
-		 */
-		/*public static void main(String[] args) {
-			EventQueue.invokeLater(new Runnable() {
-				public void run() {
-					try {
-						PortEnnemiGui frame = new PortEnnemiGui(new PortEnnemi("Perse",20000,15000,5000,7000,2000,3,flotte,navireATT, navireTransport),flotte);
-						frame.setVisible(true);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			});
-		}*/
-
-		/**
-		 * Create the frame.
-		 */
 		public PortEnnemiGui(PortEnnemi portEnnemi,Flotte flotte,Moteur moteur) {
 			PortEnnemi a= new PortEnnemi("Perse",20000,3000,5000,7000,2000,4,flotte,navireATT, navireTransport);
 			setResizable(false);

@@ -29,9 +29,7 @@ public class Bataille extends JFrame {
 	private static NavireAttaque navireATT=new NavireAttaque(2);
 	private static NavireTransport navireTransport =new NavireTransport();
 	private static Flotte flotte= new Flotte();
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

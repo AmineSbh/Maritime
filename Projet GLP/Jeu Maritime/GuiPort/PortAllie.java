@@ -55,19 +55,6 @@ public class PortAllie extends JFrame {
 	
 	public static final String NL= System.getProperty("line.separator");
 	
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PortAllie frame = new PortAllie(new PortAllié("Perse",20000,1800,5000,7000,2000,3,flotte,navireATT, navireTransport),new Perse());
-					frame.setVisible(true);
-					} catch (Exception e) {
-						e.printStackTrace();
-						}
-				}
-			});
-		}*/
-	
 	public PortAllie(PortAllié portAllié,Moteur moteur) {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -159,14 +146,14 @@ public class PortAllie extends JFrame {
 		lblFlotte.setBounds(408, 190, 279, 39);
 		contentPane.add(lblFlotte);
 		
-		JButton btnMiseLa_1 = new JButton("Mise \u00E0 la mer");
+		JButton btnMiseLa_1 = new JButton("Level Up");
 		btnMiseLa_1.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnMiseLa_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Perse donnee= new Perse(portAllié);
-				//marchandise.setLocationRelativeTo(null);
-				//marchandise.setVisible(true);
-				setVisible(false);
+				//LevelUp lvlUp= new LevelUp(portAllié,moteur);
+				//lvlUp.setLocationRelativeTo(null);
+				//lvlUp.setVisible(true);
+				//setVisible(false);
 				}
 			});
 		

@@ -37,28 +37,7 @@ public class Négociation extends JFrame {
 	private JTextArea txtManoeuvreVous;
 	private JTextField textField;
 	private JTextField textField_1;
-
-
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		flotte.setCapacité(25000);
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Négociation frame = new Négociation(a,flotte);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public Négociation(PortEnnemi p1, Flotte f1,Moteur moteur) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
