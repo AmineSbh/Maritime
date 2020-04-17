@@ -2,6 +2,7 @@ package states;
 
 import java.awt.Graphics2D;
 
+import utils.KeyHandler;
 import utils.MouseHandler;
 
 public abstract class GameState {
@@ -15,7 +16,7 @@ public abstract class GameState {
 	}
 	
 	public abstract void update();
-	public  abstract void input(MouseHandler mouse);
+	public  abstract void input(MouseHandler mouse, KeyHandler key);
 	public  abstract void render(Graphics2D g);
 
 	

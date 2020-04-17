@@ -2,6 +2,7 @@ package states;
 
 import java.awt.Graphics2D;
 
+import utils.KeyHandler;
 import utils.MouseHandler;
 
 public class GameOverState extends GameState {
@@ -14,7 +15,7 @@ public class GameOverState extends GameState {
 
 	}
 
-	public void input(MouseHandler mouse) {
+	public void input(MouseHandler mouse,KeyHandler key) {
 
 	}
 

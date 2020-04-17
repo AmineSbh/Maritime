@@ -1,5 +1,4 @@
 package def;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -13,7 +12,6 @@ import utils.*;
 
 public class GamePanel extends JPanel implements Runnable {
 	
-
 	public int width;
 	public  int height;
 	private Thread thread;
@@ -21,6 +19,7 @@ public class GamePanel extends JPanel implements Runnable {
 	private Graphics2D g;
 	private Boolean running = false;
 	private MouseHandler mouse;
+	private KeyHandler key;
 	private GameStateManager gsm;
 	
 	
@@ -35,7 +34,6 @@ public class GamePanel extends JPanel implements Runnable {
 	
 	public void addNotify() {
 		super.addNotify();
-		
 		if(thread == null) {
 			thread = new Thread(this,"GameThread");
 			thread.start();
@@ -47,6 +45,7 @@ public class GamePanel extends JPanel implements Runnable {
 		img = new BufferedImage(width,height,BufferedImage.TYPE_INT_ARGB);
 		g = (Graphics2D) img.getGraphics();
 		mouse = new MouseHandler(this);
+		key = new KeyHandler(this);
 		gsm = new GameStateManager();
 		
 	}
@@ -76,7 +75,7 @@ public class GamePanel extends JPanel implements Runnable {
 			int updateCount = 0;
 			while (now - lastUpdateTime > TBU && updateCount < MUBR) {
 				update();
-				input(mouse);
+				input(mouse,key);
 				lastUpdateTime += TBU;
 				updateCount ++;
 			}
@@ -84,7 +83,7 @@ public class GamePanel extends JPanel implements Runnable {
 			if (now-lastUpdateTime > TBU) {
 				lastUpdateTime = now -TBU;
 			}
-			input(mouse);
+			input(mouse, key);
 			render();
 			draw();
 			lastRenderTime = now;
@@ -119,8 +118,8 @@ public class GamePanel extends JPanel implements Runnable {
 		gsm.update();
 	}
 	
-	public void input(MouseHandler mouse) {
-		gsm.input(mouse);
+	public void input(MouseHandler mouse, KeyHandler key) {
+		gsm.input(mouse, key);
 	}
 	
 	
