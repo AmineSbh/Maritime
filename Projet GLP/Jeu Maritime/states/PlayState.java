@@ -28,12 +28,6 @@ public class PlayState extends GameState {
 	
 	public void input(MouseHandler mouse,KeyHandler key) {
 		player.input(mouse, key);
-		if (key.up.down) {System.out.println ("up"); }
-		if (key.left.down) {System.out.println ("left"); }
-		if (key.right.down) {System.out.println ("right"); }
-		if (key.down.down) {System.out.println ("down"); }
-		if (key.enter.down) {System.out.println ("up"); }
-		if (key.escape.down) {System.out.println ("up"); }
 	}
 	
 	public void render(Graphics2D g) {

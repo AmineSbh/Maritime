@@ -31,7 +31,7 @@ public abstract class Entity {
 	protected float dx;
 	protected float dy;
 	
-	protected float maxSpeed =2f;
+	protected float maxSpeed =1f;
 	protected float acc = 1f;
 	protected float deacc = 1f;
 	

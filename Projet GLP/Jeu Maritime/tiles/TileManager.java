@@ -80,7 +80,8 @@ public class TileManager extends TileMap {
                 
                 if (i >= 1) {
                 	tm.add(new TileMapNorm(data[i], sprite, width, height, blockWidth, blockHeight, tileColumns));
-                } else {
+                } 
+                else if (i == 0) {
                 	tm.add(new TileMapObj(data[i], sprite, width, height, blockWidth, blockHeight, tileColumns));
                 }
                 
