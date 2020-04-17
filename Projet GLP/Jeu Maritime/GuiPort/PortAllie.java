@@ -1,6 +1,7 @@
 package GuiPort;
 
 import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 
@@ -39,6 +40,7 @@ import Navire.NavireAttaque;
 import Navire.NavireTransport;
 import Port.Port;
 import Port.PortAllié;
+import Moteur.Chronometre;
 
 import javax.swing.border.BevelBorder;
 
@@ -53,20 +55,21 @@ public class PortAllie extends JFrame {
 	
 	public static final String NL= System.getProperty("line.separator");
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PortAllie frame = new PortAllie(new PortAllié("Perse",20000,1800,5000,7000,2000,3,flotte,navireATT, navireTransport));
+					PortAllie frame = new PortAllie(new PortAllié("Perse",20000,1800,5000,7000,2000,3,flotte,navireATT, navireTransport),new Perse());
 					frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();
 						}
 				}
 			});
-		}
+		}*/
 	
-	public PortAllie(PortAllié portAllié) {
+	public PortAllie(PortAllié portAllié,Moteur moteur) {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 683, 391);
 		contentPane = new JPanel();
@@ -109,7 +112,7 @@ public class PortAllie extends JFrame {
 		btnConstruireFlotte.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnConstruireFlotte.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Construction flotte= new Construction(portAllié);
+				Construction flotte= new Construction(portAllié, moteur);
 				flotte.setLocationRelativeTo(null);
 				flotte.setVisible(true);
 				setVisible(false);
@@ -125,7 +128,7 @@ public class PortAllie extends JFrame {
 		btnMiseLa.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnMiseLa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AmeliorationNavire flotte= new AmeliorationNavire(portAllié);
+				AmeliorationNavire flotte= new AmeliorationNavire(portAllié, moteur);
 				flotte.setLocationRelativeTo(null);
 				flotte.setVisible(true);
 				setVisible(false);
@@ -141,7 +144,7 @@ public class PortAllie extends JFrame {
 		btnAcheterDesRessources.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnAcheterDesRessources.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Transport marchandise= new Transport(portAllié);
+				Transport marchandise= new Transport(portAllié,moteur);
 				marchandise.setLocationRelativeTo(null);
 				marchandise.setVisible(true);
 				setVisible(false);
@@ -173,6 +176,11 @@ public class PortAllie extends JFrame {
 		JButton btnNewButton = new JButton("Quitter le port");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				moteur.setEnCours(1);
+				moteur.setChrono(portAllié);
+				TestCarte carte= new TestCarte();
+				carte.setLocationRelativeTo(null);
+				carte.setVisible(true);
 				setVisible(false);
 				}
 			});
@@ -186,7 +194,7 @@ public class PortAllie extends JFrame {
 		lblPerse.setBounds(35, 14, 172, 33);
 		contentPane.add(lblPerse);
 		
-		JTextArea lblDescriptionDeLa = new JTextArea("Vous êtes arrivés à destination"+NL+"veuillez choisir une action");
+		JTextArea lblDescriptionDeLa = new JTextArea("Vous êtes arrivés à destination"+NL+"veuillez choisir une action ");
 		lblDescriptionDeLa.setBounds(27, 176, 375, 44);
 		contentPane.add(lblDescriptionDeLa);
 		lblDescriptionDeLa.setFont(new Font("Monospaced", Font.ITALIC, 14));

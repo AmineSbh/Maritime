@@ -41,7 +41,7 @@ public class Transport extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -52,12 +52,12 @@ public class Transport extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public Transport(PortAllié portAllié) {
+	public Transport(PortAllié portAllié,Moteur moteur) {
 	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 640, 370);
@@ -101,7 +101,28 @@ public class Transport extends JFrame {
 		lblNewLabel.setBounds(15, 166, 176, 28);
 		panel.add(lblNewLabel);
 		
+		//Panel information
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(2, 206, 285, 108);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+				
+		JLabel lblOrDisponible = new JLabel("Or disponible: "+portAllié.getDonnéesPort().getGold());
+		lblOrDisponible.setBounds(15, 16, 255, 20);
+		panel_1.add(lblOrDisponible);
+				
+		JLabel lblBoisDisponible = new JLabel("Bois disponible: "+portAllié.getDonnéesPort().getWood());
+		lblBoisDisponible.setBounds(15, 41, 255, 20);
+		panel_1.add(lblBoisDisponible);
+				
+		JLabel lblNourritureDisponible = new JLabel("Nourriture disponible: "+portAllié.getDonnéesPort().getFood());
+		lblNourritureDisponible.setBounds(15, 66, 255, 20);
+		panel_1.add(lblNourritureDisponible);
 		
+		JLabel lblMetauxDisponible = new JLabel("M\u00E9taux disponible: "+portAllié.getDonnéesPort().getSteel());
+		lblMetauxDisponible.setBounds(15, 88, 255, 20);
+		panel_1.add(lblMetauxDisponible);
+				
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Choississez votre marchandise", "Or", "Bois", "M\u00E9taux", "Nourriture"}));
@@ -134,6 +155,11 @@ public class Transport extends JFrame {
 				lblNourriture.setText("Nourriture : "+portAllié.getFlotte().getCalle().getFood());
 				lblMetaux.setText("Metaux : "+portAllié.getFlotte().getCalle().getSteel());
 				lblNewLabel.setText("Capacité disponible : "+(portAllié.getFlotte().getCalle().getCapacitéTotale()-portAllié.getFlotte().getCalle().getCapacité()));
+				
+				lblOrDisponible.setText("Or disponible: "+portAllié.getDonnéesPort().getGold());
+				lblBoisDisponible.setText("Bois disponible: "+portAllié.getDonnéesPort().getWood());
+				lblNourritureDisponible.setText("Nourriture disponible: "+portAllié.getDonnéesPort().getFood());
+				lblMetauxDisponible.setText("M\u00E9taux disponible"+portAllié.getDonnéesPort().getSteel());
 			}
 		});
 		btnNewButton.setBounds(153, 150, 134, 40);
@@ -161,6 +187,11 @@ public class Transport extends JFrame {
 				lblNourriture.setText("Nourriture : "+portAllié.getFlotte().getCalle().getFood());
 				lblMetaux.setText("Metaux : "+portAllié.getFlotte().getCalle().getSteel());
 				lblNewLabel.setText("Capacité disponible : "+(portAllié.getFlotte().getCalle().getCapacitéTotale()-portAllié.getFlotte().getCalle().getCapacité()));
+				
+				lblOrDisponible.setText("Or disponible: "+portAllié.getDonnéesPort().getGold());
+				lblBoisDisponible.setText("Bois disponible: "+portAllié.getDonnéesPort().getWood());
+				lblNourritureDisponible.setText("Nourriture disponible: "+portAllié.getDonnéesPort().getFood());
+				lblMetauxDisponible.setText("M\u00E9taux disponible"+portAllié.getDonnéesPort().getSteel());
 			}
 		});
 		btnSupprimerUnNavire.setBounds(4, 150, 134, 40);
@@ -169,7 +200,7 @@ public class Transport extends JFrame {
 		JButton btnNewButton_1 = new JButton("Marchandise pr\u00EAte");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PortAllie modif= new PortAllie(portAllié);
+				PortAllie modif= new PortAllie(portAllié,moteur);
 				modif.setVisible(true);
 				setVisible(false);
 			}
