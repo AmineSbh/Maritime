@@ -13,6 +13,10 @@ public class KeyHandler implements KeyListener {
 
 	public static List<Key> keys = new ArrayList<Key>();
 	
+	public KeyHandler(GamePanel game) {
+		game.addKeyListener(this);
+	}
+	
 	public class Key {
 		public int presses, absorbs;
 		public boolean down, clicked;
@@ -48,10 +52,6 @@ public class KeyHandler implements KeyListener {
 	public Key enter = new Key();
 	public Key escape = new Key();
 	
-	public KeyHandler(GamePanel game) {
-		game.addKeyListener(this);
-	}
-	
 	public void toggle (KeyEvent e, boolean pressed) {
 		if (e.getKeyCode() == KeyEvent.VK_Z) up.toggle(pressed);
 		if (e.getKeyCode() == KeyEvent.VK_Q) left.toggle(pressed);
@@ -83,17 +83,16 @@ public class KeyHandler implements KeyListener {
 	
 	
 	public void keyPressed(KeyEvent e) {
-		
+		toggle (e, true);
 	}
 
-	@Override
+
 	public void keyReleased(KeyEvent e) {
-		
+		toggle (e, false);
 	}
 
-	@Override
+
 	public void keyTyped(KeyEvent e) {
-		
 	}
 
 }

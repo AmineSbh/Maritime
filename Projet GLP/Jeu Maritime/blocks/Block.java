@@ -3,6 +3,7 @@ package blocks;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
+import utils.AABB;
 import utils.Vector2f;
 
 public abstract class Block {
@@ -19,7 +20,7 @@ public abstract class Block {
 		this.w = w;
 	}
 	
-	//public abstract boolean update(AABB p);//
+	public abstract boolean update (AABB p);
 	
 	public void render (Graphics2D g) {
 		g.drawImage(img, (int) pos.getworldVar().x, (int) pos.getworldVar().y, w, h, null);

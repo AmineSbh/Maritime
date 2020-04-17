@@ -3,6 +3,7 @@ package blocks;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
+import utils.AABB;
 import utils.Vector2f;
 
 public class LandBlock extends Block {
@@ -11,9 +12,9 @@ public class LandBlock extends Block {
 		super(img,pos,w,h);
 	}
 	
-	/* public boolean update(AABB p) {
+	public boolean update(AABB p) {
 		return false;
-	} */
+	}
 	
 	public void render (Graphics2D g) {
 		super.render(g);

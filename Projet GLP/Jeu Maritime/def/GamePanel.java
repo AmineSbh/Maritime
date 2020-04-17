@@ -1,5 +1,4 @@
 package def;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -13,7 +12,6 @@ import utils.*;
 
 public class GamePanel extends JPanel implements Runnable {
 	
-
 	public int width;
 	public  int height;
 	private Thread thread;
@@ -36,7 +34,6 @@ public class GamePanel extends JPanel implements Runnable {
 	
 	public void addNotify() {
 		super.addNotify();
-		
 		if(thread == null) {
 			thread = new Thread(this,"GameThread");
 			thread.start();
@@ -86,7 +83,7 @@ public class GamePanel extends JPanel implements Runnable {
 			if (now-lastUpdateTime > TBU) {
 				lastUpdateTime = now -TBU;
 			}
-			input(mouse,key);
+			input(mouse, key);
 			render();
 			draw();
 			lastRenderTime = now;
