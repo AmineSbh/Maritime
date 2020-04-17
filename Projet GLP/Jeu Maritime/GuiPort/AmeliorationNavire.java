@@ -152,7 +152,21 @@ public class AmeliorationNavire extends JFrame {
 		JButton button = new JButton("Flotte pr\u00EAte");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				moteur.setAthenes(portAllié);
+				if(portAllié.getDonnéesPort().getName()=="Athenes") {
+					moteur.setAthenes(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="Rome") {
+					moteur.setRome(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="LeCaire") {
+					moteur.setLeCaire(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="Sparte") {
+					moteur.setSparte(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="Perse") {
+					moteur.setPerse(portAllié);
+				}
 				PortAllie modif= new PortAllie(portAllié,moteur);
 				modif.setVisible(true);
 				setVisible(false);

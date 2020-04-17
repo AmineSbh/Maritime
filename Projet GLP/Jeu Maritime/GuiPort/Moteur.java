@@ -22,11 +22,15 @@ public class Moteur extends JFrame {
 	
 	private static int appartenanceAthenes=0;
 	private static int appartenanceLeCaire=0;
-	private static int appartenanceRome=0;
+	private static int appartenanceRome=1;
 	private static int appartenanceSparte=0;
 	private static int appartenancePerse=0;
 	
 	private static Chronometre chronoAthenes;
+	private static Chronometre chronoRome;
+	private static Chronometre chronoPerse;
+	private static Chronometre chronoSparte;
+	private static Chronometre chronoLeCaire;
 	
 	private static NavireTransport navireTransport =new NavireTransport();
 	private static Flotte flotte= new Flotte();
@@ -50,15 +54,16 @@ public class Moteur extends JFrame {
 	
 	public static void main(String[] args) {
 		moteur= new Moteur();
-		//moteur.Chrono1(Athenes);
 		moteur.Athenes();
-		//moteur.Rome();
-		//Rome();
 	}
 	
 	public Moteur() {
-		appartenanceAthenes=0;
-		this.chronoAthenes= new Chronometre(Athenes,1);
+		appartenanceAthenes=1;
+		this.chronoAthenes= new Chronometre(Athenes,1,2000);
+		this.chronoRome= new Chronometre(Rome,1,3000);
+		this.chronoSparte= new Chronometre(Sparte,1,5000);
+		this.chronoLeCaire= new Chronometre(LeCaire,1,1000);
+		this.chronoPerse= new Chronometre(Perse,1,1000);
 	}
 	
 	public Moteur(int appartenance, int enCours, PortAllié portAllié, PortEnnemi portEnnemi, int selection) {
@@ -73,17 +78,38 @@ public class Moteur extends JFrame {
 
 	}
 	
-	public void setChrono(PortAllié portAllie ) {
-		Chronometre chrono=new Chronometre(portAllie, 1);
-		this.chronoAthenes=chrono;
-		Athenes.getDonnéesPort().setGold(chronoAthenes.getGold());
-		//int goldAthenes=chronoAthenes.getGold();
-		System.out.println("hgikugol"+chrono.getGold());
+	public void setChronoAthenes(PortAllié portAllie ) {
+		this.chronoAthenes=new Chronometre(portAllie, 1,2000);
+		moteur.setDonnéesAthenes(chronoAthenes);
+	}
+	
+	public void setChronoRome(PortAllié portAllie ) {
+		this.chronoRome=new Chronometre(portAllie, 1,3000);
+		moteur.setDonnéesRome(chronoRome);
+	}
+	
+	public void setChronoPerse(PortAllié portAllie ) {
+		this.chronoPerse=new Chronometre(portAllie, 1,1000);
+		moteur.setDonnéesPerse(chronoPerse);
+	}
+	
+	public void setChronoLeCaire(PortAllié portAllie ) {
+		this.chronoLeCaire=new Chronometre(portAllie, 1,1000);
+		moteur.setDonnéesLeCaire(chronoLeCaire);
+	}
+	
+	public void setChronoSparte(PortAllié portAllie ) {
+		this.chronoSparte=new Chronometre(portAllie, 1,5000);
+		moteur.setDonnéesSparte(chronoSparte);
 	}
 	
 	public static void Athenes() {
 		moteur.setEnCours(0);
-		Athenes.getDonnéesPort().setGold(chronoAthenes.getGold());
+		moteur.setDonnéesAthenes(chronoAthenes);
+		moteur.setDonnéesRome(chronoRome);
+		moteur.setDonnéesSparte(chronoSparte);
+		moteur.setDonnéesLeCaire(chronoLeCaire);
+		moteur.setDonnéesPerse(chronoPerse);
 		if(appartenanceAthenes==1) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
@@ -115,6 +141,11 @@ public class Moteur extends JFrame {
 	
 	public static void Rome() {
 		moteur.setEnCours(0);
+		moteur.setDonnéesAthenes(chronoAthenes);
+		moteur.setDonnéesRome(chronoRome);
+		moteur.setDonnéesSparte(chronoSparte);
+		moteur.setDonnéesLeCaire(chronoLeCaire);
+		moteur.setDonnéesPerse(chronoPerse);
 		if(appartenanceRome==1) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
@@ -146,6 +177,11 @@ public class Moteur extends JFrame {
 	
 	public static void LeCaire() {
 		moteur.setEnCours(0);
+		moteur.setDonnéesAthenes(chronoAthenes);
+		moteur.setDonnéesRome(chronoRome);
+		moteur.setDonnéesSparte(chronoSparte);
+		moteur.setDonnéesLeCaire(chronoLeCaire);
+		moteur.setDonnéesPerse(chronoPerse);
 		if(appartenanceLeCaire==1) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
@@ -177,6 +213,11 @@ public class Moteur extends JFrame {
 	
 	public static void Sparte() {
 		moteur.setEnCours(0);
+		moteur.setDonnéesAthenes(chronoAthenes);
+		moteur.setDonnéesRome(chronoRome);
+		moteur.setDonnéesSparte(chronoSparte);
+		moteur.setDonnéesLeCaire(chronoLeCaire);
+		moteur.setDonnéesPerse(chronoPerse);
 		if(appartenanceSparte==1) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
@@ -208,6 +249,11 @@ public class Moteur extends JFrame {
 	
 	public static void Perse() {
 		moteur.setEnCours(0);
+		moteur.setDonnéesAthenes(chronoAthenes);
+		moteur.setDonnéesRome(chronoRome);
+		moteur.setDonnéesSparte(chronoSparte);
+		moteur.setDonnéesLeCaire(chronoLeCaire);
+		moteur.setDonnéesPerse(chronoPerse);
 		if(appartenancePerse==1) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
@@ -235,41 +281,6 @@ public class Moteur extends JFrame {
 			});
 			flotte=Perse.getFlotte();
 			}
-	}
-	
-	public void Chrono1(PortAllié portallie) {
-		if(enCours==1) {
-	    Timer chrono = new Timer();
-	    chrono.schedule(new TimerTask(){
-	        /*int gold=or;
-	        int wood=bois;
-	        int steel=acier;
-	        int food=nourriture;*/
-
-	        public void run() {
-	            System.out.println(portallie.getDonnéesPort().getGold());
-	            portallie.getDonnéesPort().setGold(portallie.getDonnéesPort().getGold()+8);
-	            
-	            System.out.println(portallie.getDonnéesPort().getWood());
-	            portallie.getDonnéesPort().setWood(portallie.getDonnéesPort().getWood()+8);
-	            
-	            System.out.println(portallie.getDonnéesPort().getSteel());
-	            portallie.getDonnéesPort().setSteel(portallie.getDonnéesPort().getSteel()+8);
-	            
-	            System.out.println(portallie.getDonnéesPort().getFood());
-	            portallie.getDonnéesPort().setFood(portallie.getDonnéesPort().getFood()+8);
-	            //System.out.println(wood);
-	            //wood++;
-	            //System.out.println(steel);
-	            //steel++;
-	            //System.out.println(food);
-	            //food++;
-	        }
-
-	    },1000,1000);
-		}else {
-			
-		}
 	}
 	
 	public int getAppartenanceAthenes() {
@@ -312,6 +323,7 @@ public class Moteur extends JFrame {
 		this.appartenancePerse=appartenance;
 	}
 	
+	//valeur pour savoir si une fenetre est ouverte
 	public int getEnCours() {
 		return enCours;
 	}
@@ -320,6 +332,7 @@ public class Moteur extends JFrame {
 		this.enCours=enCours;
 	}
 	
+	//methode de modification du port d'athenes
 	public PortAllié getAthenes() {
 		return this.Athenes;
 	}
@@ -328,12 +341,115 @@ public class Moteur extends JFrame {
 		this.Athenes=Athenes;
 	}
 	
+	public void setDonnéesAthenes(Chronometre chrono) {
+		Athenes.getDonnéesPort().setGold(chrono.getGold());
+		Athenes.getDonnéesPort().setWood(chrono.getWood());
+		Athenes.getDonnéesPort().setFood(chrono.getFood());
+		Athenes.getDonnéesPort().setSteel(chrono.getSteel());
+	}
+	
 	public PortEnnemi getAthenesEnnemi() {
 		return this.Athenes0;
 	}
 	
 	public void setAthenes(PortEnnemi Athenes) {
 		this.Athenes0=Athenes;
+	}
+	
+	//methode de modification du port de Perse
+	public PortAllié getPerse() {
+		return this.Perse;
+	}
+	
+	public void setPerse(PortAllié Perse) {
+		this.Perse=Perse;
+	}
+	
+	public void setDonnéesPerse(Chronometre chrono) {
+		Perse.getDonnéesPort().setGold(chrono.getGold());
+		Perse.getDonnéesPort().setWood(chrono.getWood());
+		Perse.getDonnéesPort().setFood(chrono.getFood());
+		Perse.getDonnéesPort().setSteel(chrono.getSteel());
+	}
+	
+	public PortEnnemi getPerseEnnemi() {
+		return this.Perse3;
+	}
+	
+	public void setPerse(PortEnnemi Perse) {
+		this.Perse3=Perse;
+	}
+	
+	//methode de modification du port du Caire
+	public PortAllié getLeCaire() {
+		return this.LeCaire;
+	}
+	
+	public void setLeCaire(PortAllié LeCaire) {
+		this.LeCaire=LeCaire;
+	}
+	
+	public void setDonnéesLeCaire(Chronometre chrono) {
+		LeCaire.getDonnéesPort().setGold(chrono.getGold());
+		LeCaire.getDonnéesPort().setWood(chrono.getWood());
+		LeCaire.getDonnéesPort().setFood(chrono.getFood());
+		LeCaire.getDonnéesPort().setSteel(chrono.getSteel());
+	}
+	
+	public PortEnnemi getLeCaireEnnemi() {
+		return this.LeCaire1;
+	}
+	
+	public void setLeCaire(PortEnnemi LeCaire) {
+		this.LeCaire1=LeCaire;
+	}
+	
+	//methode de modification du port de Rome
+	public PortAllié getRome() {
+		return this.Rome;
+	}
+	
+	public void setRome(PortAllié Rome) {
+		this.Rome=Rome;
+	}
+	
+	public void setDonnéesRome(Chronometre chrono) {
+		Rome.getDonnéesPort().setGold(chrono.getGold());
+		Rome.getDonnéesPort().setWood(chrono.getWood());
+		Rome.getDonnéesPort().setFood(chrono.getFood());
+		Rome.getDonnéesPort().setSteel(chrono.getSteel());
+	}
+	
+	public PortEnnemi getRomeEnnemi() {
+		return this.Rome2;
+	}
+	
+	public void setRome(PortEnnemi Rome) {
+		this.Rome2=Rome;
+	}
+	
+	//methode de modification du port de Sparte
+	public PortAllié getSparte() {
+		return this.Sparte;
+	}
+	
+	public void setSparte(PortAllié Sparte) {
+		this.Sparte=Sparte;
+	}
+	
+	public void setDonnéesSparte(Chronometre chrono) {
+		Sparte.getDonnéesPort().setGold(chrono.getGold());
+		Sparte.getDonnéesPort().setWood(chrono.getWood());
+		Sparte.getDonnéesPort().setFood(chrono.getFood());
+		Sparte.getDonnéesPort().setSteel(chrono.getSteel());
+	}
+	
+	public PortEnnemi getSparteEnnemi() {
+		return this.Sparte4;
+	}
+	
+	public void setSparte(PortEnnemi Sparte) {
+		this.Sparte4=Sparte;
 	}
 	
 }

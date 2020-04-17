@@ -14,7 +14,7 @@ public class Chronometre {
 	private int steel;
 	private int enCours;
 	
-	public Chronometre(PortAllié portAllie,int enCours) {
+	public Chronometre(PortAllié portAllie,int enCours,int temps) {
 		this.gold=portAllie.getDonnéesPort().getGold();
 		this.wood=portAllie.getDonnéesPort().getWood();
 		this.food=portAllie.getDonnéesPort().getFood();
@@ -26,20 +26,16 @@ public class Chronometre {
 		    chrono.schedule(new TimerTask(){
 
 		        public void run() {
-		            System.out.println(gold);
 		            gold++;
 		            
-		            System.out.println(wood);
 		            wood++;
 		            
-		            System.out.println(food);
 		            food++;
 		            
-		            System.out.println(steel);
 		            steel++;
 		        }
 
-		    },1000,4000);
+		    },1000,temps);
 		}
 	}
 

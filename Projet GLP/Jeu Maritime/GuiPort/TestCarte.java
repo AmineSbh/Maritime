@@ -78,7 +78,7 @@ public class TestCarte extends JFrame {
 		JButton btnNewButton_1 = new JButton("Flotte pr\u00EAte"+moteur.getEnCours());
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				moteur.Athenes();
+				moteur.Rome();
 				//PortAllie modif= new PortAllie(moteur.getAthenes(),moteur);
 				//modif.setVisible(true);
 				setVisible(false);
@@ -86,6 +86,18 @@ public class TestCarte extends JFrame {
 		});
 		btnNewButton_1.setBounds(301, 237, 117, 23);
 		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Flotte pr\u00EAte"+moteur.getEnCours());
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				moteur.Athenes();
+				//PortAllie modif= new PortAllie(moteur.getAthenes(),moteur);
+				//modif.setVisible(true);
+				setVisible(false);
+			}
+		});
+		btnNewButton_2.setBounds(200, 237, 100, 23);
+		contentPane.add(btnNewButton_2);
 		
 
 	}

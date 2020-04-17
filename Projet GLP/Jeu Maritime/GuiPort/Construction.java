@@ -177,6 +177,21 @@ public class Construction extends JFrame {
 		JButton btnNewButton_1 = new JButton("Flotte pr\u00EAte");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(portAllié.getDonnéesPort().getName()=="Athenes") {
+					moteur.setAthenes(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="Rome") {
+					moteur.setRome(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="LeCaire") {
+					moteur.setLeCaire(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="Sparte") {
+					moteur.setSparte(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="Perse") {
+					moteur.setPerse(portAllié);
+				}
 				PortAllie modif= new PortAllie(portAllié,moteur);
 				modif.setVisible(true);
 				setVisible(false);

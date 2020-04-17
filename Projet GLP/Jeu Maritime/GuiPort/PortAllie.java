@@ -177,7 +177,41 @@ public class PortAllie extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				moteur.setEnCours(1);
-				moteur.setChrono(portAllié);
+				if(portAllié.getDonnéesPort().getName()=="Athenes") {
+					moteur.setChronoAthenes(portAllié);
+					moteur.setChronoRome(moteur.getRome());
+					moteur.setChronoSparte(moteur.getSparte());
+					moteur.setChronoLeCaire(moteur.getLeCaire());
+					moteur.setChronoPerse(moteur.getPerse());
+				}
+				if(portAllié.getDonnéesPort().getName()=="Rome") {
+					moteur.setChronoAthenes(moteur.getAthenes());
+					moteur.setChronoRome(portAllié);
+					moteur.setChronoSparte(moteur.getSparte());
+					moteur.setChronoLeCaire(moteur.getLeCaire());
+					moteur.setChronoPerse(moteur.getPerse());
+				}
+				if(portAllié.getDonnéesPort().getName()=="LeCaire") {
+					moteur.setChronoAthenes(moteur.getLeCaire());
+					moteur.setChronoRome(moteur.getRome());
+					moteur.setChronoSparte(moteur.getSparte());
+					moteur.setChronoLeCaire(portAllié);
+					moteur.setChronoPerse(moteur.getPerse());
+				}
+				if(portAllié.getDonnéesPort().getName()=="Sparte") {
+					moteur.setChronoAthenes(moteur.getAthenes());
+					moteur.setChronoRome(moteur.getRome());
+					moteur.setChronoSparte(portAllié);
+					moteur.setChronoLeCaire(moteur.getLeCaire());
+					moteur.setChronoPerse(moteur.getPerse());
+				}
+				if(portAllié.getDonnéesPort().getName()=="Perse") {
+					moteur.setChronoAthenes(moteur.getAthenes());
+					moteur.setChronoRome(moteur.getRome());
+					moteur.setChronoSparte(moteur.getSparte());
+					moteur.setChronoLeCaire(moteur.getLeCaire());
+					moteur.setChronoPerse(portAllié);
+				}
 				TestCarte carte= new TestCarte();
 				carte.setLocationRelativeTo(null);
 				carte.setVisible(true);

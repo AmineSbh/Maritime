@@ -34,7 +34,7 @@ import javax.swing.ImageIcon;
 		private static NavireAttaque navireATT=new NavireAttaque(2);
 		private static NavireTransport navireTransport =new NavireTransport();
 		private static Flotte flotte= new Flotte();
-		private PortAllié portAllié;
+		//private PortAllié portAllié;
 		
 
 		/**
@@ -108,7 +108,12 @@ import javax.swing.ImageIcon;
 			JButton btnNewButton_3 = new JButton("Quitter le port");
 			btnNewButton_3.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					System.exit(0);
+					//System.exit(0);
+					moteur.setEnCours(1);
+					TestCarte carte= new TestCarte();
+					carte.setLocationRelativeTo(null);
+					carte.setVisible(true);
+					setVisible(false);
 				}
 			});
 			btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 12));
