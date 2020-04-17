@@ -48,9 +48,12 @@ public class KeyHandler implements KeyListener {
 	public Key down = new Key();
 	public Key left = new Key();
 	public Key right = new Key();
-	public Key menu = new Key();
-	public Key enter = new Key();
-	public Key escape = new Key();
+	public Key Athenes = new Key();
+	public Key LeCaire = new Key();
+	public Key Perse = new Key();
+	public Key Rome = new Key();
+	public Key Sparte = new Key();
+
 	
 	public void toggle (KeyEvent e, boolean pressed) {
 		if (e.getKeyCode() == KeyEvent.VK_Z) up.toggle(pressed);
@@ -61,9 +64,13 @@ public class KeyHandler implements KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) left.toggle(pressed);
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) down.toggle(pressed);
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) right.toggle(pressed);
-		if (e.getKeyCode() == KeyEvent.VK_ESCAPE) menu.toggle(pressed);
-		if (e.getKeyCode() == KeyEvent.VK_SPACE) enter.toggle(pressed);
-		if (e.getKeyCode() == KeyEvent.VK_ENTER) enter.toggle(pressed);
+		if (e.getKeyCode() == KeyEvent.VK_1) Athenes.toggle(pressed);
+		if (e.getKeyCode() == KeyEvent.VK_2) LeCaire.toggle(pressed);
+		if (e.getKeyCode() == KeyEvent.VK_3) Perse.toggle(pressed);
+		if (e.getKeyCode() == KeyEvent.VK_4) Rome.toggle(pressed);
+		if (e.getKeyCode() == KeyEvent.VK_5) Sparte.toggle(pressed);
+		
+
 	}
 	
 	

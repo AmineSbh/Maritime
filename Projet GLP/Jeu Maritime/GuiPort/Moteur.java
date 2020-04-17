@@ -82,7 +82,7 @@ public class Moteur extends JFrame {
 	}
 	
 	public static void Athenes() {
-		moteur.setEnCours(0);
+		enCours = 0;
 		Athenes.getDonnéesPort().setGold(chronoAthenes.getGold());
 		if(appartenanceAthenes==1) {
 			EventQueue.invokeLater(new Runnable() {
@@ -114,7 +114,7 @@ public class Moteur extends JFrame {
 	}
 	
 	public static void Rome() {
-		moteur.setEnCours(0);
+		enCours = 0;
 		if(appartenanceRome==1) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
@@ -145,7 +145,7 @@ public class Moteur extends JFrame {
 	}
 	
 	public static void LeCaire() {
-		moteur.setEnCours(0);
+		enCours = 0;
 		if(appartenanceLeCaire==1) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
@@ -176,7 +176,7 @@ public class Moteur extends JFrame {
 	}
 	
 	public static void Sparte() {
-		moteur.setEnCours(0);
+		enCours = 0;
 		if(appartenanceSparte==1) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
@@ -207,7 +207,7 @@ public class Moteur extends JFrame {
 	}
 	
 	public static void Perse() {
-		moteur.setEnCours(0);
+		enCours = 0;
 		if(appartenancePerse==1) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {

@@ -60,7 +60,6 @@ import javax.swing.ImageIcon;
 			PortEnnemi a= new PortEnnemi("Perse",20000,3000,5000,7000,2000,4,flotte,navireATT, navireTransport);
 			setResizable(false);
 			setTitle(a.getDonnéesPort().getName());
-			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			setBounds(100, 100, 600, 400);
 			contentPane = new JPanel();
 			contentPane.setBackground(new Color(230, 230, 250));
@@ -108,7 +107,7 @@ import javax.swing.ImageIcon;
 			JButton btnNewButton_3 = new JButton("Quitter le port");
 			btnNewButton_3.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					System.exit(0);
+					setVisible(false);
 				}
 			});
 			btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 12));
