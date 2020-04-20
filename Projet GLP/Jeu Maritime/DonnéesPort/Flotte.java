@@ -23,10 +23,10 @@ public class Flotte {
 		this.calle=new Calle(capacité);
 	}
 	
-	public Flotte(int i)
+	public Flotte(int attaque,int sante,int capacité)
 	{
-		this.attaque=i;
-		this.sante=i;
+		this.attaque=attaque;
+		this.sante=sante;
 		this.capacité=0;
 		this.consommation=0;
 		this.NavireAttaque=0;

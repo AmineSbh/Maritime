@@ -34,7 +34,11 @@ public class Moteur extends JFrame {
 	
 	private static NavireTransport navireTransport =new NavireTransport();
 	private static Flotte flotte= new Flotte();
-	private static Flotte flotteRome= new Flotte(2000);
+	
+	private static Flotte flotteRome= new Flotte(200,3000,500);
+	private static Flotte flottePerse= new Flotte(200,3000,500);
+	private static Flotte flotteLeCaire= new Flotte(200,3000,500);
+	private static Flotte flotteSparte= new Flotte(200,3000,500);
 	
 	private static PortAllié Athenes =new PortAllié(Villes.Athenes,Villes.valeurDeLaVilleAthenes,Villes.goldAthenes,Villes.woodAthenes,Villes.steelAthenes,Villes.foodAthenes,Villes.levelAthenes,flotte,navireATT, navireTransport);
 	private static PortEnnemi Athenes0=new PortEnnemi(Villes.Athenes,Villes.valeurDeLaVilleAthenes,Villes.goldAthenes,Villes.woodAthenes,Villes.steelAthenes,Villes.foodAthenes,Villes.levelAthenes,flotte,navireATT, navireTransport);

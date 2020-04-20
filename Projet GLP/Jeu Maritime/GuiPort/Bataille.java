@@ -63,7 +63,7 @@ public class Bataille extends JFrame {
 		panel.setBounds(86, 29, 628, 307);
 		contentPane.add(panel);
 		panel.setLayout(null);
-		panel.setBackground(Color.blue);
+		panel.setBackground(Color.cyan);
 		
 		//panel insertion bateau
 		JPanel panel_1 = new JPanel();
@@ -125,6 +125,48 @@ public class Bataille extends JFrame {
 				if(a == 0) {
 					if (repositionnementEnnemi==1) {
 						flotte.setSante(flotte.getSante()-(portEnnemi.getFlotte().getAttaque()*3));
+						if(flotte.getSante()<=0) {
+							if(portEnnemi.getDonnéesPort().getName()=="Athenes") {
+		                    	moteur.setAppartenanceAthenes(1);
+		                        moteur.getAthenes().setFlotte(flotte);
+		                        moteur.getRome().setFlotte(flotte);
+		                        moteur.getSparte().setFlotte(flotte);
+		                        moteur.getLeCaire().setFlotte(flotte);
+		                        moteur.getPerse().setFlotte(flotte);
+		    				}
+		    				if(portEnnemi.getDonnéesPort().getName()=="Rome") {
+		    					moteur.setAppartenanceRome(1);
+		    					moteur.getAthenes().setFlotte(flotte);
+		                        moteur.getRome().setFlotte(flotte);
+		                        moteur.getSparte().setFlotte(flotte);
+		                        moteur.getLeCaire().setFlotte(flotte);
+		                        moteur.getPerse().setFlotte(flotte);
+		    				}
+		    				if(portEnnemi.getDonnéesPort().getName()=="LeCaire") {
+		    					moteur.setAppartenanceLeCaire(1);
+		    					moteur.getAthenes().setFlotte(flotte);
+		                        moteur.getRome().setFlotte(flotte);
+		                        moteur.getSparte().setFlotte(flotte);
+		                        moteur.getLeCaire().setFlotte(flotte);
+		                        moteur.getPerse().setFlotte(flotte);
+		    				}
+		    				if(portEnnemi.getDonnéesPort().getName()=="Sparte") {
+		    					moteur.setAppartenanceSparte(1);
+		    					moteur.getAthenes().setFlotte(flotte);
+		                        moteur.getRome().setFlotte(flotte);
+		                        moteur.getSparte().setFlotte(flotte);
+		                        moteur.getLeCaire().setFlotte(flotte);
+		                        moteur.getPerse().setFlotte(flotte);
+		    				}
+		    				if(portEnnemi.getDonnéesPort().getName()=="Perse") {
+		    					moteur.setAppartenancePerse(1);
+		    					moteur.getAthenes().setFlotte(flotte);
+		                        moteur.getRome().setFlotte(flotte);
+		                        moteur.getSparte().setFlotte(flotte);
+		                        moteur.getLeCaire().setFlotte(flotte);
+		                        moteur.getPerse().setFlotte(flotte);
+		    				}
+						}
 						lblNewLabel.setText("Sant\u00E9: "+flotte.getSante()+" /"+3000);
 						textField.setText("Vous avez été touché! Vous avez pris "+(portEnnemi.getFlotte().getAttaque()*2)+" dégats");
 						repositionnementEnnemi=0;
