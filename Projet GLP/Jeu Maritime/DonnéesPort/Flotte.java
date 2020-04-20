@@ -23,6 +23,17 @@ public class Flotte {
 		this.calle=new Calle(capacité);
 	}
 	
+	public Flotte(int i)
+	{
+		this.attaque=i;
+		this.sante=i;
+		this.capacité=0;
+		this.consommation=0;
+		this.NavireAttaque=0;
+		this.NavireTransport=0;
+		this.calle=new Calle(capacité);
+	}
+	
 	public String toString()
 	{
 		return "Les statistiques sont :\n "+attaque+"\n"+sante+"\n"+capacité+"\n"+consommation;

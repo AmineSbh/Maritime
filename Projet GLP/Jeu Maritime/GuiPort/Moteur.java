@@ -34,6 +34,7 @@ public class Moteur extends JFrame {
 	
 	private static NavireTransport navireTransport =new NavireTransport();
 	private static Flotte flotte= new Flotte();
+	private static Flotte flotteRome= new Flotte(2000);
 	
 	private static PortAllié Athenes =new PortAllié(Villes.Athenes,Villes.valeurDeLaVilleAthenes,Villes.goldAthenes,Villes.woodAthenes,Villes.steelAthenes,Villes.foodAthenes,Villes.levelAthenes,flotte,navireATT, navireTransport);
 	private static PortEnnemi Athenes0=new PortEnnemi(Villes.Athenes,Villes.valeurDeLaVilleAthenes,Villes.goldAthenes,Villes.woodAthenes,Villes.steelAthenes,Villes.foodAthenes,Villes.levelAthenes,flotte,navireATT, navireTransport);
@@ -42,7 +43,7 @@ public class Moteur extends JFrame {
 	private static PortEnnemi LeCaire1=new PortEnnemi(Villes.LeCaire,Villes.valeurDeLaVilleLeCaire,Villes.goldLeCaire,Villes.woodLeCaire,Villes.steelLeCaire,Villes.foodLeCaire,Villes.levelLeCaire,flotte,navireATT, navireTransport);
 	
 	private static PortAllié Rome =new PortAllié(Villes.Rome,Villes.valeurDeLaVilleRome,Villes.goldRome,Villes.woodRome,Villes.steelRome,Villes.foodRome,Villes.levelRome,flotte,navireATT, navireTransport);
-	private static PortEnnemi Rome2=new PortEnnemi(Villes.Rome,Villes.valeurDeLaVilleRome,Villes.goldRome,Villes.woodRome,Villes.steelRome,Villes.foodRome,Villes.levelRome,flotte,navireATT, navireTransport);
+	private static PortEnnemi Rome2=new PortEnnemi(Villes.Rome,Villes.valeurDeLaVilleRome,Villes.goldRome,Villes.woodRome,Villes.steelRome,Villes.foodRome,Villes.levelRome,flotteRome,navireATT, navireTransport);
 	
 	private static PortAllié Perse =new PortAllié(Villes.Perse,Villes.valeurDeLaVillePerse,Villes.goldPerse,Villes.woodPerse,Villes.steelPerse,Villes.foodPerse,Villes.levelPerse,flotte,navireATT, navireTransport);
 	private static PortEnnemi Perse3=new PortEnnemi(Villes.Perse,Villes.valeurDeLaVillePerse,Villes.goldPerse,Villes.woodPerse,Villes.steelPerse,Villes.foodPerse,Villes.levelPerse,flotte,navireATT, navireTransport);
@@ -105,8 +106,8 @@ public class Moteur extends JFrame {
 		moteur.setDonnéesSparte(chronoSparte);
 	}
 	
-	public static void Athenes() {
-		moteur.setEnCours(0);
+	public void Athenes() {
+		enCours=0;
 		moteur.setDonnéesAthenes(chronoAthenes);
 		moteur.setDonnéesRome(chronoRome);
 		moteur.setDonnéesSparte(chronoSparte);
@@ -142,7 +143,7 @@ public class Moteur extends JFrame {
 	}
 	
 	public static void Rome() {
-		moteur.setEnCours(0);
+		enCours=0;
 		moteur.setDonnéesAthenes(chronoAthenes);
 		moteur.setDonnéesRome(chronoRome);
 		moteur.setDonnéesSparte(chronoSparte);
@@ -178,7 +179,7 @@ public class Moteur extends JFrame {
 	}
 	
 	public static void LeCaire() {
-		moteur.setEnCours(0);
+		enCours=0;
 		moteur.setDonnéesAthenes(chronoAthenes);
 		moteur.setDonnéesRome(chronoRome);
 		moteur.setDonnéesSparte(chronoSparte);
@@ -214,7 +215,7 @@ public class Moteur extends JFrame {
 	}
 	
 	public static void Sparte() {
-		moteur.setEnCours(0);
+		enCours=0;
 		moteur.setDonnéesAthenes(chronoAthenes);
 		moteur.setDonnéesRome(chronoRome);
 		moteur.setDonnéesSparte(chronoSparte);
@@ -250,7 +251,7 @@ public class Moteur extends JFrame {
 	}
 	
 	public static void Perse() {
-		moteur.setEnCours(0);
+		enCours=0;
 		moteur.setDonnéesAthenes(chronoAthenes);
 		moteur.setDonnéesRome(chronoRome);
 		moteur.setDonnéesSparte(chronoSparte);

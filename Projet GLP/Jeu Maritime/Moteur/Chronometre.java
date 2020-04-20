@@ -26,11 +26,11 @@ public class Chronometre {
             chrono.schedule(new TimerTask(){
 
                 public void run() {
-                    gold++;
+                    gold+=3;
 
-                    wood++;
+                    wood+=4;
 
-                    food++;
+                    food+=5;
 
                     steel++;
                 }

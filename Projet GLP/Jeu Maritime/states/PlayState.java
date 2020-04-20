@@ -39,31 +39,31 @@ public class PlayState extends GameState {
 		player.input(mouse, key);
 		if (fa == 0) {
 			if (key.Athenes.down) {
-				Moteur.Athenes();
+				moteur.Athenes();
 				fa++;
 			}
 		}
 		if (ca == 0) {
 			if (key.LeCaire.down) {
-				Moteur.LeCaire();
+				moteur.LeCaire();
 				ca++;
 			}
 		}
 		if (ra == 0) {
 			if (key.Rome.down) {
-				Moteur.Rome();
+				moteur.Rome();
 				ra++;
 			}
 		}
 		if (sa == 0) {
 			if (key.Sparte.down) {
-				Moteur.Sparte();
+				moteur.Sparte();
 				sa++;
 			}
 		}
 		if (pa == 0) {
 			if (key.Perse.down) {
-				Moteur.Perse();
+				moteur.Perse();
 				pa++;
 			}
 		}

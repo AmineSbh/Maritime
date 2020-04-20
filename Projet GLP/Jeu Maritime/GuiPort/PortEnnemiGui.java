@@ -49,7 +49,7 @@ import javax.swing.ImageIcon;
 			btnNewButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					setVisible(false);
-					Bataille a = new Bataille(new PortAllié(Villes.Athenes,Villes.valeurDeLaVilleAthenes,Villes.goldAthenes,Villes.woodAthenes,Villes.steelAthenes,Villes.foodAthenes,Villes.levelAthenes,flotte,navireATT, navireTransport),navireATT);
+					Bataille a = new Bataille(portEnnemi,flotte,moteur);
 					a.setVisible(true);
 				}
 			});
@@ -87,7 +87,7 @@ import javax.swing.ImageIcon;
 				public void actionPerformed(ActionEvent e) {
 					//System.exit(0);
 					moteur.setEnCours(1);
-					TestCarte carte= new TestCarte();
+					Carte carte= new Carte();
 					carte.setLocationRelativeTo(null);
 					carte.setVisible(true);
 					setVisible(false);

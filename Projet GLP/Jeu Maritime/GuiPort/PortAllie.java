@@ -198,7 +198,7 @@ public class PortAllie extends JFrame {
 					moteur.setChronoLeCaire(moteur.getLeCaire());
 					moteur.setChronoPerse(portAllié);
 				}
-				TestCarte carte= new TestCarte();
+				Carte carte= new Carte();
 				carte.setLocationRelativeTo(null);
 				carte.setVisible(true);
 				setVisible(false);
