@@ -55,19 +55,6 @@ public class PortAllie extends JFrame {
 	
 	public static final String NL= System.getProperty("line.separator");
 	
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PortAllie frame = new PortAllie(new PortAllié("Perse",20000,1800,5000,7000,2000,3,flotte,navireATT, navireTransport),new Perse());
-					frame.setVisible(true);
-					} catch (Exception e) {
-						e.printStackTrace();
-						}
-				}
-			});
-		}*/
-	
 	public PortAllie(PortAllié portAllié,Moteur moteur) {
 		
 		setBounds(100, 100, 683, 391);
@@ -158,14 +145,14 @@ public class PortAllie extends JFrame {
 		lblFlotte.setBounds(408, 190, 279, 39);
 		contentPane.add(lblFlotte);
 		
-		JButton btnMiseLa_1 = new JButton("Mise \u00E0 la mer");
+		JButton btnMiseLa_1 = new JButton("Level Up");
 		btnMiseLa_1.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnMiseLa_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Perse donnee= new Perse(portAllié);
-				//marchandise.setLocationRelativeTo(null);
-				//marchandise.setVisible(true);
-				setVisible(false);
+				//LevelUp lvlUp= new LevelUp(portAllié,moteur);
+				//lvlUp.setLocationRelativeTo(null);
+				//lvlUp.setVisible(true);
+				//setVisible(false);
 				}
 			});
 		
@@ -176,7 +163,41 @@ public class PortAllie extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				moteur.setEnCours(1);
-				moteur.setChrono(portAllié);
+				if(portAllié.getDonnéesPort().getName()=="Athenes") {
+					moteur.setChronoAthenes(portAllié);
+					moteur.setChronoRome(moteur.getRome());
+					moteur.setChronoSparte(moteur.getSparte());
+					moteur.setChronoLeCaire(moteur.getLeCaire());
+					moteur.setChronoPerse(moteur.getPerse());
+				}
+				if(portAllié.getDonnéesPort().getName()=="Rome") {
+					moteur.setChronoAthenes(moteur.getAthenes());
+					moteur.setChronoRome(portAllié);
+					moteur.setChronoSparte(moteur.getSparte());
+					moteur.setChronoLeCaire(moteur.getLeCaire());
+					moteur.setChronoPerse(moteur.getPerse());
+				}
+				if(portAllié.getDonnéesPort().getName()=="LeCaire") {
+					moteur.setChronoAthenes(moteur.getLeCaire());
+					moteur.setChronoRome(moteur.getRome());
+					moteur.setChronoSparte(moteur.getSparte());
+					moteur.setChronoLeCaire(portAllié);
+					moteur.setChronoPerse(moteur.getPerse());
+				}
+				if(portAllié.getDonnéesPort().getName()=="Sparte") {
+					moteur.setChronoAthenes(moteur.getAthenes());
+					moteur.setChronoRome(moteur.getRome());
+					moteur.setChronoSparte(portAllié);
+					moteur.setChronoLeCaire(moteur.getLeCaire());
+					moteur.setChronoPerse(moteur.getPerse());
+				}
+				if(portAllié.getDonnéesPort().getName()=="Perse") {
+					moteur.setChronoAthenes(moteur.getAthenes());
+					moteur.setChronoRome(moteur.getRome());
+					moteur.setChronoSparte(moteur.getSparte());
+					moteur.setChronoLeCaire(moteur.getLeCaire());
+					moteur.setChronoPerse(portAllié);
+				}
 				TestCarte carte= new TestCarte();
 				carte.setLocationRelativeTo(null);
 				carte.setVisible(true);
@@ -202,4 +223,3 @@ public class PortAllie extends JFrame {
 		}
 
 }
-

@@ -37,28 +37,7 @@ public class Négociation extends JFrame {
 	private JTextArea txtManoeuvreVous;
 	private JTextField textField;
 	private JTextField textField_1;
-
-
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		flotte.setCapacité(25000);
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Négociation frame = new Négociation(a,flotte);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public Négociation(PortEnnemi p1, Flotte f1,Moteur moteur) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
@@ -101,18 +80,62 @@ public class Négociation extends JFrame {
         btnNewButton.setBounds(298, 95, 184, 23);
         panel.add(btnNewButton);
         
+        JLabel lblNewLabel_1 = new JLabel("Or disponible : "+ f1.getCalle().getOr());
+		lblNewLabel_1.setBounds(33, 74, 140, 14);
+		panel.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Valeur du port : " + p1.getDonnéesPort().getValeurVille());
+		lblNewLabel_2.setBounds(10, 40, 140, 14);
+		contentPane.add(lblNewLabel_2);
+        
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	int negoce=(5*p1.getDonnéesPort().getValeurVille()/100);
                 int i=Integer.parseInt(textField.getText());
                 if(p1.getDonnéesPort().getValeurVille()-negoce<i && f1.getCalle().getOr()>=i) {
-                	f1.getCalle().setOr(f1.getCalle().getOr());
                     textField_1.setText("Le marché est conclu.");
-                    f1.getCalle().setOr(f1.getCalle().getOr()-i); 
-                    moteur.setAppartenanceAthenes(1);
-                    moteur.getAthenes().setFlotte(f1);
-                    moteur.Athenes();
-                    setVisible(false);
+            		lblNewLabel_1.setText("Or disponible : "+ (f1.getCalle().getOr()-i));
+                    f1.getCalle().setOr(f1.getCalle().getOr()-i);
+                    if(p1.getDonnéesPort().getName()=="Athenes") {
+                    	moteur.setAppartenanceAthenes(1);
+                        moteur.getAthenes().setFlotte(f1);
+                        moteur.getRome().setFlotte(f1);
+                        moteur.getSparte().setFlotte(f1);
+                        moteur.getLeCaire().setFlotte(f1);
+                        moteur.getPerse().setFlotte(f1);
+    				}
+    				if(p1.getDonnéesPort().getName()=="Rome") {
+    					moteur.setAppartenanceRome(1);
+    					moteur.getAthenes().setFlotte(f1);
+                        moteur.getRome().setFlotte(f1);
+                        moteur.getSparte().setFlotte(f1);
+                        moteur.getLeCaire().setFlotte(f1);
+                        moteur.getPerse().setFlotte(f1);
+    				}
+    				if(p1.getDonnéesPort().getName()=="LeCaire") {
+    					moteur.setAppartenanceLeCaire(1);
+    					moteur.getAthenes().setFlotte(f1);
+                        moteur.getRome().setFlotte(f1);
+                        moteur.getSparte().setFlotte(f1);
+                        moteur.getLeCaire().setFlotte(f1);
+                        moteur.getPerse().setFlotte(f1);
+    				}
+    				if(p1.getDonnéesPort().getName()=="Sparte") {
+    					moteur.setAppartenanceSparte(1);
+    					moteur.getAthenes().setFlotte(f1);
+                        moteur.getRome().setFlotte(f1);
+                        moteur.getSparte().setFlotte(f1);
+                        moteur.getLeCaire().setFlotte(f1);
+                        moteur.getPerse().setFlotte(f1);
+    				}
+    				if(p1.getDonnéesPort().getName()=="Perse") {
+    					moteur.setAppartenancePerse(1);
+    					moteur.getAthenes().setFlotte(f1);
+                        moteur.getRome().setFlotte(f1);
+                        moteur.getSparte().setFlotte(f1);
+                        moteur.getLeCaire().setFlotte(f1);
+                        moteur.getPerse().setFlotte(f1);
+    				}
                 }
                 else if(f1.getCalle().getOr()<i) {
                 	textField_1.setText("Vous n'avez pas l'or requis pour la négociation.");
@@ -135,15 +158,37 @@ public class Négociation extends JFrame {
 		btnQuitterLesNgociations.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
+				moteur.setFlotteAllié(f1);
+				if(p1.getDonnéesPort().getName()=="Athenes" && moteur.getAppartenanceAthenes()==1) {
+                    moteur.Athenes();
 				}
+				else if(p1.getDonnéesPort().getName()=="Rome" && moteur.getAppartenanceRome()==1) {
+                    moteur.Rome();
+				}
+				else if(p1.getDonnéesPort().getName()=="Sparte" && moteur.getAppartenanceSparte()==1) {
+                    moteur.Sparte();
+				}
+				else if(p1.getDonnéesPort().getName()=="LeCaire" && moteur.getAppartenanceLeCaire()==1) {
+                    moteur.LeCaire();
+				}
+				else if(p1.getDonnéesPort().getName()=="Perse" && moteur.getAppartenancePerse()==1) {
+                    moteur.Perse();
+				}
+				else {
+					PortEnnemiGui modif= new PortEnnemiGui(p1,f1,moteur);
+					modif.setVisible(true);
+				}
+			}
 			});
 		
-		JLabel lblNewLabel_1 = new JLabel("Or disponible : "+ f1.getCalle().getOr());
-		lblNewLabel_1.setBounds(33, 74, 140, 14);
-		panel.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("Valeur du port : " + p1.getDonnéesPort().getValeurVille());
-		lblNewLabel_2.setBounds(10, 40, 140, 14);
-		contentPane.add(lblNewLabel_2);
 	}
+	
+	private void pause(){
+        try {
+         Thread.sleep(3000);
+         }  // attendre 5sec 
+        catch (InterruptedException e) {
+         e.printStackTrace();
+         }
+       }
 }
