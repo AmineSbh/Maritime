@@ -35,28 +35,9 @@ public class Transport extends JFrame {
 	private static int CompteurATT=0;
 	private static int CompteurTransport=0;
 	
-	//static PortAllié portAllié= new PortAllié("Perse",20000,3000000,50000,7000,2000,4,flotte,navireATT, navireTransport);
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Transport frame = new Transport(new PortAllié(Villes.Athenes,Villes.valeurDeLaVilleAthenes,Villes.goldAthenes,Villes.woodAthenes,Villes.steelAthenes,Villes.foodAthenes,Villes.levelAthenes,flotte,navireATT, navireTransport));
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public Transport(PortAllié portAllié,Moteur moteur) {
 	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -131,7 +112,7 @@ public class Transport extends JFrame {
 		
 		
 		//Ajouter une marchandise
-		JButton btnNewButton = new JButton("Ajouter");
+		JButton btnNewButton = new JButton("Charger");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(comboBox.getSelectedIndex()==1) {
@@ -167,7 +148,7 @@ public class Transport extends JFrame {
 		
 		
 		//Supprimer une marchandise
-		JButton btnSupprimerUnNavire = new JButton("Supprimer");
+		JButton btnSupprimerUnNavire = new JButton("Decharger");
 		btnSupprimerUnNavire.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(comboBox.getSelectedIndex()==1) {
@@ -200,6 +181,21 @@ public class Transport extends JFrame {
 		JButton btnNewButton_1 = new JButton("Marchandise pr\u00EAte");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(portAllié.getDonnéesPort().getName()=="Athenes") {
+					moteur.setAthenes(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="Rome") {
+					moteur.setRome(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="LeCaire") {
+					moteur.setLeCaire(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="Sparte") {
+					moteur.setSparte(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="Perse") {
+					moteur.setPerse(portAllié);
+				}
 				PortAllie modif= new PortAllie(portAllié,moteur);
 				modif.setVisible(true);
 				setVisible(false);

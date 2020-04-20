@@ -36,30 +36,9 @@ public class Marché extends JFrame {
 	private static Flotte flotte1= new Flotte();
 	private static PortEnnemi portEnnemi= new PortEnnemi("Perse",20000,3000,5000,7000,2000,4,flotte,navireATT, navireTransport);
 	
-	//static PortAllié portAllié= new PortAllié("Perse",20000,3000000,50000,7000,2000,4,flotte,navireATT, navireTransport);
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					flotte.getCalle().setOr(2000);
-					flotte.getCalle().setCapacitéTotale(3000);
-					Marché frame = new Marché(portEnnemi,flotte);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
-	/**
-	 * Create the frame.
-	 */
+	
+	
 	public Marché(PortEnnemi portEnnemi, Flotte flotte,Moteur moteur) {
 	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -110,15 +89,15 @@ public class Marché extends JFrame {
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 				
-		JLabel lblBoisCout = new JLabel("la ville possède "+portEnnemi.getDonnéesPort().getWood()+" de bois, son cout est de 50 pieces d'or");
+		JLabel lblBoisCout = new JLabel("Le cout du bois est de 50 pieces d'or");
 		lblBoisCout.setBounds(15, 41, 255, 20);
 		panel_1.add(lblBoisCout);
 				
-		JLabel lblNourritureCout = new JLabel("la ville possède "+portEnnemi.getDonnéesPort().getFood()+" de nourriture, son cout est de 50 pieces d'or");
+		JLabel lblNourritureCout = new JLabel("Le cout de la nourriture est de 30 pieces d'or");
 		lblNourritureCout.setBounds(15, 66, 255, 20);
 		panel_1.add(lblNourritureCout);
 		
-		JLabel lblMetauxCout = new JLabel("la ville possède "+portEnnemi.getDonnéesPort().getSteel()+" de métaux, son cout est de 50 pieces d'or");
+		JLabel lblMetauxCout = new JLabel("Le cout des métaux est de 110 pieces d'or");
 		lblMetauxCout.setBounds(15, 88, 255, 20);
 		panel_1.add(lblMetauxCout);
 				
@@ -130,7 +109,7 @@ public class Marché extends JFrame {
 		
 		
 		//Ajouter une marchandise
-		JButton btnNewButton = new JButton("Ajouter");
+		JButton btnNewButton = new JButton("Acheter");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(comboBox.getSelectedIndex()==1) {
@@ -160,41 +139,41 @@ public class Marché extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		
-		/*Supprimer une marchandise
-		JButton btnSupprimerUnNavire = new JButton("Supprimer");
+		//Supprimer une marchandise
+		JButton btnSupprimerUnNavire = new JButton("Vendre");
 		btnSupprimerUnNavire.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(comboBox.getSelectedIndex()==1) {
-					portEnnemi.SupprimerOr(100);
+					flotte1=portEnnemi.VendreBois(flotte);
 				}
+				
 				if(comboBox.getSelectedIndex()==2) {
-					portEnnemi.SupprimerWood(100);
+					flotte1=portEnnemi.VendreMetaux(flotte);
 				}
+				
 				if(comboBox.getSelectedIndex()==3) {
-					portEnnemi.SupprimerSteel(100);
+					flotte1=portEnnemi.VendreNourriture(flotte);
 				}
-				if(comboBox.getSelectedIndex()==4) {
-					portEnnemi.SupprimerFood(100);
-				}
+				
 				lbGold.setText("Or: "+flotte.getCalle().getOr());
 				lblBois.setText("Bois : "+flotte.getCalle().getWood());
 				lblNourriture.setText("Nourriture : "+flotte.getCalle().getFood());
 				lblMetaux.setText("Metaux : "+flotte.getCalle().getSteel());
 				lblNewLabel.setText("Capacité disponible : "+(flotte.getCalle().getCapacitéTotale()-flotte.getCalle().getCapacité()));
 				
-				lblOrDisponible.setText("Or disponible: "+portEnnemi.getDonnéesPort().getGold());
-				lblBoisDisponible.setText("Bois disponible: "+portEnnemi.getDonnéesPort().getWood());
-				lblNourritureDisponible.setText("Nourriture disponible: "+portEnnemi.getDonnéesPort().getFood());
-				lblMetauxDisponible.setText("M\u00E9taux disponible"+portEnnemi.getDonnéesPort().getSteel());
+				lblBoisCout.setText("Bois disponible: "+portEnnemi.getDonnéesPort().getWood());
+				lblNourritureCout.setText("Nourriture disponible: "+portEnnemi.getDonnéesPort().getFood());
+				lblMetauxCout.setText("M\u00E9taux disponible"+portEnnemi.getDonnéesPort().getSteel());
 			}
 		});
 		btnSupprimerUnNavire.setBounds(4, 150, 134, 40);
-		contentPane.add(btnSupprimerUnNavire);*/
+		contentPane.add(btnSupprimerUnNavire);
 		
 		JButton btnNewButton_1 = new JButton("Marchandise pr\u00EAte");
 		btnNewButton_1.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
+				moteur.setFlotteAllié(flotte1);
 				PortEnnemiGui modif= new PortEnnemiGui(portEnnemi,flotte1,moteur);
 				modif.setVisible(true);
 				setVisible(false);

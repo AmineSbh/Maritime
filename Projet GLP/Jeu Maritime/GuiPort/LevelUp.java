@@ -5,6 +5,7 @@ import Port.PortAllié;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Frame;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -26,24 +27,15 @@ import javax.swing.SwingConstants;
 import java.awt.SystemColor;
 import javax.swing.border.LineBorder;
 
-public class TestCarte extends JFrame {
-
-	private static NavireAttaque navireATT=new NavireAttaque();
-	private static NavireTransport navireTransport =new NavireTransport();
-	private static Flotte flotte= new Flotte();
-	private static int CompteurATT=0;
-	private static int CompteurTransport=0;
+public class LevelUp extends JFrame {
 	
-	//static PortAllié portAllié= new PortAllié("Perse",20000,3000000,50000,7000,2000,4,flotte,navireATT, navireTransport);
 	private JPanel contentPane;
-	
-	private Moteur moteur=new Moteur();
-	
-	public TestCarte() {
+
+	public LevelUp(PortAllié portAllié, Moteur moteur) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		setResizable(false);
-		setTitle("Construction de la flotte avant le départ ");
+		setTitle("Level up du port");
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -56,29 +48,31 @@ public class TestCarte extends JFrame {
 		panel.setBounds(28, 11, 230, 140);
 		contentPane.add(panel);
 		
-		JButton btnNewButton_1 = new JButton("Flotte pr\u00EAte"+moteur.getEnCours());
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton button = new JButton("Retour au port");
+		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				moteur.Rome();
-				//PortAllie modif= new PortAllie(moteur.getAthenes(),moteur);
-				//modif.setVisible(true);
+				if(portAllié.getDonnéesPort().getName()=="Athenes") {
+					moteur.setAthenes(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="Rome") {
+					moteur.setRome(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="LeCaire") {
+					moteur.setLeCaire(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="Sparte") {
+					moteur.setSparte(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="Perse") {
+					moteur.setPerse(portAllié);
+				}
+				PortAllie modif= new PortAllie(portAllié,moteur);
+				modif.setVisible(true);
 				setVisible(false);
 			}
 		});
-		btnNewButton_1.setBounds(301, 237, 117, 23);
-		contentPane.add(btnNewButton_1);
-		
-		JButton btnNewButton_2 = new JButton("Flotte pr\u00EAte"+moteur.getEnCours());
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				moteur.Athenes();
-				//PortAllie modif= new PortAllie(moteur.getAthenes(),moteur);
-				//modif.setVisible(true);
-				setVisible(false);
-			}
-		});
-		btnNewButton_2.setBounds(200, 237, 100, 23);
-		contentPane.add(btnNewButton_2);
+		button.setBounds(200, 237, 100, 23);
+		contentPane.add(button);
 		
 
 	}

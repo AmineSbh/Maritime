@@ -32,26 +32,8 @@ public class AmeliorationNavire extends JFrame {
 	private static NavireTransport navireTransport =new NavireTransport();
 	private static Flotte flotte= new Flotte();
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AmeliorationNavire window = new AmeliorationNavire(new PortAllié(Villes.Athenes,Villes.valeurDeLaVilleAthenes,4000,Villes.woodAthenes,Villes.steelAthenes,Villes.foodAthenes,Villes.levelAthenes,flotte,navireATT, navireTransport));
-					window.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
-	/**
-	 * Create the application.
-	 */
+	
+	
 	public AmeliorationNavire(PortAllié portAllié,Moteur moteur) {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -152,7 +134,21 @@ public class AmeliorationNavire extends JFrame {
 		JButton button = new JButton("Flotte pr\u00EAte");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				moteur.setAthenes(portAllié);
+				if(portAllié.getDonnéesPort().getName()=="Athenes") {
+					moteur.setAthenes(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="Rome") {
+					moteur.setRome(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="LeCaire") {
+					moteur.setLeCaire(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="Sparte") {
+					moteur.setSparte(portAllié);
+				}
+				if(portAllié.getDonnéesPort().getName()=="Perse") {
+					moteur.setPerse(portAllié);
+				}
 				PortAllie modif= new PortAllie(portAllié,moteur);
 				modif.setVisible(true);
 				setVisible(false);
