@@ -33,5 +33,4 @@ public class TileMapNorm extends TileMap {
 		}
 		
 	}
-
 }

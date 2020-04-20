@@ -57,7 +57,6 @@ public class PortAllie extends JFrame {
 	
 	public PortAllie(PortAllié portAllié,Moteur moteur) {
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 683, 391);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.activeCaption);

@@ -14,7 +14,7 @@ public class NormBlock extends Block {
 	}
 	
 	public boolean update(AABB p) {
-		return false;
+		return true;
 	}
 	
 	public void render (Graphics2D g) {

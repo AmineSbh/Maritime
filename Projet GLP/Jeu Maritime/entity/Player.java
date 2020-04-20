@@ -1,8 +1,10 @@
 package entity;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 
 import graphics.Sprite;
+import states.PlayState;
 import utils.KeyHandler;
 import utils.MouseHandler;
 import utils.Vector2f;
@@ -72,12 +74,18 @@ public class Player extends Entity{
 	public void update() {
 		super.update();
 		move();
+		if (!bounds.collisionTile(dx, 0)) {
+			pos.x += dx;
+		}
+		if (!bounds.collisionTile(0, dy)) {
+			pos.y += dy;
+		}
 		pos.x += dx;
 		pos.y += dy;
 	}
 
 	public void render (Graphics2D g) {
-		g.drawImage(ani.getImage(), (int) (pos.x), (int) (pos.y), size,size, null);
+		g.drawImage(ani.getImage(), (int) (pos.getworldVar().x), (int) (pos.getworldVar().y), size,size, null);
 	}
 	
 	public void input (MouseHandler mouse,KeyHandler key) {

@@ -104,12 +104,17 @@ public class Moteur extends JFrame {
 	}
 	
 	public static void Athenes() {
+<<<<<<< HEAD
 		moteur.setEnCours(0);
 		moteur.setDonnéesAthenes(chronoAthenes);
 		moteur.setDonnéesRome(chronoRome);
 		moteur.setDonnéesSparte(chronoSparte);
 		moteur.setDonnéesLeCaire(chronoLeCaire);
 		moteur.setDonnéesPerse(chronoPerse);
+=======
+		enCours = 0;
+		Athenes.getDonnéesPort().setGold(chronoAthenes.getGold());
+>>>>>>> branch 'master' of https://github.com/AmineSbh/Maritime.git
 		if(appartenanceAthenes==1) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
@@ -140,12 +145,16 @@ public class Moteur extends JFrame {
 	}
 	
 	public static void Rome() {
+<<<<<<< HEAD
 		moteur.setEnCours(0);
 		moteur.setDonnéesAthenes(chronoAthenes);
 		moteur.setDonnéesRome(chronoRome);
 		moteur.setDonnéesSparte(chronoSparte);
 		moteur.setDonnéesLeCaire(chronoLeCaire);
 		moteur.setDonnéesPerse(chronoPerse);
+=======
+		enCours = 0;
+>>>>>>> branch 'master' of https://github.com/AmineSbh/Maritime.git
 		if(appartenanceRome==1) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
@@ -176,12 +185,16 @@ public class Moteur extends JFrame {
 	}
 	
 	public static void LeCaire() {
+<<<<<<< HEAD
 		moteur.setEnCours(0);
 		moteur.setDonnéesAthenes(chronoAthenes);
 		moteur.setDonnéesRome(chronoRome);
 		moteur.setDonnéesSparte(chronoSparte);
 		moteur.setDonnéesLeCaire(chronoLeCaire);
 		moteur.setDonnéesPerse(chronoPerse);
+=======
+		enCours = 0;
+>>>>>>> branch 'master' of https://github.com/AmineSbh/Maritime.git
 		if(appartenanceLeCaire==1) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
@@ -212,12 +225,16 @@ public class Moteur extends JFrame {
 	}
 	
 	public static void Sparte() {
+<<<<<<< HEAD
 		moteur.setEnCours(0);
 		moteur.setDonnéesAthenes(chronoAthenes);
 		moteur.setDonnéesRome(chronoRome);
 		moteur.setDonnéesSparte(chronoSparte);
 		moteur.setDonnéesLeCaire(chronoLeCaire);
 		moteur.setDonnéesPerse(chronoPerse);
+=======
+		enCours = 0;
+>>>>>>> branch 'master' of https://github.com/AmineSbh/Maritime.git
 		if(appartenanceSparte==1) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
@@ -248,12 +265,16 @@ public class Moteur extends JFrame {
 	}
 	
 	public static void Perse() {
+<<<<<<< HEAD
 		moteur.setEnCours(0);
 		moteur.setDonnéesAthenes(chronoAthenes);
 		moteur.setDonnéesRome(chronoRome);
 		moteur.setDonnéesSparte(chronoSparte);
 		moteur.setDonnéesLeCaire(chronoLeCaire);
 		moteur.setDonnéesPerse(chronoPerse);
+=======
+		enCours = 0;
+>>>>>>> branch 'master' of https://github.com/AmineSbh/Maritime.git
 		if(appartenancePerse==1) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
