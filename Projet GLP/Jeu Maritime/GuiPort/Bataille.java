@@ -83,11 +83,11 @@ public class Bataille extends JFrame {
 		lblIa.setIcon(new ImageIcon(Bataille.class.getResource("/res/maritimeimg.jpeg")));
 		panel_2.add(lblIa);
 		
-		JLabel lblNewLabel = new JLabel("Sant\u00E9: "+flotte.getSante()+" /"+3000);
+		JLabel lblNewLabel = new JLabel("Sant\u00E9: "+flotte.getSante());
 		lblNewLabel.setBounds(272, 261, 192, 30);
 		panel.add(lblNewLabel);
 		
-		JLabel lblSantIa = new JLabel("Sant\u00E9 IA: "+portEnnemi.getFlotte().getSante()+" /"+3000);
+		JLabel lblSantIa = new JLabel("Sant\u00E9 IA: "+portEnnemi.getFlotte().getSante());
 		lblSantIa.setBounds(213, 30, 132, 30);
 		panel.add(lblSantIa);
 	
@@ -115,65 +115,75 @@ public class Bataille extends JFrame {
 		JButton btnNewButton_1 = new JButton("Tirs de canon ");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				portEnnemi.getFlotte().setSante(portEnnemi.getFlotte().getSante()-flotte.getAttaque());
-				lblSantIa.setText("Sant\u00E9 IA: "+portEnnemi.getFlotte().getSante()+" /"+3000);
-				textField.setText("Le tir de canon à été effectué ! Vous avez effectué "+flotte.getAttaque()+" de dégats");
+				portEnnemi.getFlotte().setSante(portEnnemi.getFlotte().getSante()-(flotte.getAttaque()*50));
+				lblSantIa.setText("Sant\u00E9 IA: "+portEnnemi.getFlotte().getSante());
+				textField.setText("Le tir de canon à été effectué ! Vous avez effectué "+(flotte.getAttaque()*50)+" de dégats");
+				if(portEnnemi.getFlotte().getSante()<=0) {
+					if(portEnnemi.getDonnéesPort().getName()=="Athenes") {
+                    	moteur.setAppartenanceAthenes(1);
+                        moteur.getAthenes().setFlotte(flotte);
+                        moteur.getRome().setFlotte(flotte);
+                        moteur.getSparte().setFlotte(flotte);
+                        moteur.getLeCaire().setFlotte(flotte);
+                        moteur.getPerse().setFlotte(flotte);
+                        setVisible(false);
+                        moteur.Athenes();
+    				}
+    				if(portEnnemi.getDonnéesPort().getName()=="Rome") {
+    					moteur.setAppartenanceRome(1);
+    					moteur.getAthenes().setFlotte(flotte);
+                        moteur.getRome().setFlotte(flotte);
+                        moteur.getSparte().setFlotte(flotte);
+                        moteur.getLeCaire().setFlotte(flotte);
+                        moteur.getPerse().setFlotte(flotte);
+                        setVisible(false);
+                        moteur.Rome();
+    				}
+    				if(portEnnemi.getDonnéesPort().getName()=="LeCaire") {
+    					moteur.setAppartenanceLeCaire(1);
+    					moteur.getAthenes().setFlotte(flotte);
+                        moteur.getRome().setFlotte(flotte);
+                        moteur.getSparte().setFlotte(flotte);
+                        moteur.getLeCaire().setFlotte(flotte);
+                        moteur.getPerse().setFlotte(flotte);
+                        setVisible(false);
+                        moteur.LeCaire();
+    				}
+    				if(portEnnemi.getDonnéesPort().getName()=="Sparte") {
+    					moteur.setAppartenanceSparte(1);
+    					moteur.getAthenes().setFlotte(flotte);
+                        moteur.getRome().setFlotte(flotte);
+                        moteur.getSparte().setFlotte(flotte);
+                        moteur.getLeCaire().setFlotte(flotte);
+                        moteur.getPerse().setFlotte(flotte);
+                        setVisible(false);
+                        moteur.Sparte();
+    				}
+    				if(portEnnemi.getDonnéesPort().getName()=="Perse") {
+    					moteur.setAppartenancePerse(1);
+    					moteur.getAthenes().setFlotte(flotte);
+                        moteur.getRome().setFlotte(flotte);
+                        moteur.getSparte().setFlotte(flotte);
+                        moteur.getLeCaire().setFlotte(flotte);
+                        moteur.getPerse().setFlotte(flotte);
+                        setVisible(false);
+                        moteur.Perse();
+    				}
+				}
 				int a;
 				int repositionnementAllie=0;
 				int repositionnementEnnemi=0;
 				a=(int) Math.random()*(5-3);
 				if(a == 0) {
+					
 					if (repositionnementEnnemi==1) {
 						flotte.setSante(flotte.getSante()-(portEnnemi.getFlotte().getAttaque()*3));
-						if(flotte.getSante()<=0) {
-							if(portEnnemi.getDonnéesPort().getName()=="Athenes") {
-		                    	moteur.setAppartenanceAthenes(1);
-		                        moteur.getAthenes().setFlotte(flotte);
-		                        moteur.getRome().setFlotte(flotte);
-		                        moteur.getSparte().setFlotte(flotte);
-		                        moteur.getLeCaire().setFlotte(flotte);
-		                        moteur.getPerse().setFlotte(flotte);
-		    				}
-		    				if(portEnnemi.getDonnéesPort().getName()=="Rome") {
-		    					moteur.setAppartenanceRome(1);
-		    					moteur.getAthenes().setFlotte(flotte);
-		                        moteur.getRome().setFlotte(flotte);
-		                        moteur.getSparte().setFlotte(flotte);
-		                        moteur.getLeCaire().setFlotte(flotte);
-		                        moteur.getPerse().setFlotte(flotte);
-		    				}
-		    				if(portEnnemi.getDonnéesPort().getName()=="LeCaire") {
-		    					moteur.setAppartenanceLeCaire(1);
-		    					moteur.getAthenes().setFlotte(flotte);
-		                        moteur.getRome().setFlotte(flotte);
-		                        moteur.getSparte().setFlotte(flotte);
-		                        moteur.getLeCaire().setFlotte(flotte);
-		                        moteur.getPerse().setFlotte(flotte);
-		    				}
-		    				if(portEnnemi.getDonnéesPort().getName()=="Sparte") {
-		    					moteur.setAppartenanceSparte(1);
-		    					moteur.getAthenes().setFlotte(flotte);
-		                        moteur.getRome().setFlotte(flotte);
-		                        moteur.getSparte().setFlotte(flotte);
-		                        moteur.getLeCaire().setFlotte(flotte);
-		                        moteur.getPerse().setFlotte(flotte);
-		    				}
-		    				if(portEnnemi.getDonnéesPort().getName()=="Perse") {
-		    					moteur.setAppartenancePerse(1);
-		    					moteur.getAthenes().setFlotte(flotte);
-		                        moteur.getRome().setFlotte(flotte);
-		                        moteur.getSparte().setFlotte(flotte);
-		                        moteur.getLeCaire().setFlotte(flotte);
-		                        moteur.getPerse().setFlotte(flotte);
-		    				}
-						}
-						lblNewLabel.setText("Sant\u00E9: "+flotte.getSante()+" /"+3000);
-						textField.setText("Vous avez été touché! Vous avez pris "+(portEnnemi.getFlotte().getAttaque()*2)+" dégats");
+						
+						lblNewLabel.setText("Sant\u00E9: "+flotte.getSante());
 						repositionnementEnnemi=0;
 					}else {
 						flotte.setSante(flotte.getSante()-portEnnemi.getFlotte().getAttaque());
-						lblNewLabel.setText("Sant\u00E9: "+flotte.getSante()+" /"+3000);
-						textField.setText("Vous avez été touché! Vous avez pris "+portEnnemi.getFlotte().getAttaque()+" dégats");
+						lblNewLabel.setText("Sant\u00E9: "+flotte.getSante());
 					}
 				}
 				
@@ -211,6 +221,26 @@ public class Bataille extends JFrame {
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
+				moteur.setFlotteAllié(flotte);
+				if(portEnnemi.getDonnéesPort().getName()=="Athenes" && moteur.getAppartenanceAthenes()==1) {
+                    moteur.Athenes();
+				}
+				else if(portEnnemi.getDonnéesPort().getName()=="Rome" && moteur.getAppartenanceRome()==1) {
+                    moteur.Rome();
+				}
+				else if(portEnnemi.getDonnéesPort().getName()=="Sparte" && moteur.getAppartenanceSparte()==1) {
+                    moteur.Sparte();
+				}
+				else if(portEnnemi.getDonnéesPort().getName()=="LeCaire" && moteur.getAppartenanceLeCaire()==1) {
+                    moteur.LeCaire();
+				}
+				else if(portEnnemi.getDonnéesPort().getName()=="Perse" && moteur.getAppartenancePerse()==1) {
+                    moteur.Perse();
+				}
+				else {
+					PortEnnemiGui modif= new PortEnnemiGui(portEnnemi,flotte,moteur);
+					modif.setVisible(true);
+				}
 			}
 		});
 		btnNewButton_3.setBounds(201, 416, 144, 35);
@@ -225,7 +255,7 @@ public class Bataille extends JFrame {
 	
 	private void pause(){
         try {
-         Thread.sleep(2000);
+         Thread.sleep(1000);
          }  // attendre 2sec 
         catch (InterruptedException e) {
          e.printStackTrace();

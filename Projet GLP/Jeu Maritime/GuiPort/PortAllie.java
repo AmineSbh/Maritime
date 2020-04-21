@@ -149,6 +149,10 @@ public class PortAllie extends JFrame {
 		btnMiseLa_1.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnMiseLa_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(portAllié.getDonnéesPort().getLevel()<4 && portAllié.getDonnéesPort().getGold()>2000) {
+					portAllié.getDonnéesPort().setLevel(portAllié.getDonnéesPort().getLevel()+1);
+					portAllié.getDonnéesPort().setGold(portAllié.getDonnéesPort().getGold()-2000);
+				}
 				//LevelUp lvlUp= new LevelUp(portAllié,moteur);
 				//lvlUp.setLocationRelativeTo(null);
 				//lvlUp.setVisible(true);
