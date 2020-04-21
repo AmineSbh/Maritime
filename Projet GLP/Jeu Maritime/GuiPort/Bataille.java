@@ -97,7 +97,7 @@ public class Bataille extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int c=(int) Math.random();
 				if(c==0) {
-					textField.setText("L'abordage a été reussi");
+					textField.setText("L'abordage a été reussi vous avez volé 500 gold");
 					flotte.getCalle().setOr(flotte.getCalle().getOr()+500);
 					portEnnemi.getFlotte().getCalle().setOr(0);
 				}
